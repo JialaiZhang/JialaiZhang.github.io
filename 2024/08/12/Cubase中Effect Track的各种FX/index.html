@@ -1,0 +1,983 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>混音软件中的各种FX（Cubase） | Jialai Lab</title><meta name="keywords" content="Cubase，FX，声音处理，混音，音乐制作"><meta name="author" content="Jialai"><meta name="copyright" content="Jialai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="混音软件中的各种FX（Cubase）"><meta name="application-name" content="混音软件中的各种FX（Cubase）"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="混音软件中的各种FX（Cubase）"><meta property="og:url" content="https://jialaizhang.github.io/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/index.html"><meta property="og:site_name" content="Jialai Lab"><meta property="og:description" content="各种FX，还在更新中"><meta property="og:locale" content="en"><meta property="og:image" content="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true"><meta property="article:author" content="Jialai"><meta property="article:tag" content="Jialai, 博客, 旅行, 墨尔本, 赤峰"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true"><meta name="description" content="各种FX，还在更新中"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://jialaizhang.github.io/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"少侠请留步！","backTitle":"少侠来的好！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://jialai-twikoo.hf.space',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: undefined,
+  authorStatus: {"skills":["🔍 学者","🤝 广结善缘","🏃 行者","🤖️ Tech Guy","🎵 半路出道音乐人","💢 心如止水 保留愤怒"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: Jialai","link":"Link: ","source":"Source: Jialai Lab","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Jialai Lab',
+  title: '混音软件中的各种FX（Cubase）',
+  postAI: '',
+  pageFillDescription: 'Cubase中Effect Track的各种FX, 混响（Reverb）, 混响是什么？, 混响是如何产生的？, 如何更好地理解和使用混响？, 参数详解, 全局参数（GLOBAL）, 调制（MODULATION）, CONTROL部分, TAIL部分, 其他相关的参数, 输出（OUTPUT）, 均衡器 （Equalizer EQ）：, EQ 的作用, 如何调整 EQ, 标准的专业步骤, 扫频：, 压缩（Compressor）：, Compressor 参数中的各种混响混响是什么混响是声音在封闭空间内多次反射和衰减所产生的声音现象当声源发出声音后声波会在空间中的墙壁天花板地板等表面反射这些反射声波会再次反射形成一系列逐渐衰减的回声这些回声与原始声音混合在一起形成了我们所感知的混响效果混响是如何产生的声波反射声波在遇到障碍物时会发生反射反射的角度取决于声波的入射角度和障碍物的表面特性多次反射在封闭空间内声波会经历多次反射每次反射都会损失一部分能量导致声音逐渐衰减混响时间混响时间是指声源停止发声后混响声衰减所需的时间混响时间越长空间感越强频率响应不同频率的声波在反射时衰减程度不同导致混响的音色变化早期反射和尾音混响可以分为早期反射和尾音两个部分早期反射是声波经过较少次反射后到达听众耳朵的声音具有较强的方向性和空间感尾音则是声波经过多次反射后形成的扩散衰减的声音营造出整体的氛围和空间感和的区别早期反射到达时间较短而延迟时间的可控早期反射具有方向信息延迟通常没有明确的方向信息早期反射主要提供空间感和清晰度延迟主要创造回声效果和节奏感如何更好地理解和使用混响了解不同类型的混响常见的混响类型包括大厅房间板式混响弹簧混响卷积混响等每种类型都有其独特的音色和适用场景掌握混响参数常见的混响参数包括干湿比早期反射尾音比例预延迟衰减时间频率响应密度宽度等通过调整这些参数可以控制混响的效果根据音乐风格和需求选择混响不同音乐风格和乐器可能需要不同的混响类型和参数设置例如古典音乐可能需要更长更扩散的混响而流行音乐可能需要更短更紧凑的混响适度使用混响过多的混响可能会使声音变得模糊不清甚至掩盖原始声音的细节适度使用混响使其与原始声音和谐共存才能达到最佳效果多尝试和聆听混响的使用没有绝对的规则多尝试不同的混响类型和参数设置聆听它们对声音产生的影响找到最适合你的音乐作品的效果以混响插件为例整体概览是开发的一款卷积混响插件它通过模拟真实空间的声学特性来创建自然而逼真的混响效果插件界面主要分为四个部分全局参数控制混响的整体特性如干湿比早期反射和混响尾音的比例等调制为混响尾音添加调制效果增加深度和动态控制提供对混响的精细控制如早期反射模式低频和高频衰减等输出控制混响的输出电平和立体声宽度参数详解全局参数功能控制早期反射到达听者耳朵的时间模拟声音在空间中传播的距离值越大早期反射到达的时间越晚感觉声音的空间越大干湿比控制原始信号干声和混响信号湿声的比例在这个界面中是右侧的推杆只有干声没有混响只有湿声全是混响早期反射尾音控制早期反射和混响尾音的比例值越大更多早期反射声音更接近声源空间感较小值越小更多混响尾音声音更扩散空间感较大调制速率控制调制的频率即混响尾音的变化速度变大混响尾音的变化速度加快产生一种颤动或闪烁的效果这种效果可能使声音听起来更生动更具活力但也可能使声音变得过于忙碌或不稳定适用于营造梦幻迷幻或科幻的氛围变小混响尾音的变化速度减慢产生一种缓慢平滑的波动效果这种效果可能使声音听起来更宽广更深邃但也可能使声音变得过于沉闷或缺乏活力适用于营造平静放松或庄严的氛围深度控制调制的强度即混响尾音的变化幅度变大混响尾音的变化幅度增大产生更明显的颤动或波动效果这种效果可能使声音听起来更丰富更具表现力但也可能使声音变得过于夸张或失真适用于营造强烈戏剧性或不稳定的氛围变小混响尾音的变化幅度减小产生更微妙更柔和的波动效果这种效果可能使声音听起来更自然更平滑但也可能使声音变得过于单调或缺乏特色适用于营造细腻精致或稳定的氛围激活启用或禁用调制效果激活调制效果使混响尾音产生颤动或波动关闭调制效果混响尾音保持平稳不变混响效果更干净部分和作用这两个参数控制混响衰减的时间特性控制低频部分混响的衰减时间控制高频部分混响的衰减时间声音变化增加或会使相应频段的混响尾音变长声音的空间感和深度增加减小或会使相应频段的混响尾音变短声音的空间感和深度减小和作用这两个参数控制混响衰减的频率特性设置低频混响衰减的起始频率设置高频混响衰减的起始频率声音变化降低会使低频混响衰减得更快声音的低频部分更清晰更紧凑提高会使低频混响衰减得更慢声音的低频部分更浑厚更宽广降低会使高频混响衰减得更快声音的高频部分更清晰更聚焦提高会使高频混响衰减得更慢声音的高频部分更明亮更具空气感部分参数详解延迟作用控制混响尾音开始的时间即从原始声音结束后到混响开始出现的时间间隔变化增加会使混响尾音出现得更晚营造出更大的空间感减小会使混响尾音更紧密地跟随原始声音空间感减小使用场景大适用于营造宽广空旷的空间感如大教堂音乐厅等小适用于营造紧凑亲密的空间感如小型房间录音棚等或者用于需要混响与原始声音紧密融合的情况如人声房间大小作用控制模拟空间的大小变化增加会使混响尾音更长更扩散空间感更大减小会使混响尾音更短更集中空间感更小使用场景大适用于营造宽广空旷的空间感如大教堂音乐厅等小适用于营造紧凑亲密的空间感如小型房间录音棚等主时间作用控制混响尾音的整体衰减时间即混响持续的时间长度变化增加会使混响尾音更长空间感更强减小会使混响尾音更短空间感更弱使用场景长适用于营造宽广深邃的空间感如大教堂音乐厅等或者用于需要混响长时间持续的音乐风格如氛围音乐环境音乐等短适用于营造紧凑清晰的空间感如小型房间录音棚等或者用于需要混响快速衰减的音乐风格如流行音乐摇滚音乐等形状作用控制混响尾音的起音特性即混响建立的速度起音是指声音从无声到达到最大音量所需的时间在混响效果中起音具体指的是混响效果从原始声音结束后到达到最大音量所需的时间变化增加会使混响尾音的起音更慢更柔和减小会使混响尾音的起音更快更清晰使用场景大适用于营造平滑柔和的混响效果如弦乐人声等小适用于营造清晰有力的混响效果如打击乐吉他等密度作用控制混响尾音的密度即混响的丰满程度和回声数量变化增加会使混响尾音更密集更丰满空间感更强减小会使混响尾音更稀疏更清晰空间感更弱使用场景大适用于营造宽广深邃的空间感如大教堂音乐厅等小适用于营造清晰干净的空间感如小型房间录音棚等或者用于需要混响更透明不干扰原始声音的情况高频衰减作用控制混响尾音的高频衰减变化降低会使混响尾音的高频部分衰减得更多声音变得更温暖更柔和提高会使混响尾音的高频部分更明亮更清晰使用场景低适用于营造温暖柔和的混响效果或者用于控制高频混响的刺耳感高适用于增加混响的明亮度和空气感或者用于需要混响更清晰更具细节的情况宽度作用控制混响信号的立体声宽度变化增加会使混响声场更宽广空间感更强减小会使混响声场更窄声音更集中使用场景大适用于营造宽广包围感的混响效果小适用于营造聚焦紧凑的混响效果或者用于需要混响更精确地定位的情况其他相关的参数预延迟控制早期反射到达听者耳朵的时间模拟声音在空间中传播的距离早期反射模式选择不同的算法来模拟早期反射的特性如大厅房间板式混响等尺寸控制模拟空间的大小低频高频衰减分别控制混响信号的低频和高频衰减可以用来塑造混响的音色和避免混浊早期反射电平控制早期反射的音量尾音电平控制混响尾音的音量密度控制混响尾音的密度即混响的丰满程度输出输出电平控制混响信号的整体输出音量功能混合旋钮控制干声原始信号和湿声效果处理后的信号这里是混响信号的混合比例效果向左旋转数值减小干声比例增加湿声比例减小混响效果减弱向右旋转数值增大干声比例减小湿声比例增加混响效果增强使用场景通过调整旋钮可以精确控制混响效果的强度使其与原始声音达到平衡避免混响过多掩盖原始声音的细节锁标志功能锁标志表示当前旋钮的值被锁定防止意外更改效果当锁标志启用时即使你旋转旋钮它的数值也不会改变这在需要保持特定混响效果不变的情况下非常有用例如在自动化混音时效果与使用场景可以创造出各种混响效果适用于不同的音乐风格和制作需求自然空间感通过调整等参数可以模拟不同大小和类型的空间如音乐厅录音室教堂等为声音增添自然的空间感和深度氛围和情绪通过调整调制等参数可以创造出不同的氛围和情绪如温暖空旷神秘等乐器和人声处理混响可以用于各种乐器和人声增加它们的质感空间感和融合度例如为人声添加混响可以使其更饱满更具表现力为鼓组添加混响可以增加整体的氛围和空间感特殊效果通过极端的参数设置或结合其他效果器还可以创造出各种特殊效果如长长的混响尾音飘渺的氛围甚至是声音的变形和扭曲均衡器简称中文称为均衡器是一种用于调整音频信号中不同频率成分的设备或软件它可以提升或衰减特定频段的声音以达到期望的音质效果的作用修正声音缺陷移除不需要的频率如录音中的嗡嗡声嘶嘶声等突出声音特点增强乐器或人声的特定频率使其在混音中更突出更具表现力平衡声音元素调整不同乐器或人声的频率平衡使它们在混音中和谐共存避免相互掩盖或冲突创造特殊效果通过极端的设置可以创造出各种特殊的声音效果如电话音效机器人音效等如何调整识别问题频率仔细聆听音频找出需要修正或增强的频率范围可以使用频谱分析仪来辅助识别选择合适的类型常见的类型有图示均衡器参数均衡器和搁架式均衡器每种类型都有其特点和适用场景调整参数根据需要调整的频率增益和值带宽频率选择要调整的中心频率增益提升或衰减该频率的音量值控制调整的带宽值越高影响的频率范围越窄聆听并微调调整后仔细聆听声音的变化并进行微调直到达到满意的效果标准的专业步骤清理低频使用高通滤波器去除不需要的低频和噪音处理中频使用参数均衡器或图示均衡器调整中频的频率平衡解决声音的冲突突出声音的特点提升高频使用搁架式均衡器或高频提升来增加声音的空气感和明亮度整体微调聆听整体混音效果并进行微调确保所有声音元素和谐共存点击轨道上的按钮打开自带下面有不同的频段项代表对当前频段的调整增加或降低为所选频段常见形状消除当前选择频率以下的频率人声一般挂在应用场景清理低频噪音麦克风近讲效应等高切应用场景减少高频嘶声控制高频能量营造复古音色等参数化针对选择的频率位置调整加大或减小某一频率的音量值越高频率带越小越低可调整的段越高找一下哪个频段好听哪个难听进行修音应用场景突出或削弱特定频率修正声音缺陷塑造声音特点等这是一种类型其滤波器的参数如中心频率增益值可以自由调节提供了最大的灵活性和精确度可以实现各种复杂的调整和滤波器都可以是的一部分搁架式提升衰减作用对设定频率以上或以下的所有频率进行提升或衰减应用场景整体提升或衰减低频或高频调整声音的明亮度或温暖度等带通滤波器作用只保留设定频率范围内的信号其他频率被衰减应用场景隔离特定频段去除不需要的频率创造特殊效果等带阻滤波器作用衰减设定频率范围内的信号其他频率不受影响应用场景去除特定频率的谐振峰反馈啸叫等用来暂停放出原声可以用来和原来声音作比较判断是否变得更好听数字数字信号处理算法数字通过数字信号处理算法来模拟模拟滤波器的行为常见的算法有无限脉冲响应滤波器和有限脉冲响应滤波器数字信号处理器数字信号处理器是专门用于执行算法的芯片它可以实时处理音频信号实现的功能扫频在音频处理中是一种通过改变滤波器的中心频率来快速识别和定位音频信号中需要调整的频段的技术滤波器的中心频率是指滤波器对信号影响最大的频率点选择合适的插件选择一个带有扫频功能的插件例如参数均衡器确保插件具有可调节的频率增益和值带宽设置扫频范围确定需要扫频的频率范围这取决于你想要处理的音频类型和问题例如如果你想处理人声的齿音问题可以将扫频范围设置为到设置扫频速度选择一个合适的扫频速度速度太快可能会错过一些细节速度太慢则会耗费太多时间一般来说中等速度是一个不错的起点设置增益将增益设置为一个相对较高的值以便更容易听到频率变化但要注意不要设置过高以免引起不适或损坏扬声器设置值选择一个较窄的值以便更精确地定位问题频率开始扫频缓慢地改变的中心频率从扫频范围的最低频率开始逐渐向上扫频聆听并识别问题频率在扫频过程中仔细聆听声音的变化当你听到刺耳浑浊或其他不想要的声音时记下此时的频率这些就是需要调整的频率调整参数一旦识别出问题频率停止扫频并将的中心频率设置为该频率然后调整增益和值直到问题得到解决或声音达到理想的效果重复步骤在整个扫频范围内重复步骤以识别和处理其他问题频率微调完成扫频后对参数进行微调以确保整体声音平衡和自然手动扫频传统上扫频是通过手动调整插件的中心频率来实现的这种方法需要耐心和经验但可以让你更精细地控制扫频过程并更准确地识别问题频率自动扫频功能许多现代插件都提供了自动扫频功能可以自动在设定的频率范围内扫频并突出显示受影响最大的频段这可以帮助你更快速地找到问题频率尤其是在不熟悉音频信号的情况下一些常见的具有自动扫频功能的插件或功能这款流行的插件具有一个频谱抓取功能可以让你在频谱图上直接拖动鼠标来扫频并自动设置参数这款智能混音插件具有一个功能可以分析音频信号并自动建议设置其中包括扫频分析内置自带的插件也具有扫频功能可以通过按住键并拖动节点来实现压缩压缩器是一种用于控制音频信号动态范围的音频处理工具它的主要作用是降低音频信号中较响亮部分的音量同时提升较安静部分的音量从而使整体音量更加均匀平衡一般在的类别控制动态范围压缩器可以减小音频信号的动态范围即最大声和最小声之间的差距这使得音频在不同播放环境下都能保持清晰可听避免过的部分导致失真或爆音同时提升较安静部分的细节增加响度压缩器可以提升整体感知响度使音频在混音中更突出更有力塑造声音压缩器可以通过改变音频信号的动态特性来塑造声音的音色和质感例如可以使鼓声更紧凑有力人声更平滑饱满或者使整个混音更具凝聚力压缩器的工作原理可以简化为以下几个步骤检测输入信号电平压缩器会实时监测输入音频信号的电平比较电平与阈值当输入信号的电平超过预设的阈值时压缩器开始工作降低超过阈值部分的增益压缩器会根据预设的压缩比来降低超过阈值部分的增益从而降低音量调整启动和释放时间压缩器的启动时间和释放时间决定了压缩器对信号电平变化的反应速度输出压缩后的信号压缩器输出经过处理后的音频信号其动态范围被减小整体音量更加均匀参数阈值作用设置压缩器开始工作的电平点当输入信号的电平超过阈值时压缩器开始降低增益使用场景根据音频信号的动态范围和效果来调整阈值较低的阈值会使压缩器更早介入对信号进行更多压缩较高的阈值则会使压缩器介入较晚对信号进行较少压缩值增益衰减表示压缩器对输入信号进行了多少增益衰减当输入信号超过压缩器的阈值时压缩器会降低信号的增益从而导致值增加一般最大值在以内就可以情绪起伏大的可以到有尖叫激动情绪的甚至可以到左右为时代表没有压缩到压缩比作用设置压缩器对超过阈值部分的信号进行压缩的程度它表示输入信号电平变化与输出信号电平变化之间的比例使用场景根据压缩效果来调整压缩比较高的压缩比如或更高会产生更明显的压缩效果使声音更平滑更紧凑较低的压缩比如会产生更的压缩效果保留更多原始信号的动态和的含义压缩比表示输入信号电平变化与输出信号电平变化之间的比例意味着当输入信号电平超过阈值时输出信号电平只会增加即超过阈值的部分被压缩为原来的意味着当输入信号电平超过阈值时输出信号电平只会增加即超过阈值的部分被压缩为原来的启动时间作用设置压缩器在输入信号超过阈值后开始降低增益所需的时间使用场景根据压缩效果和音频信号的瞬态特性来调整启动时间较短的启动时间会使压缩器更快地响应信号峰值适合控制瞬态较强的信号如鼓打击乐等较长的启动时间会使压缩器更缓慢地响应信号峰值适合保留信号的起音部分如人声弦乐等释放时间作用设置压缩器在输入信号低于阈值后恢复到正常增益所需的时间使用场景根据压缩效果和音频信号的动态特性来调整释放时间较短的释放时间会使压缩器更快地恢复增益适合处理快速变化的信号较长的释放时间会使压缩器更缓慢地恢复增益适合处理平缓变化的信号或者创造出泵感效果拐点作用控制压缩器在阈值附近的压缩曲线形状即从不压缩到开始压缩的过渡区域使用场景根据压缩效果来调整拐点硬拐点会在阈值处产生突然的压缩适合需要明显压缩效果的情况软拐点会在阈值附近产生更平滑的过渡适合需要更自然更压缩效果的情况补偿增益作用在压缩后提升整体音量以补偿压缩造成的音量降低使用场景在压缩后音频信号的整体音量可能会降低通过调整可以将音量恢复到合适的水平干湿比作用控制原始信号干声和压缩后的信号湿声的混合比例使用场景通过调整可以精确控制压缩效果的强度使其与原始声音达到平衡峰值均方根选择压缩器检测输入信号电平的方式模式对信号峰值反应更灵敏即对信号中出现的瞬时最大值进行压缩适用于控制瞬态较强的信号如鼓打击乐等防止它们过导致失真或爆音模式对信号的平均电平反应更灵敏即对信号在一段时间内的平均能量进行压缩适用于控制信号的整体动态范围使声音更平滑更一致尤其适用于处理人声弦乐等持续时间较长动态变化较平缓的信号预读让压缩器提前看到即将到来的信号峰值以便更平滑地进行压缩效果避免压缩器在信号峰值已经发生后才开始降低增益从而减少失真和泵感使压缩效果更自然更透明使用场景适用于处理瞬态较强动态变化较大的信号如鼓打击乐等尤其适用于需要透明压缩效果的情况如母带处理混音总线压缩等侧链允许使用另一个音频信号来触发压缩器的工作实现侧链压缩效果效果当侧链信号的电平超过阈值时压缩器会对主信号进行压缩常用于为人声或其他主信号创造空间使其在混音中更突出也可以用于创造各种特殊效果如抽吸效果节奏感等使用场景典型应用将底鼓信号作为侧链信号触发对贝斯信号的压缩使贝斯在底鼓敲击时音量降低避免两者在低频段产生冲突其他应用可以使用任何音频信号作为侧链信号如合成器人声效果器输出等创造出各种创意的压缩效果立体声链接将左右声道的压缩参数链接在一起确保立体声声像的稳定效果避免左右声道压缩程度不一致导致立体声声像偏移或不稳定使立体声混音更平衡更自然使用场景适用于处理立体声信号如立体声录音合成器效果器输出等尤其适用于需要保持立体声声像稳定性的情况如母带处理混音总线压缩等',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-12 13:04:45',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/Jialai_Logo.webp"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.linkedin.com/in/jialaiz/" title="Linkedin"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="Linkedin"/><span class="back-menu-item-text">Linkedin</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/personal-website-images" title="Github图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="Github图床"/><span class="back-menu-item-text">Github图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Jialai Lab</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 万物生长</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 火花</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=2807259311&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 番剧</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinemas/"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> 影视</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 摄影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 上铺下铺</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/WechatPay.webp" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/WechatPay.webp"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/Alipay.webp" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/Alipay.webp"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/IT/" style="font-size: 1.05rem;">IT<sup>1</sup></a><a href="/tags/%E6%B7%B7%E9%9F%B3/" style="font-size: 1.05rem;">混音<sup>2</sup></a><a href="/tags/%E7%BA%A2%E9%85%92/" style="font-size: 1.05rem;">红酒<sup>1</sup></a><a href="/tags/%E7%BA%A2%E9%85%92%E8%BF%9B%E5%87%BA%E5%8F%A3/" style="font-size: 1.05rem;">红酒进出口<sup>2</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%BD%9C/" itemprop="url">创作</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%B7%B7%E9%9F%B3/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>混音</span></a></span></div></div><h1 class="post-title" itemprop="name headline">混音软件中的各种FX（Cubase）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-08-12T00:00:00.000Z" title="Created 2024-08-12 00:00:00">2024-08-12</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-08-12T13:04:45.051Z" title="Updated 2024-08-12 13:04:45">2024-08-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为Melbourne"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>Melbourne</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">Comments:</span><a href="/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://jialaizhang.github.io/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/"><header><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%BD%9C/" itemprop="url">创作</a><a href="/tags/%E6%B7%B7%E9%9F%B3/" tabindex="-1" itemprop="url">混音</a><h1 id="CrawlerTitle" itemprop="name headline">混音软件中的各种FX（Cubase）</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Jialai</span><time itemprop="dateCreated datePublished" datetime="2024-08-12T00:00:00.000Z" title="Created 2024-08-12 00:00:00">2024-08-12</time><time itemprop="dateCreated datePublished" datetime="2024-08-12T13:04:45.051Z" title="Updated 2024-08-12 13:04:45">2024-08-12</time></header><h1 id="Cubase中Effect-Track的各种FX"><a href="#Cubase中Effect-Track的各种FX" class="headerlink" title="Cubase中Effect Track的各种FX"></a>Cubase中Effect Track的各种FX</h1><h2 id="混响（Reverb）"><a href="#混响（Reverb）" class="headerlink" title="混响（Reverb）"></a><strong>混响（Reverb）</strong></h2><h3 id="混响是什么？"><a href="#混响是什么？" class="headerlink" title="混响是什么？"></a>混响是什么？</h3><p>混响（Reverb）是声音在封闭空间内多次反射和衰减所产生的声音现象。当声源发出声音后，声波会在空间中的墙壁、天花板、地板等表面反射，这些反射声波会再次反射，形成一系列逐渐衰减的回声。这些回声与原始声音混合在一起，形成了我们所感知的混响效果。</p>
+<h4 id="混响是如何产生的？"><a href="#混响是如何产生的？" class="headerlink" title="混响是如何产生的？"></a>混响是如何产生的？</h4><ol>
+<li><p><strong>声波反射：</strong> 声波在遇到障碍物时会发生反射，反射的角度取决于声波的入射角度和障碍物的表面特性。</p>
+</li>
+<li><p><strong>多次反射：</strong> 在封闭空间内，声波会经历多次反射，每次反射都会损失一部分能量，导致声音逐渐衰减。</p>
+</li>
+<li><p><strong>混响时间：</strong> 混响时间是指声源停止发声后，混响声衰减 60dB 所需的时间。混响时间越长，空间感越强。</p>
+</li>
+<li><p><strong>频率响应：</strong> 不同频率的声波在反射时衰减程度不同，导致混响的音色变化。</p>
+</li>
+<li><p><strong>早期反射和尾音：</strong> 混响可以分为早期反射（Early Reflections）和尾音（Tail）两个部分。早期反射是声波经过较少次反射后到达听众耳朵的声音，具有较强的方向性和空间感；尾音则是声波经过多次反射后形成的扩散、衰减的声音，营造出整体的氛围和空间感。</p>
+<ul>
+<li><p>Early Reflection和Delay的区别：</p>
+<ul>
+<li><p>早期反射到达时间较短，而延迟时间的可控。</p>
+</li>
+<li><p>早期反射具有方向信息，延迟通常没有明确的方向信息。</p>
+</li>
+<li><p>早期反射主要提供空间感和清晰度，延迟主要创造回声效果和节奏感。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="如何更好地理解和使用混响？"><a href="#如何更好地理解和使用混响？" class="headerlink" title="如何更好地理解和使用混响？"></a>如何更好地理解和使用混响？</h4><ol>
+<li><strong>了解不同类型的混响：</strong> 常见的混响类型包括 Hall（大厅）、Room（房间）、Plate（板式混响）、Spring（弹簧混响）、Convolution（卷积混响）等，每种类型都有其独特的音色和适用场景。</li>
+<li><strong>掌握混响参数：</strong> 常见的混响参数包括干湿比、早期反射&#x2F;尾音比例、预延迟、衰减时间、频率响应、密度、宽度等，通过调整这些参数可以控制混响的效果。</li>
+<li><strong>根据音乐风格和需求选择混响：</strong> 不同音乐风格和乐器可能需要不同的混响类型和参数设置。例如，古典音乐可能需要更长、更扩散的混响，而流行音乐可能需要更短、更紧凑的混响。</li>
+<li><strong>适度使用混响：</strong> 过多的混响可能会使声音变得模糊不清，甚至掩盖原始声音的细节。适度使用混响，使其与原始声音和谐共存，才能达到最佳效果。</li>
+<li><strong>多尝试和聆听：</strong> 混响的使用没有绝对的规则，多尝试不同的混响类型和参数设置，聆听它们对声音产生的影响，找到最适合你的音乐作品的效果。</li>
+</ol>
+<p>以REVelation 混响插件为例：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="C:\Users\alex\AppData\Roaming\marktext\images\2024-08-11-21-56-52-9dea8503005b06622196a8c6c4b71b2.png"></p>
+<p><strong>整体概览</strong></p>
+<p>REVelation 是 Steinberg 开发的一款卷积混响插件，它通过模拟真实空间的声学特性来创建自然而逼真的混响效果。插件界面主要分为四个部分：</p>
+<ol>
+<li><strong>全局参数（GLOBAL）</strong>：控制混响的整体特性，如干湿比、早期反射和混响尾音的比例等。</li>
+<li><strong>调制（MODULATION）</strong>：为混响尾音添加调制效果，增加深度和动态。</li>
+<li><strong>控制（CONTROL）</strong>：提供对混响的精细控制，如早期反射模式、低频和高频衰减等。</li>
+<li><strong>输出（OUTPUT）</strong>：控制混响的输出电平和立体声宽度。</li>
+</ol>
+<h3 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a><strong>参数详解</strong></h3><h4 id="全局参数（GLOBAL）"><a href="#全局参数（GLOBAL）" class="headerlink" title="全局参数（GLOBAL）"></a><strong>全局参数（GLOBAL）</strong></h4><ul>
+<li><p><strong>Pre-Delay</strong></p>
+<p>功能：控制早期反射到达听者耳朵的时间，模拟声音在空间中传播的距离。值越大，早期反射到达的时间越晚，感觉声音的空间越大。</p>
+</li>
+<li><p><strong>Dry&#x2F;Wet（干湿比）</strong>：控制原始信号（干声）和混响信号（湿声）的比例。在这个界面中是右侧的Mix推杆。</p>
+<ul>
+<li>0%：只有干声，没有混响。</li>
+<li>100%：只有湿声，全是混响。</li>
+</ul>
+</li>
+<li><p><strong>ER&#x2F;Tail（早期反射&#x2F;尾音）</strong>：控制早期反射和混响尾音的比例。</p>
+<ul>
+<li>值越大：更多早期反射，声音更接近声源，空间感较小。</li>
+<li>值越小：更多混响尾音，声音更扩散，空间感较大。</li>
+</ul>
+</li>
+</ul>
+<h4 id="调制（MODULATION）"><a href="#调制（MODULATION）" class="headerlink" title="调制（MODULATION）"></a><strong>调制（MODULATION）</strong></h4><ul>
+<li><p><strong>Rate（速率）</strong>：控制调制的频率，即混响尾音的变化速度。</p>
+<ul>
+<li><p><strong>变大:</strong></p>
+<ul>
+<li><p>混响尾音的变化速度加快，产生一种颤动或闪烁的效果。</p>
+</li>
+<li><p>这种效果可能使声音听起来更生动、更具活力，但也可能使声音变得过于忙碌或不稳定。</p>
+</li>
+<li><p>适用于营造梦幻、迷幻或科幻的氛围。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>变小:</strong></p>
+<ul>
+<li><p>混响尾音的变化速度减慢，产生一种缓慢、平滑的波动效果。</p>
+</li>
+<li><p>这种效果可能使声音听起来更宽广、更深邃，但也可能使声音变得过于沉闷或缺乏活力。</p>
+</li>
+<li><p>适用于营造平静、放松或庄严的氛围。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Depth（深度）</strong>：控制调制的强度，即混响尾音的变化幅度。</p>
+<ul>
+<li><p><strong>变大:</strong></p>
+<ul>
+<li>混响尾音的变化幅度增大，产生更明显的颤动或波动效果。</li>
+<li>这种效果可能使声音听起来更丰富、更具表现力，但也可能使声音变得过于夸张或失真。</li>
+<li>适用于营造强烈、戏剧性或不稳定的氛围。</li>
+</ul>
+</li>
+<li><p><strong>变小:</strong></p>
+<ul>
+<li>混响尾音的变化幅度减小，产生更微妙、更柔和的波动效果。</li>
+<li>这种效果可能使声音听起来更自然、更平滑，但也可能使声音变得过于单调或缺乏特色。</li>
+<li>适用于营造细腻、精致或稳定的氛围。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Activate（激活）</strong>：启用或禁用调制效果。激活调制效果，使混响尾音产生颤动或波动。关闭调制效果，混响尾音保持平稳不变，混响效果更干净。</p>
+</li>
+</ul>
+<h4 id="CONTROL部分"><a href="#CONTROL部分" class="headerlink" title="CONTROL部分"></a><strong>CONTROL部分</strong></h4><p><strong>Low Time 和 High Time</strong></p>
+<ul>
+<li><p><strong>作用</strong>：这两个参数控制混响衰减的时间特性。</p>
+<ul>
+<li>Low Time：控制低频部分混响的衰减时间。</li>
+<li>High Time：控制高频部分混响的衰减时间。</li>
+</ul>
+</li>
+<li><p><strong>声音变化</strong>：</p>
+<ul>
+<li>增加 Low Time 或 High Time 会使相应频段的混响尾音变长，声音的空间感和深度增加。</li>
+<li>减小 Low Time 或 High Time 会使相应频段的混响尾音变短，声音的空间感和深度减小。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Low Freq 和 High Freq</strong></p>
+<ul>
+<li><p><strong>作用</strong>：这两个参数控制混响衰减的频率特性。</p>
+<ul>
+<li>Low Freq：设置低频混响衰减的起始频率。</li>
+<li>High Freq：设置高频混响衰减的起始频率。</li>
+</ul>
+</li>
+<li><p><strong>声音变化</strong>：</p>
+<ul>
+<li>降低 Low Freq 会使低频混响衰减得更快，声音的低频部分更清晰、更紧凑。</li>
+<li>提高 Low Freq 会使低频混响衰减得更慢，声音的低频部分更浑厚、更宽广。</li>
+<li>降低 High Freq 会使高频混响衰减得更快，声音的高频部分更清晰、更聚焦。</li>
+<li>提高 High Freq 会使高频混响衰减得更慢，声音的高频部分更明亮、更具空气感。</li>
+</ul>
+</li>
+</ul>
+<h4 id="TAIL部分"><a href="#TAIL部分" class="headerlink" title="TAIL部分"></a><strong>TAIL部分</strong></h4><p><strong>TAIL 参数详解</strong></p>
+<ul>
+<li><p><strong>Delay（延迟）</strong>：</p>
+<ul>
+<li>作用：控制混响尾音开始的时间，即从原始声音结束后到混响开始出现的时间间隔。</li>
+<li>变化：增加 Delay 会使混响尾音出现得更晚，营造出更大的空间感；减小 Delay 会使混响尾音更紧密地跟随原始声音，空间感减小。</li>
+<li>使用场景：<ul>
+<li>大 Delay：适用于营造宽广、空旷的空间感，如大教堂、音乐厅等。</li>
+<li>小 Delay：适用于营造紧凑、亲密的空间感，如小型房间、录音棚等；或者用于需要混响与原始声音紧密融合的情况，如人声。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Room Size（房间大小）</strong>：</p>
+<ul>
+<li>作用：控制模拟空间的大小。</li>
+<li>变化：增加 Room Size 会使混响尾音更长、更扩散，空间感更大；减小 Room Size 会使混响尾音更短、更集中，空间感更小。</li>
+<li>使用场景：<ul>
+<li>大 Room Size：适用于营造宽广、空旷的空间感，如大教堂、音乐厅等。</li>
+<li>小 Room Size：适用于营造紧凑、亲密的空间感，如小型房间、录音棚等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Main Time（主时间）</strong>：</p>
+<ul>
+<li>作用：控制混响尾音的整体衰减时间，即混响持续的时间长度。</li>
+<li>变化：增加 Main Time 会使混响尾音更长，空间感更强；减小 Main Time 会使混响尾音更短，空间感更弱。</li>
+<li>使用场景：<ul>
+<li>长 Main Time：适用于营造宽广、深邃的空间感，如大教堂、音乐厅等；或者用于需要混响长时间持续的音乐风格，如氛围音乐、环境音乐等。</li>
+<li>短 Main Time：适用于营造紧凑、清晰的空间感，如小型房间、录音棚等；或者用于需要混响快速衰减的音乐风格，如流行音乐、摇滚音乐等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Shape（形状）</strong>：</p>
+<ul>
+<li>作用：控制混响尾音的起音（attack）特性，即混响建立的速度。<ul>
+<li>起音（Attack）是指声音从无声到达到最大音量所需的时间。在混响效果中，起音具体指的是混响效果从原始声音结束后到达到最大音量所需的时间。</li>
+</ul>
+</li>
+<li>变化：增加 Shape 会使混响尾音的起音更慢、更柔和；减小 Shape 会使混响尾音的起音更快、更清晰。</li>
+<li>使用场景：<ul>
+<li>大 Shape：适用于营造平滑、柔和的混响效果，如弦乐、人声等。</li>
+<li>小 Shape：适用于营造清晰、有力的混响效果，如打击乐、吉他等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Density（密度）</strong>：</p>
+<ul>
+<li>作用：控制混响尾音的密度，即混响的丰满程度和回声数量。</li>
+<li>变化：增加 Density 会使混响尾音更密集、更丰满，空间感更强；减小 Density 会使混响尾音更稀疏、更清晰，空间感更弱。</li>
+<li>使用场景：<ul>
+<li>大 Density：适用于营造宽广、深邃的空间感，如大教堂、音乐厅等。</li>
+<li>小 Density：适用于营造清晰、干净的空间感，如小型房间、录音棚等；或者用于需要混响更透明、不干扰原始声音的情况。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>High Cut（高频衰减）</strong>：</p>
+<ul>
+<li>作用：控制混响尾音的高频衰减。</li>
+<li>变化：降低 High Cut 会使混响尾音的高频部分衰减得更多，声音变得更温暖、更柔和；提高 High Cut 会使混响尾音的高频部分更明亮、更清晰。</li>
+<li>使用场景：<ul>
+<li>低 High Cut：适用于营造温暖、柔和的混响效果，或者用于控制高频混响的刺耳感。</li>
+<li>高 High Cut：适用于增加混响的明亮度和空气感，或者用于需要混响更清晰、更具细节的情况。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Width（宽度）</strong>：</p>
+<ul>
+<li>作用：控制混响信号的立体声宽度。</li>
+<li>变化：增加 Width 会使混响声场更宽广，空间感更强；减小 Width 会使混响声场更窄，声音更集中。</li>
+<li>使用场景：<ul>
+<li>大 Width：适用于营造宽广、包围感的混响效果。</li>
+<li>小 Width：适用于营造聚焦、紧凑的混响效果，或者用于需要混响更精确地定位的情况。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="其他相关的参数"><a href="#其他相关的参数" class="headerlink" title="其他相关的参数"></a><strong>其他相关的参数</strong></h4><ul>
+<li><strong>Pre-Delay（预延迟）</strong>：控制早期反射到达听者耳朵的时间，模拟声音在空间中传播的距离。</li>
+<li><strong>Early Reflection Model（早期反射模式）</strong>：选择不同的算法来模拟早期反射的特性，如 Hall（大厅）、Room（房间）、Plate（板式混响）等。</li>
+<li><strong>Size（尺寸）</strong>：控制模拟空间的大小。</li>
+<li><strong>Low Cut &amp; High Cut（低频&#x2F;高频衰减）</strong>：分别控制混响信号的低频和高频衰减，可以用来塑造混响的音色和避免混浊。</li>
+<li><strong>ER Level（早期反射电平）</strong>：控制早期反射的音量。</li>
+<li><strong>Tail Level（尾音电平）</strong>：控制混响尾音的音量。</li>
+<li><strong>Density（密度）</strong>：控制混响尾音的密度，即混响的丰满程度。</li>
+</ul>
+<h4 id="输出（OUTPUT）"><a href="#输出（OUTPUT）" class="headerlink" title="输出（OUTPUT）"></a><strong>输出（OUTPUT）</strong></h4><ul>
+<li><p><strong>Out Level（输出电平）</strong>：控制混响信号的整体输出音量。</p>
+</li>
+<li><p><strong>Mix</strong></p>
+<ul>
+<li><strong>功能：</strong> Mix（混合）旋钮控制干声（原始信号）和湿声（效果处理后的信号，这里是混响信号）的混合比例。</li>
+<li><strong>效果：</strong><ul>
+<li>向左旋转（数值减小）：干声比例增加，湿声比例减小，混响效果减弱。</li>
+<li>向右旋转（数值增大）：干声比例减小，湿声比例增加，混响效果增强。</li>
+</ul>
+</li>
+<li><strong>使用场景：</strong><ul>
+<li>通过调整 Mix 旋钮，可以精确控制混响效果的强度，使其与原始声音达到平衡，避免混响过多掩盖原始声音的细节。</li>
+</ul>
+</li>
+</ul>
+<p><strong>锁标志</strong></p>
+<ul>
+<li><strong>功能：</strong> 锁标志表示当前 Mix 旋钮的值被锁定，防止意外更改。</li>
+<li><strong>效果：</strong><ul>
+<li>当锁标志启用时，即使你旋转 Mix 旋钮，它的数值也不会改变。</li>
+<li>这在需要保持特定混响效果不变的情况下非常有用，例如在自动化混音时。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>效果与使用场景</strong></p>
+<p>REVelation 可以创造出各种混响效果，适用于不同的音乐风格和制作需求。</p>
+<ul>
+<li><strong>自然空间感</strong>：通过调整 Size、Early Reflection Model 等参数，可以模拟不同大小和类型的空间，如音乐厅、录音室、教堂等，为声音增添自然的空间感和深度。</li>
+<li><strong>氛围和情绪</strong>：通过调整 Dry&#x2F;Wet、ER&#x2F;Tail、调制等参数，可以创造出不同的氛围和情绪，如温暖、空旷、神秘等。</li>
+<li><strong>乐器和人声处理</strong>：混响可以用于各种乐器和人声，增加它们的质感、空间感和融合度。例如，为人声添加混响可以使其更饱满、更具表现力；为鼓组添加混响可以增加整体的氛围和空间感。</li>
+<li><strong>特殊效果</strong>：通过极端的参数设置或结合其他效果器，REVelation 还可以创造出各种特殊效果，如长长的混响尾音、飘渺的氛围、甚至是声音的变形和扭曲。</li>
+</ul>
+<h2 id="均衡器-（Equalizer-EQ）："><a href="#均衡器-（Equalizer-EQ）：" class="headerlink" title="均衡器 （Equalizer EQ）："></a>均衡器 （Equalizer EQ）：</h2><p>Equalizer，简称 EQ，中文称为均衡器，是一种用于调整音频信号中不同频率成分的设备或软件。它可以提升或衰减特定频段的声音，以达到期望的音质效果。</p>
+<h4 id="EQ-的作用"><a href="#EQ-的作用" class="headerlink" title="EQ 的作用"></a>EQ 的作用</h4><ul>
+<li><strong>修正声音缺陷：</strong> 移除不需要的频率，如录音中的嗡嗡声、嘶嘶声等。</li>
+<li><strong>突出声音特点：</strong> 增强乐器或人声的特定频率，使其在混音中更突出、更具表现力。</li>
+<li><strong>平衡声音元素：</strong> 调整不同乐器或人声的频率平衡，使它们在混音中和谐共存，避免相互掩盖或冲突。</li>
+<li><strong>创造特殊效果：</strong> 通过极端的 EQ 设置，可以创造出各种特殊的声音效果，如电话音效、机器人音效等。</li>
+</ul>
+<h4 id="如何调整-EQ"><a href="#如何调整-EQ" class="headerlink" title="如何调整 EQ"></a>如何调整 EQ</h4><ol>
+<li><strong>识别问题频率：</strong> 仔细聆听音频，找出需要修正或增强的频率范围。可以使用频谱分析仪（Spectrum Analyzer）来辅助识别。</li>
+<li><strong>选择合适的 EQ 类型：</strong> 常见的 EQ 类型有图示均衡器（Graphic EQ）、参数均衡器（Parametric EQ）和搁架式均衡器（Shelving EQ），每种类型都有其特点和适用场景。</li>
+<li><strong>调整 EQ 参数：</strong> 根据需要调整 EQ 的频率、增益（Gain）和 Q 值（带宽）。<ul>
+<li>频率：选择要调整的中心频率。</li>
+<li>增益：提升或衰减该频率的音量。</li>
+<li>Q 值：控制调整的带宽，Q 值越高，影响的频率范围越窄。</li>
+</ul>
+</li>
+<li><strong>聆听并微调：</strong> 调整 EQ 后，仔细聆听声音的变化，并进行微调，直到达到满意的效果。</li>
+</ol>
+<h4 id="标准的专业步骤"><a href="#标准的专业步骤" class="headerlink" title="标准的专业步骤"></a>标准的专业步骤</h4><ol>
+<li><strong>清理低频：</strong> 使用高通滤波器（High-Pass Filter）去除不需要的低频 rumble 和噪音。</li>
+<li><strong>处理中频：</strong> 使用参数均衡器或图示均衡器调整中频的频率平衡，解决声音的冲突，突出声音的特点。</li>
+<li><strong>提升高频：</strong> 使用搁架式均衡器或高频提升（High Shelf）来增加声音的空气感和明亮度。</li>
+<li><strong>整体微调：</strong> 聆听整体混音效果，并进行微调，确保所有声音元素和谐共存。</li>
+</ol>
+<p>点击轨道上的“e”按钮打开cubase自带EQ，下面有不同的频段，dB项代表对当前频段的调整，增加或降低，Hz为所选频段。</p>
+<p><strong>常见EQ形状：</strong> <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.musicguymixing.com/wp-content/uploads/2022/10/EQ-Filters-1-1024x576.png" alt="eq filters"></p>
+<p><strong>High Pass(Low Cut)</strong> 消除当前选择频率以下的频率，人声一般挂在100-160Hz</p>
+<p><strong>应用场景</strong>：清理低频 rumble、噪音、麦克风近讲效应等。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.izotope.com/storage-cms/images/6/2/6/0/230626-1-eng-GB/53dbb1d06831-image-2-flat-highpass-image.png" alt="Using a flat highpass on the VO in Neutron"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.musicguymixing.com/wp-content/uploads/2022/10/high-pass-filter-1024x576.png" alt="high pass filter"></p>
+<p><strong>高切（Low-Pass Filter）</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.izotope.com/storage-cms/images/6/4/6/9/249646-1-eng-GB/c75ed1c09671-image-2-low-pass-slope-parameter-neutron.jpg" alt="Slope parameter of a lowpass filter in Neutron"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.musicguymixing.com/wp-content/uploads/2022/10/low-pass-filter-1024x576.png"></p>
+<p><strong>应用场景</strong>：减少高频嘶声、控制高频能量、营造复古音色等。</p>
+<p><strong>Parametric</strong>（参数化）: 针对选择的频率位置调整，加大或减小某一频率的音量。Q值越高，频率带越小，Q越低，可调整的段越高。找一下哪个频段好听，哪个难听，进行修音。<strong>应用场景</strong>：突出或削弱特定频率、修正声音缺陷、塑造声音特点等。</p>
+<p>这是一种 EQ 类型，其滤波器的参数（如中心频率、增益、Q 值）可以自由调节。Parametric EQ 提供了最大的灵活性和精确度，可以实现各种复杂的 EQ 调整。Bell、Notch 和 Peak 滤波器都可以是 Parametric EQ 的一部分。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://theaudiospotlight.com/wp-content/uploads/2016/09/Peak-Notch-EQ.png" alt="peaknotcheq"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.musicguymixing.com/wp-content/uploads/2022/10/bell-filter-1024x576.png" alt="bell filter"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.musicguymixing.com/wp-content/uploads/2022/10/notch-filter-1024x576.png" alt="notch filter"></p>
+<p><strong>搁架式提升&#x2F;衰减（Shelf）</strong>：</p>
+<ul>
+<li>作用：对设定频率以上或以下的所有频率进行提升或衰减。</li>
+<li>应用场景：整体提升或衰减低频或高频、调整声音的明亮度或温暖度等。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://rebootrecording.com/wp-content/uploads/2019/09/high-shelf-low-shelf-explained.jpg" alt="High Shelf Low Shelf Explained"></p>
+<p><strong>带通滤波器（Band-Pass Filter）</strong>：</p>
+<ul>
+<li>作用：只保留设定频率范围内的信号，其他频率被衰减。</li>
+<li>应用场景：隔离特定频段、去除不需要的频率、创造特殊效果等。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://samplecraze.com/wp-content/uploads/2019/07/fabfilter-q-bandpass-1030x617.jpg" alt="linear phase versus minimum phase screen displaying an eq response"></p>
+<p><strong>带阻滤波器（Band-Reject Filter&#x2F;Notch Filter）</strong>：</p>
+<ul>
+<li>作用：衰减设定频率范围内的信号，其他频率不受影响。</li>
+<li>应用场景：去除特定频率的谐振峰、反馈啸叫等。</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/filter-fil130.gif" alt="band stop filter response"></p>
+<p><strong>PS:</strong></p>
+<p><strong>Bypass</strong>: 用来暂停EQ，放出原声，可以用来和原来声音作比较判断是否变得更好听。</p>
+<p><strong>数字 EQ:</strong></p>
+<ul>
+<li><strong>数字信号处理算法：</strong> 数字 EQ 通过数字信号处理（DSP）算法来模拟模拟滤波器的行为。常见的算法有 IIR（Infinite Impulse Response, 无限脉冲响应）滤波器和 FIR（Finite Impulse Response, 有限脉冲响应）滤波器。</li>
+<li><strong>数字信号处理器：</strong> 数字信号处理器（DSP）是专门用于执行 DSP 算法的芯片，它可以实时处理音频信号，实现 EQ 的功能。</li>
+</ul>
+<h4 id="扫频："><a href="#扫频：" class="headerlink" title="扫频："></a>扫频：</h4><p>在音频处理中是一种通过改变滤波器的中心频率，来快速识别和定位音频信号中需要调整的频段的技术。</p>
+<p>PS：滤波器的中心频率（Center Frequency）是指滤波器对信号影响最大的频率点。</p>
+<ul>
+<li><p><strong>选择合适的EQ插件：</strong> 选择一个带有扫频功能的EQ插件，例如参数均衡器（Parametric EQ）。确保插件具有可调节的频率、增益和Q值（带宽）。</p>
+</li>
+<li><p><strong>设置扫频范围：</strong> 确定需要扫频的频率范围。这取决于你想要处理的音频类型和问题。例如，如果你想处理人声的齿音问题，可以将扫频范围设置为5kHz到12kHz。</p>
+</li>
+<li><p><strong>设置扫频速度：</strong> 选择一个合适的扫频速度。速度太快可能会错过一些细节，速度太慢则会耗费太多时间。一般来说，中等速度是一个不错的起点。</p>
+</li>
+<li><p><strong>设置增益：</strong> 将增益设置为一个相对较高的值，以便更容易听到频率变化。但要注意不要设置过高，以免引起不适或损坏扬声器。</p>
+</li>
+<li><p><strong>设置Q值：</strong> 选择一个较窄的Q值，以便更精确地定位问题频率。</p>
+</li>
+<li><p><strong>开始扫频：</strong> 缓慢地改变EQ的中心频率，从扫频范围的最低频率开始，逐渐向上扫频。</p>
+</li>
+<li><p><strong>聆听并识别问题频率：</strong> 在扫频过程中，仔细聆听声音的变化。当你听到刺耳、浑浊或其他不想要的声音时，记下此时的频率。这些就是需要调整的频率。</p>
+</li>
+<li><p><strong>调整EQ参数：</strong> 一旦识别出问题频率，停止扫频，并将EQ的中心频率设置为该频率。然后，调整增益和Q值，直到问题得到解决或声音达到理想的效果。</p>
+</li>
+<li><p><strong>重复步骤6-8：</strong> 在整个扫频范围内重复步骤6-8，以识别和处理其他问题频率。</p>
+</li>
+<li><p><strong>微调：</strong> 完成扫频后，对EQ参数进行微调，以确保整体声音平衡和自然。</p>
+</li>
+<li><p><strong>手动扫频:</strong> 传统上，扫频是通过手动调整 EQ 插件的中心频率来实现的。这种方法需要耐心和经验，但可以让你更精细地控制扫频过程，并更准确地识别问题频率。</p>
+</li>
+<li><p><strong>自动扫频功能:</strong> 许多现代 EQ 插件都提供了自动扫频功能，可以自动在设定的频率范围内扫频，并突出显示受影响最大的频段。这可以帮助你更快速地找到问题频率，尤其是在不熟悉音频信号的情况下。</p>
+</li>
+</ul>
+<p><strong>一些常见的具有自动扫频功能的插件或功能:</strong></p>
+<ul>
+<li><strong>FabFilter Pro-Q 3:</strong> 这款流行的 EQ 插件具有一个频谱抓取（Spectrum Grab）功能，可以让你在频谱图上直接拖动鼠标来扫频，并自动设置 EQ 参数。</li>
+<li><strong>iZotope Neutron:</strong> 这款智能混音插件具有一个 EQ Learn 功能，可以分析音频信号并自动建议 EQ 设置，其中包括扫频分析。</li>
+<li><strong>Cubase 内置 EQ:</strong> Cubase 自带的 EQ 插件也具有扫频功能，可以通过按住 Ctrl 键并拖动 EQ 节点来实现。</li>
+</ul>
+<h2 id="压缩（Compressor）："><a href="#压缩（Compressor）：" class="headerlink" title="压缩（Compressor）："></a>压缩（Compressor）：</h2><p>Compressor（压缩器）是一种用于控制音频信号动态范围的音频处理工具。它的主要作用是<strong>降低</strong>音频信号中<strong>较响亮部分的音量</strong>，同时<strong>提升</strong>较<strong>安静部分的音量</strong>，从而使整体音量更加均匀、平衡。一般在Dynamics的类别。</p>
+<ul>
+<li><strong>控制动态范围：</strong> 压缩器可以减小音频信号的动态范围，即最大声和最小声之间的差距。这使得音频在不同播放环境下都能保持清晰可听，避免过 loud 的部分导致失真或爆音，同时提升较安静部分的细节。</li>
+<li><strong>增加响度：</strong> 压缩器可以提升整体感知响度，使音频在混音中更突出、更有力。</li>
+<li><strong>塑造声音：</strong> 压缩器可以通过改变音频信号的动态特性来塑造声音的音色和质感。例如，可以使鼓声更紧凑有力，人声更平滑饱满，或者使整个混音更具凝聚力。</li>
+</ul>
+<p>压缩器的<strong>工作原理</strong>可以简化为以下几个步骤：</p>
+<ol>
+<li><strong>检测输入信号电平：</strong> 压缩器会实时监测输入音频信号的电平。</li>
+<li><strong>比较电平与阈值：</strong> 当输入信号的电平超过预设的阈值（Threshold）时，压缩器开始工作。</li>
+<li><strong>降低超过阈值部分的增益：</strong> 压缩器会根据预设的压缩比（Ratio）来降低超过阈值部分的增益，从而降低音量。</li>
+<li><strong>调整启动和释放时间：</strong> 压缩器的启动时间（Attack）和释放时间（Release）决定了压缩器对信号电平变化的反应速度。</li>
+<li><strong>输出压缩后的信号：</strong> 压缩器输出经过处理后的音频信号，其动态范围被减小，整体音量更加均匀。</li>
+</ol>
+<h4 id="Compressor-参数"><a href="#Compressor-参数" class="headerlink" title="Compressor 参数"></a>Compressor 参数</h4><ul>
+<li><p><strong>Threshold（阈值）</strong></p>
+<ul>
+<li>作用：设置压缩器开始工作的电平点。<strong>当输入信号的电平超过阈值时，压缩器开始降低增益。</strong></li>
+<li>使用场景：根据音频信号的动态范围和 desired 效果来调整阈值。较低的阈值会使压缩器更早介入，对信号进行更多压缩；较高的阈值则会使压缩器介入较晚，对信号进行较少压缩。</li>
+</ul>
+<p>PS: GR值 <strong>Gain Reduction</strong> (增益衰减)，表示压缩器对输入信号进行了多少增益衰减。当输入信号超过压缩器的阈值时，压缩器会降低信号的增益，从而导致 GR 值增加。一般GR最大值在3以内就可以，情绪起伏大的可以到4，有尖叫激动情绪的Podcast甚至可以到7左右。为0时代表没有压缩到。</p>
+</li>
+<li><p><strong>Ratio（压缩比）</strong></p>
+<ul>
+<li>作用：设置压缩器<strong>对超过阈值部分的信号进行压缩的程度</strong>。它表示输入信号电平变化与输出信号电平变化之间的比例。</li>
+<li>使用场景：根据 desired 压缩效果来调整压缩比。较高的压缩比（如 4:1 或更高）会产生更明显的压缩效果，使声音更平滑、更紧凑；较低的压缩比（如 2:1）会产生更 subtle 的压缩效果，保留更多原始信号的动态。</li>
+<li><strong>Ratio 4:1 和 2:1 的含义</strong><ul>
+<li><strong>Ratio（压缩比）</strong> 表示输入信号电平变化与输出信号电平变化之间的比例。</li>
+<li><strong>4:1</strong> 意味着，当输入信号电平超过阈值 4dB 时，输出信号电平只会增加 1dB。即超过阈值的部分被压缩为原来的 1&#x2F;4。</li>
+<li><strong>2:1</strong> 意味着，当输入信号电平超过阈值 2dB 时，输出信号电平只会增加 1dB。即超过阈值的部分被压缩为原来的 1&#x2F;2。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Attack（启动时间）</strong></p>
+<ul>
+<li>作用：设置压缩器<strong>在输入信号超过阈值后开始降低增益所需的时间</strong>。</li>
+<li>使用场景：根据 desired 压缩效果和音频信号的瞬态特性来调整启动时间。<strong>较短的启动时间会使压缩器更快地响应信号峰值，适合控制瞬态较强的信号，如鼓、打击乐等；较长的启动时间会使压缩器更缓慢地响应信号峰值，适合保留信号的起音（attack）部分，如人声、弦乐等。</strong></li>
+</ul>
+</li>
+<li><p><strong>Release（释放时间）</strong></p>
+<ul>
+<li>作用：设置压缩器<strong>在输入信号低于阈值后恢复到正常增益所需的时间。</strong></li>
+<li>使用场景：根据 desired 压缩效果和音频信号的动态特性来调整释放时间。较短的释放时间会使压缩器更快地恢复增益，适合处理快速变化的信号；较长的释放时间会使压缩器更缓慢地恢复增益，适合处理平缓变化的信号，或者创造出“泵感”（pumping）效果。</li>
+</ul>
+</li>
+<li><p><strong>Knee（拐点）</strong></p>
+<ul>
+<li>作用：控制压缩器在<strong>阈值附近的压缩曲线形状</strong>，即<strong>从不压缩到开始压缩的过渡区域。</strong></li>
+<li>使用场景：根据 desired 压缩效果来调整拐点。<strong>硬拐点（Hard Knee）会在阈值处产生突然的压缩，适合需要明显压缩效果的情况</strong>；软拐点（Soft Knee）会在阈值附近产生更平滑的过渡，适合需要更自然、更 subtle 压缩效果的情况。</li>
+</ul>
+</li>
+<li><p><strong>Make-Up Gain（补偿增益）</strong></p>
+<ul>
+<li>作用：<strong>在压缩后提升整体音量，以补偿压缩造成的音量降低。</strong></li>
+<li>使用场景：在压缩后，音频信号的整体音量可能会降低。通过调整 Make-Up Gain，可以将音量恢复到合适的水平。</li>
+</ul>
+</li>
+<li><p><strong>Dry&#x2F;Wet（干湿比）</strong></p>
+<ul>
+<li>作用：<strong>控制原始信号（干声）和压缩后的信号（湿声）的混合比例。</strong></li>
+<li>使用场景：通过调整 Dry&#x2F;Wet，可以精确控制压缩效果的强度，使其与原始声音达到平衡。</li>
+</ul>
+</li>
+<li><p><strong>Peak&#x2F;RMS（峰值&#x2F;均方根）</strong></p>
+<ul>
+<li><p>选择压缩器检测输入信号电平的方式。</p>
+</li>
+<li><p><strong>Peak 模式</strong>：</p>
+<ul>
+<li>对信号峰值反应更灵敏，即<strong>对信号中出现的瞬时最大值进行压缩</strong>。</li>
+<li><strong>适用于控制瞬态较强的信号，如鼓、打击乐</strong>等，防止它们过 loud 导致失真或爆音。</li>
+</ul>
+</li>
+<li><p><strong>RMS 模式</strong>：</p>
+<ul>
+<li>对信号的平均电平反应更灵敏，即<strong>对信号在一段时间内的平均能量进行压缩</strong>。</li>
+<li>适用于控制信号的整体动态范围，使声音更平滑、更一致。</li>
+<li>尤其<strong>适用于处理人声、弦乐等持续时间较长、动态变化较平缓</strong>的信号。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Lookahead（预读）</strong></p>
+<ul>
+<li><p>让压缩器提前“看到”即将到来的信号峰值，以便<strong>更平滑地进行压缩</strong>。</p>
+</li>
+<li><p><strong>效果</strong>：</p>
+<ul>
+<li>避免压缩器在信号峰值已经发生后才开始降低增益，从而减少失真和“泵感”。</li>
+<li>使压缩效果更自然、更透明。</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong>：</p>
+<ul>
+<li><strong>适用于处理瞬态较强、动态变化较大的信号，如鼓、打击乐等</strong>。</li>
+<li>尤其适用于需要透明压缩效果的情况，如母带处理、混音总线压缩等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Sidechain（侧链）</strong></p>
+<ul>
+<li><p>允许使用另一个音频信号来触发压缩器的工作，实现侧链压缩效果。</p>
+</li>
+<li><p><strong>效果</strong>：</p>
+<ul>
+<li>当侧链信号的电平超过阈值时，压缩器会对主信号进行压缩。</li>
+<li>常用于为人声或其他主信号创造空间，使其在混音中更突出。</li>
+<li>也可以用于创造各种特殊效果，如“抽吸”效果、节奏感等。</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong>：</p>
+<ul>
+<li>典型应用：<strong>将底鼓信号作为侧链信号，触发对贝斯信号的压缩，使贝斯在底鼓敲击时音量降低，避免两者在低频段产生冲突</strong>。</li>
+<li>其他应用：可以使用任何音频信号作为侧链信号，如合成器、人声、效果器输出等，创造出各种创意的压缩效果。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Stereo Linking（立体声链接）</strong></p>
+<ul>
+<li><p>将左右声道的压缩参数链接在一起，确保立体声声像的稳定。</p>
+</li>
+<li><p><strong>效果</strong>：</p>
+<ul>
+<li>避免左右声道压缩程度不一致，导致立体声声像偏移或不稳定。</li>
+<li>使立体声混音更平衡、更自然。</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong>：</p>
+<ul>
+<li>适用于处理立体声信号，如立体声录音、合成器、效果器输出等。</li>
+<li>尤其适用于需要保持立体声声像稳定性的情况，如母带处理、混音总线压缩等。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">Jialai</div><div class="post-copyright__author_desc">一个小屁孩的玩具箱</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://jialaizhang.github.io/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://jialaizhang.github.io/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/')">混音软件中的各种FX（Cubase）</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://jialaizhang.github.io/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=混音软件中的各种FX（Cubase）&amp;url=https://jialaizhang.github.io/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/&amp;pic=https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">2024 Jialai, Copy Right Reserved.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%B7%B7%E9%9F%B3/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>混音<span class="tagsPageCount">2</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/08/11/Cubase101(%E5%A3%B9)/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/Cubase101.png?raw=true" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Cubase101（壹）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/08/11/Cubase101(%E5%A3%B9)/" title="Cubase101（壹）"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/Cubase101.png?raw=true" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-08-11</div><div class="title">Cubase101（壹）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> Comment</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://emotion.acs.pw/emotion/blob/blobartist.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);"><b style="color:#fff">好奇的小屁孩会一直快乐下去</b>，<b style="color:#fff"></b></div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);"><b style="color:#fff"></b><b style="color:#fff"></b><b style="color:#fff">你是不是也这么想！</b></div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Jialai</h1><div class="author-info__desc">一个小屁孩的玩具箱</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/JialaiZhang" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/175610286" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cubase%E4%B8%ADEffect-Track%E7%9A%84%E5%90%84%E7%A7%8DFX"><span class="toc-number">1.</span> <span class="toc-text">Cubase中Effect Track的各种FX</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B7%E5%93%8D%EF%BC%88Reverb%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">混响（Reverb）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%93%8D%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">混响是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B7%E5%93%8D%E6%98%AF%E5%A6%82%E4%BD%95%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%9F"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">混响是如何产生的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%9B%B4%E5%A5%BD%E5%9C%B0%E7%90%86%E8%A7%A3%E5%92%8C%E4%BD%BF%E7%94%A8%E6%B7%B7%E5%93%8D%EF%BC%9F"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">如何更好地理解和使用混响？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.2.</span> <span class="toc-text">参数详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%8F%82%E6%95%B0%EF%BC%88GLOBAL%EF%BC%89"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">全局参数（GLOBAL）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E5%88%B6%EF%BC%88MODULATION%EF%BC%89"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">调制（MODULATION）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CONTROL%E9%83%A8%E5%88%86"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">CONTROL部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TAIL%E9%83%A8%E5%88%86"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">TAIL部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">其他相关的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%EF%BC%88OUTPUT%EF%BC%89"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">输出（OUTPUT）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%87%E8%A1%A1%E5%99%A8-%EF%BC%88Equalizer-EQ%EF%BC%89%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">均衡器 （Equalizer EQ）：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EQ-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">EQ 的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%B0%83%E6%95%B4-EQ"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">如何调整 EQ</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E7%9A%84%E4%B8%93%E4%B8%9A%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">标准的专业步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%AB%E9%A2%91%EF%BC%9A"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">扫频：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%EF%BC%88Compressor%EF%BC%89%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">压缩（Compressor）：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Compressor-%E5%8F%82%E6%95%B0"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">Compressor 参数</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/" title="混音软件中的各种FX（Cubase）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="混音软件中的各种FX（Cubase）"/></a><div class="content"><a class="title" href="/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/" title="混音软件中的各种FX（Cubase）">混音软件中的各种FX（Cubase）</a><time datetime="2024-08-12T00:00:00.000Z" title="Created 2024-08-12 00:00:00">2024-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/11/Cubase101(%E5%A3%B9)/" title="Cubase101（壹）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/Cubase101.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cubase101（壹）"/></a><div class="content"><a class="title" href="/2024/08/11/Cubase101(%E5%A3%B9)/" title="Cubase101（壹）">Cubase101（壹）</a><time datetime="2024-08-11T00:00:00.000Z" title="Created 2024-08-11 00:00:00">2024-08-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/09/%E4%BD%8E%E6%88%90%E6%9C%AC%E9%AB%98%E6%95%88%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/" title="Hexo+Github低成本高效搭建个人博客网站"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/Hexo_Blog1.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github低成本高效搭建个人博客网站"/></a><div class="content"><a class="title" href="/2024/08/09/%E4%BD%8E%E6%88%90%E6%9C%AC%E9%AB%98%E6%95%88%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/" title="Hexo+Github低成本高效搭建个人博客网站">Hexo+Github低成本高效搭建个人博客网站</a><time datetime="2024-08-09T00:00:00.000Z" title="Created 2024-08-09 00:00:00">2024-08-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/06/WineAus%E5%87%BA%E5%8F%A3%E4%B8%AD%E5%9B%BD%E6%8C%87%E5%8D%97/" title="跟着WineAUS搞出口（南澳红酒篇）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/ExportWineAU.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="跟着WineAUS搞出口（南澳红酒篇）"/></a><div class="content"><a class="title" href="/2024/08/06/WineAus%E5%87%BA%E5%8F%A3%E4%B8%AD%E5%9B%BD%E6%8C%87%E5%8D%97/" title="跟着WineAUS搞出口（南澳红酒篇）">跟着WineAUS搞出口（南澳红酒篇）</a><time datetime="2024-08-06T00:00:00.000Z" title="Created 2024-08-06 00:00:00">2024-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/05/%E7%BA%A2%E9%85%92%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD/" title="10分钟变成品酒大师（南澳红酒篇）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/wineKnowledge.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="10分钟变成品酒大师（南澳红酒篇）"/></a><div class="content"><a class="title" href="/2024/08/05/%E7%BA%A2%E9%85%92%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD/" title="10分钟变成品酒大师（南澳红酒篇）">10分钟变成品酒大师（南澳红酒篇）</a><time datetime="2024-08-05T00:00:00.000Z" title="Created 2024-08-05 00:00:00">2024-08-05</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/Jialaiz" title="Jialai" target="_blank">Jialai</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/JialaiZhang.github.io" title="Github">Github</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">6</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">1</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.linkedin.com/in/jialaiz/" title="Linkedin"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="Linkedin"/><span class="back-menu-item-text">Linkedin</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/personal-website-images" title="Github图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="Github图床"/><span class="back-menu-item-text">Github图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 万物生长</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 火花</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=2807259311&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 番剧</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinemas/"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> 影视</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 摄影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 上铺下铺</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/IT/" style="font-size: 0.88rem;">IT<sup>1</sup></a><a href="/tags/%E6%B7%B7%E9%9F%B3/" style="font-size: 0.88rem;">混音<sup>2</sup></a><a href="/tags/%E7%BA%A2%E9%85%92/" style="font-size: 0.88rem;">红酒<sup>1</sup></a><a href="/tags/%E7%BA%A2%E9%85%92%E8%BF%9B%E5%87%BA%E5%8F%A3/" style="font-size: 0.88rem;">红酒进出口<sup>2</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("08/07/2024 16:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Jialai 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://jialai-twikoo.hf.space',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://jialai-twikoo.hf.space',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[image]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[link]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[code]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://jialai-twikoo.hf.space',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "Unable to get the data, please make sure the settings are correct."
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += 'No Comment'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
