@@ -1,0 +1,1374 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Stable Diffusion101(壹) | Jialai Lab</title><meta name="keywords" content="AI，图生网络，SD3，深度学习"><meta name="author" content="Jialai"><meta name="copyright" content="Jialai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Stable Diffusion101(壹)"><meta name="application-name" content="Stable Diffusion101(壹)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Stable Diffusion101(壹)"><meta property="og:url" content="https://jialaizhang.github.io/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/index.html"><meta property="og:site_name" content="Jialai Lab"><meta property="og:description" content="Stable Diffusion底层简介和基本Workflow简析。"><meta property="og:locale" content="en"><meta property="og:image" content="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true"><meta property="article:author" content="Jialai"><meta property="article:tag" content="Jialai, 博客, 旅行, 墨尔本, 赤峰"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true"><meta name="description" content="Stable Diffusion底层简介和基本Workflow简析。"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://jialaizhang.github.io/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"少侠请留步！","backTitle":"少侠来的好！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://jialai-twikoo.hf.space',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: undefined,
+  authorStatus: {"skills":["🔍 学者","🤝 广结善缘","🏃 行者","🤖️ Tech Guy","🎵 半路出道音乐人","💢 心如止水 保留愤怒"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: Jialai","link":"Link: ","source":"Source: Jialai Lab","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Jialai Lab',
+  title: 'Stable Diffusion101(壹)',
+  postAI: '',
+  pageFillDescription: 'Stable Diffusion101(壹), Stable Diffusion原理, 基本原理, 整体架构, 文本编码器（Text Encoder）部分, 池化（Pooling）：, Attention机制和Attention Pooling：, 图像生成器（Image Generator）, PS 关于Transformer：, Transformers和RNN：, ComfyUI, 基础右键Menu：, Add Node右键Menu：, 基本文生图Workflow, Workflow 逻辑, 每一项的操作和作用壹原理基本原理的核心原理是扩散模型扩散模型的工作过程可以类比为将一张清晰的图像逐步添加噪声使其变得模糊再学习如何从模糊的图像中逐步去除噪声恢复出原始图像正向扩散过程在正向扩散过程中模型会逐步向原始图像添加高斯噪声经过步后图像将变成完全的噪声反向扩散过程在反向扩散过程中模型学习从噪声中逐步去除噪声恢复出原始图像训练过程通过大量图像数据模型学习如何在反向扩散过程中预测每一步需要去除的噪声从而实现从噪声生成图像的能力整体架构这张图展示了模型的主要组成部分以及它们之间的数据流动关系模型主要分为两大块文本编码器负责将输入的文本提示转换为机器可以理解的向量表示图像生成器基于文本向量和其他条件如时间步等逐步从噪声中生成图像文本编码器部分这是两个模型用于将文本提示编码成向量模型通过对比学习将图像和文本映射到同一空间使得语义相似的图像和文本具有相近的向量表示是开发的一种多模态模型旨在学习图像和文本之间的关联它通过对比学习的方式将图像和文本映射到同一个语义空间使得语义相似的图像和文本具有相近的向量表示的核心思想是对比学习简单来说对比学习就是让模型学会区分哪些样本对是相似的哪些样本对是不相似的在中相似样本对是一张图像和它的文本描述不相似样本对则是一张图像和其他不相关的文本描述这是一个大型的文本生成模型可能用于进一步处理或增强文本提示的表示这是文本编码器的最终输出是一个包含文本提示语义信息的向量其中和代表在自然语言处理中是指文本的基本单位可以是一个词一个子词或一个字符这是指模型在处理文本提示时最多可以接受个额外的这里的个会被掉限制原因这个限制主要来自于模型训练时使用的文本编码器其最大输入长度为个超出限制的影响如果超过了这个限制多余的部分将被忽略可能导致生成的图像不符合预期注和会一起包含在个中在计算机视觉和深度学习中通常指的是图像或特征图的通道数每个通道可以看作是一个二维矩阵其中每个元素代表图像在该通道上的某个位置的数值对于彩色图像通常有个通道分别代表红绿和蓝三种颜色每个像素点的颜色由这三个通道的数值组合而成对于灰度图像只有一个通道每个像素点的数值代表其亮度对于深度学习模型中的特征图通道数可以是任意的每个通道代表模型在不同层次上提取到的特征可以将通道数理解为图像或特征图的深度或厚度比如彩色图像的个通道分别表示图像在红绿蓝三个颜色维度上的信息深度学习模型中的特征图的多个通道分别表示模型在不同抽象层次上提取到的特征例如边缘纹理形状等在中指的是模型在生成图像的过程中中间特征图的通道数这意味着模型在每个位置上提取了个不同的特征用于表示图像的各种信息中的数据类型通常是浮点数表示图像或特征在该通道上的强度或响应对于图像浮点数通常在到之间表示像素点的颜色或亮度对于深度学习模型中的特征图浮点数的取值范围可以是任意的取决于模型的具体实现权衡更多的通道数也会增加模型的计算复杂度和内存占用池化是深度学习中常用的一种降维技术它通过对输入数据进行某种聚合操作例如取最大值平均值等将输入数据的大小减小同时保留重要的特征信息将文本编码器生成的特征图进行降维得到一个固定长度的向量表示具体来说操作可以降低维度文本编码器生成的特征图通常具有较高的维度不利于后续计算操作可以将特征图的维度降低提高计算效率提取全局特征操作可以将特征图中的局部特征聚合为全局特征从而更好地捕捉文本提示的整体语义增强鲁棒性操作可以减少特征图对微小变化的敏感性提高模型的鲁棒性在文本编码器中常用的操作包括取特征图中每个区域的最大值作为输出取特征图中每个区域的平均值作为输出通过注意力机制对特征图进行加权平均得到输出以为例假设我们有一个的特征图如下所示我们对这个特征图应用一个的步长为这意味着我们将特征图分成的不重叠区域然后从每个区域中取最大值作为输出具体操作如下划分区域将特征图划分成个的区域区域区域区域区域取最大值从每个区域中取最大值区域的最大值是区域的最大值是区域的最大值是区域的最大值是输出将这些最大值组合成一个的输出特征图可以看到操作将原始特征图的大小减小了一半同时保留了每个区域中最显著的特征最大值这种降维和特征提取的能力使得操作在深度学习中广泛应用其他类型的除了还有其他类型的操作例如取每个区域的平均值作为输出将整个特征图聚合为一个值例如全局最大池化或全局平均池化机制和机制注意力机制是一种模拟人类注意力分配的机制它可以让模型在处理信息时重点关注那些与当前任务更相关的信息而忽略那些不重要的信息在深度学习中注意力机制通常通过计算一个权重向量来实现这个权重向量表示每个输入元素的重要程度然后模型会根据这个权重向量对输入元素进行加权平均得到最终的输出假设我们有一个文本序列我喜欢吃苹果和香蕉经过文本编码器后得到了每个词的向量表示我喜欢吃苹果和香蕉现在我们想要通过得到整个句子的向量表示首先我们需要计算每个词的权重假设我们通过某种方式得到了以下权重向量我喜欢吃苹果和香蕉然后我们对每个词的向量表示乘以其对应的权重再将结果相加得到最终的句子向量表示句子向量在的文本编码器中用于将文本编码器生成的特征图每个的向量表示聚合为一个固定长度的向量表示整个文本提示的语义图像生成器这是输入到图像生成器的初始噪声图像其维度与最终生成的图像的潜在表示相同将噪声图像分割成小块并在生成过程的最后将这些小块重新组合成完整的图像表示当前生成过程所处的时间步从大到小意味着图像从噪声逐渐变得清晰将时间步信息编码成向量提供给模型这是图像生成器的核心部分由多个块组成每个块内部包含自注意力机制用于建模图像不同区域之间的关系多层感知机用于特征提取和转换将文本向量时间步等条件信息融入到模型中指导图像生成层归一化和线性变换用于稳定训练和调整特征维度关于模型主要由编码器和解码器两部分组成编码器负责处理输入序列生成一组特征表示它由多个相同的层堆叠而成每个层包含两个子层多头自注意力层允许模型在处理序列中的每个元素时关注序列中的所有其他元素从而捕获它们之间的依赖关系前馈神经网络层对每个位置的特征进行独立的非线性变换解码器负责根据编码器生成的特征表示和先前生成的输出逐个生成目标序列它也由多个相同的层堆叠而成每个层除了包含编码器中的两个子层外还增加了一个子层编码器解码器注意力层允许解码器关注输入序列中的相关部分的特点并行计算抛弃了传统的循环神经网络结构采用自注意力机制使得模型可以在处理序列时进行并行计算大大提高了训练和推理速度全局信息捕捉自注意力机制允许模型在处理序列中的每个元素时关注序列中的所有其他元素从而能够捕捉全局信息尤其擅长处理长距离依赖关系可解释性注意力机制的可视化可以帮助我们理解模型在处理序列时关注哪些部分提高了模型的可解释性和循环神经网络是一种专门用于处理序列数据的神经网络它的核心思想是在处理序列中的每个元素时都会考虑前面元素的信息这种信息传递是通过一个隐藏状态来实现的输入层接收序列中的每个元素作为输入隐藏层对输入进行处理并生成一个隐藏状态这个隐藏状态会传递给下一个时间步用于处理下一个元素输出层根据隐藏状态生成输出中的自注意力机制允许模型同时处理序列中的所有元素而不需要等待前一个元素的计算结果这种并行计算能力使得在处理长序列时具有更高的效率基础右键这个选项用于向工作区添加新的节点点击后会弹出一个节点选择窗口你可以从中选择需要的节点类型如加载模型输入提示词设置采样器等这个选项用于创建一个空的节点组节点组可以将多个节点打包在一起方便管理和复用组的主要作用是组织和管理节点将多个相关的节点打包在一起使其更易于管理复用和共享你可以将看作是一个容器它可以包含任意数量和类型的节点并且可以嵌套其他注意只在当前的中生效例如假设你正在构建一个文生图流程其中涉及到加载模型输入提示词设置采样器生成图像等多个节点你可以将这些节点打包成一个命名为文生图流程这样你就可以将这个作为一个整体来移动复制粘贴甚至保存为模板方便在其他工作流程中复用选择一些节点并将这些节点打包成一个新的节点组这个选项将当前选中的节点转换为一个节点组节点节点组节点可以像普通节点一样连接到其他节点但它内部包含了一个完整的工作流程与的区别工作流程中的代表一个完整的图像生成或处理过程它包含了从加载模型到保存图像的所有必要节点一个可以包含多个组是中的一个组成部分用于组织和管理节点本身并不代表一个完整的工作流程它需要与其他节点或连接才能发挥作用与的区别组是一个动态的容器你可以随时向其中添加删除或修改节点的主要作用是在当前中组织和管理节点模板是一个静态的节点集合它保存了特定节点的配置和连接方式的主要作用是在不同的中复用节点配置提高工作效率如果你选择了一些节点这个选项会将这些节点保存为一个模板模板可以方便地复用加快工作流程的搭建这个选项打开节点模板库你可以在这里浏览加载和管理已保存的节点模板右键其中有注释工具基本几何绘制工具整理排线工具和的等提供各种采样器节点用于从模型中生成图像设置采样步数等参数控制图像生成过程提供各种加载器节点用于加载模型图像文本等数据提供各种条件节点用于控制图像生成过程提供各种潜在空间操作节点用于在模型的潜在空间中处理图像比如图像编码和解码使用和节点将图像在像素空间和潜在空间之间转换等与图像相关的操作加载预览也提供各种图像处理节点用于在像素空间中处理图像修改大小翻转等等提供各种掩码操作节点用于创建编辑和应用掩码包含一些用于测试和调试的节点通常在开发或实验新功能时使用包含一些高级节点用于实现更复杂的功能包含一些用于修改模型行为的节点包含一些用于处理音频数据的节点包含一些由社区开发的节点包含一些用于图像后处理的节点包含一些用于的预处理节点包含一些由开发的节点包含一些用于提高效率的节点包含一些用于与外部交互的节点以上为简要概括详情请见另一篇关于右键菜单的详解基本文生图逻辑这个的核心逻辑是加载模型使用加载的基础模型加载使用加载一个或多个模型用于对基础模型进行微调实现风格定制或其他效果文本编码使用节点将正向提示词和负向提示词编码成向量表示图像编码使用将随机噪声或初始图像编码到潜在空间采样使用在潜在空间中进行迭代采样逐步从噪声中生成图像采样过程中会受到文本编码和的影响图像解码使用将潜在空间中的图像解码回像素空间输出图像使用节点显示或保存生成的图像每一项的操作和作用加载的基础模型提供了生成图像的核心能力如何训练大模型详细步骤数据准备数据集的训练通常使用大规模的图像文本对数据集如或这些数据集包含数百万甚至数十亿的图像和文本描述数据预处理对图像进行预处理如调整大小裁剪归一化等对文本进行分词编码等处理模型架构变分自编码器用于将图像编码为低维度的潜在表示并在生成过程中将潜在表示解码回图像用于在潜在空间中进行图像生成是一种具有形结构的卷积神经网络它通过多次下采样和上采样操作逐步提取和融合图像的特征是一种特殊类型的卷积神经网络因其结构形似字母而得名它最初被设计用于生物医学图像分割任务但由于其在处理图像细节和全局上下文信息方面的优势现在被广泛应用于各种图像生成和处理任务中包括在中的作用在中负责在潜在空间中对图像进行去噪和生成具体来说它接受一个带有噪声的潜在图像作为输入并尝试预测出需要从图像中去除的噪声通过迭代地应用我们可以从一个完全是噪声的图像开始逐步去除噪声最终生成一张清晰的图像的实现方法的结构主要由以下几个部分组成下采样路径图的左侧部分从输入图像开始到中间最窄的部分特征提取通过卷积层从输入图像中提取不同层次的特征如边缘纹理形状等降低分辨率通过池化层通常是最大池化降低特征图的空间分辨率减少计算量同时扩大感受野让模型能够捕捉到更大范围的上下文信息瓶颈层图的中间最窄的部分连接下采样路径和上采样路径进一步提取图像的全局特征上采样路径图的右侧部分从瓶颈层开始到输出图像结束恢复分辨率通过转置卷积或上采样卷积逐步提高特征图的空间分辨率恢复图像的细节精细化特征结合来自下采样路径的跳跃连接在上采样过程中逐步完善图像的细节和语义信息跳跃连接将下采样路径中的特征图直接连接到上采样路径中对应层的输入保留细节将下采样路径中的高分辨率特征图直接传递到上采样路径中帮助模型在恢复分辨率的过程中保留图像的细节信息弥补下采样过程中的信息丢失提高模型的生成质量实例图像去噪让我们通过一个简单的图像去噪任务来理解的工作原理假设我们有一张带有噪声的图像我们希望使用来去除噪声输入将带有噪声的图像输入到中下采样的下采样路径会逐步提取图像的特征并降低特征图的空间分辨率瓶颈在瓶颈层进一步提取图像的全局特征上采样的上采样路径会逐步提高特征图的空间分辨率并利用跳跃连接从下采样路径中获取细节信息输出的输出是一张去噪后的图像其中噪声被尽可能地去除文本编码器用于将文本提示编码为向量表示为提供条件信息损失函数的损失函数主要由两部分组成重构损失衡量模型生成的图像与真实图像之间的差异通常使用均方误差或其他相似度度量条件损失衡量模型对文本提示的理解程度通常使用对比学习损失或其他文本图像匹配损失优化器通常使用优化器或其变种进行训练优化器是一种自适应学习率优化算法它可以根据梯度的大小自动调整学习率从而加速模型收敛训练迭代训练在大量图像文本对数据集上进行迭代训练每次迭代包括前向传播损失计算反向传播和参数更新等步骤扩散过程的训练基于扩散模型它通过逐步向图像中添加噪声然后学习如何从噪声中恢复出原始图像训练技巧为了提高模型的性能和稳定性可能会采用一些训练技巧如梯度裁剪学习率调度权重衰减等上的训练主要有以下几种原理是一种微调技术旨在让模型学习特定概念例如一个物体一个人一种风格等的表示它通过在少量目标图像上进行训练同时保持模型在其他概念上的泛化能力优点只需要少量目标图像通常张训练速度相对较快可以生成高质量忠实于目标概念的图像缺点需要仔细选择目标图像和提示词可能存在过拟合问题导致模型在生成其他概念时表现不佳原理是一种在模型的词嵌入空间中学习新概念表示的方法它通过训练一个特殊的词嵌入向量使得模型能够理解和生成与该概念相关的图像优点只需要少量目标图像训练速度非常快生成的图像具有高度可控性缺点学习到的概念表示可能不够稳定生成的图像质量可能不如原理是一种通过训练一个小型的神经网络来修改模型权重的方法这个小型神经网络将文本提示或其他条件信息作为输入输出对权重的调整从而实现对图像生成过程的控制优点可以实现对图像的精细控制训练速度相对较快模型文件大小较小缺点需要一定的调参经验生成的图像质量可能不如原理微调是指在预训练的模型上使用新的数据集进行进一步训练以适应特定任务或风格优点可以充分利用预训练模型的知识训练速度相对较快可以生成高质量的图像缺点需要一定数量的训练数据可能存在过拟合问题加载模型对基础模型进行微调实现风格定制或其他效果是什么如何制作是一种在神经网络中进行高效微调的技术它通过在模型的特定层通常是块中的注意力层上添加低秩矩阵来实现对模型的微调这些低秩矩阵的参数量远小于原始模型的参数量因此模型的大小通常都很小低秩矩阵矩阵的秩是指其线性无关的行向量或列向量的最大数目可以理解为矩阵中的每个行列向量都无法用其他行或列向量表示通俗地说秩代表了矩阵中真正包含的信息量或有效维度秩越高的矩阵包含的信息越丰富表达能力越强秩为满秩的矩阵其行向量和列向量都是线性无关的如果一个矩阵的秩远小于其行数或列数那么它就是一个低秩矩阵低秩矩阵的信息冗余度较高可以用少量的基向量来近似表示这也就代表了低秩矩阵的存储和计算成本较低因为需要存储的有效数据量非常小低秩矩阵的核心思想是原始矩阵中虽然有很多行或列但它们之间可能存在很强的相关性这些相关性意味着原始矩阵的信息冗余度较高可以用少量的基向量来近似表示就是利用了这个特点它在原始模型的权重矩阵上添加两个低秩矩阵通过两个低维向量的外积来构造一个完整的矩阵从而用少量的参数来近似表示原始矩阵的变化这两个低秩矩阵的参数量远小于原始权重矩阵但却能捕捉到原始权重矩阵中的主要变化方向改变的是原始模型在特定任务或风格上的表现通过调整低秩矩阵的参数可以引导模型生成特定风格的图像调整模型对某些概念的理解或者实现其他特定的效果题外话里的题外话举个例子假设我们有一个的原始矩阵现在我们想要通过一个低秩矩阵来对进行微调为了简单起见我们假设低秩矩阵的秩为这意味着我们可以将低秩矩阵表示为两个向量的外积其中是一个的列向量是一个的列向量是的转置是一个的行向量让我们假设那么低秩矩阵为这里在做的是用一组基向量和近似表示奇异值分解来找到的一组基向量将分解为三个矩阵的乘积再举个例子中的例子假设我们有一个的矩阵我们可以通过奇异值分解来找到的一组基向量将分解为三个矩阵的乘积其中是一个的正交矩阵它的列向量是的左奇异向量是一个的对角矩阵其对角线上的元素是的奇异值按照从大到小的顺序排列是一个的正交矩阵它的列向量是的右奇异向量假设的奇异值分解结果如下我们可以看到中的第三个奇异值为这意味着的秩为因此我们可以只保留前两个奇异值和对应的左右奇异向量得到一个秩为的矩阵来近似表示计算结果为我们可以看到与完全相同这是因为本身的秩就是所以我们可以用秩为的矩阵完美地表示它如果的秩大于那么就会是一个近似表示与会有一些误差但通过保留更多的奇异值和对应的奇异向量我们可以提高近似的精度回到原来的例子其中现在我们将低秩矩阵加到原始矩阵上这就是产生作用的主要部分得到一个新的矩阵回到具体来说的应用方法如下选择目标层在模型中通常选择块中的注意力层作为的目标层添加低秩矩阵在目标层的权重矩阵上添加两个低秩矩阵分别用于调整查询和值的计算训练使用少量目标图像和文本提示对的参数进行训练训练过程中只更新的参数而保持原始模型的参数不变推理在推理时将的参数与原始模型的参数合并得到微调后的模型将文本提示词编码成向量表示为采样过程提供指导的核心是一个模型它将输入的文本提示词序列转换为一组向量表示这些向量表示捕捉了文本的语义信息用于指导图像生成过程具体实现过程如下分词将文本提示词分割成一系列词或子词举个例子假设我们有以下的文本提示词一只毛茸茸的橘猫在阳光下懒洋洋地打盹在中分词器会将这个提示词分割成一系列具体的分词结果取决于所使用的分词器基于词的分词器如果使用基于词的分词器可能会得到以下结果一只毛茸茸的橘猫在阳光下懒洋洋地打盹这种分词方式简单直观但对于未登录词或罕见词的处理能力较弱基于子词的分词器为了更好地处理未登录词和罕见词通常使用基于子词的分词器例如或这些分词器会将词进一步分解为更小的子词单元如果使用基于子词的分词器可能会得到以下结果一只毛茸茸的橘猫在阳光下懒洋洋地打盹这种分词方式可以更有效地处理未登录词和罕见词但可能会导致一些词被过度分割通常使用基于子词的分词器如或嵌入将每个转换为一个高维向量表示其语义把刚刚分出的每一个都用一个固定维度的向量进行表示假设词嵌入模型将每个嵌入到一个维的向量空间中那么嵌入后的结果可能如下所示这里只是示意性的表示实际的嵌入向量会更加复杂一维向量只维向量毛维向量中的使用预训练的词嵌入模型来实现嵌入这个词嵌入模型已经在大量的文本数据上进行了训练学习到了每个词或子词的语义表示遇到未登录词的处理当遇到一个之前嵌入字典中没有的词即未登录词或时通常会采用以下策略之一大多数词嵌入模型都会预先定义一个特殊的称为用于表示未登录词当遇到未登录词时会将其替换为然后使用对应的嵌入向量这种方法简单直接但可能会导致信息的丢失因为无法准确表示未登录词的语义子词分解如果使用基于子词的分词器如或未登录词可能会被分解成多个子词如果这些子词都在嵌入字典中那么可以将它们对应的嵌入向量组合起来得到未登录词的近似表示这种方法可以更好地处理未登录词但仍然可能存在一些误差动态嵌入一些更先进的模型可能会采用动态嵌入技术根据上下文信息动态生成未登录词的嵌入向量这种方法可以更准确地表示未登录词的语义但计算成本较高编码将嵌入向量序列输入到模型中通过多层自注意力机制和前馈神经网络提取文本的上下文信息和语义关系编码过程多头自注意力机制对于每个词的嵌入向量计算它与其他所有词的嵌入向量的相似度注意力分数注意力分数如何计算在中注意力分数是通过计算向量和向量之间的相似度得到的具体来说对于每个词的嵌入向量我们会将其分别线性变换为向量向量和向量然后计算向量和所有向量之间的点积再除以一个缩放因子通常是向量的维度的平方根最后通过函数将结果归一化为概率分布得到注意力分数接下来一步步说首先有个权重矩阵这三个权重矩阵是通过模型训练学习得到的在模型的训练过程中这些权重矩阵最初是被随机初始化的然后通过在大量文本数据上进行训练模型会根据训练目标例如预测下一个词机器翻译等不断调整这些权重矩阵的值使得模型能够更好地捕捉文本中的语义信息和上下文关系在的自注意力机制中嵌入向量会通过这个权重矩阵分别生成向量向量和向量具体来说对于每个输入的嵌入向量我们有三个可学习的权重矩阵和通过矩阵乘法将嵌入向量分别与这三个权重矩阵相乘得到对应的向量向量和向量三个向量的含义向量代表查询用于和其他元素的向量进行比较以确定关注的程度可以理解为我想要关注什么向量代表键用于被其他元素的向量查询以确定自己被关注的程度可以理解为我有什么信息可以提供向量代表值表示元素的实际信息在计算注意力权重后向量会被加权平均得到最终的输出可以理解为我实际包含的信息举例说明假设我们有一个句子经过嵌入后得到每个单词的嵌入向量现在我们想要计算单词对其他单词的注意力首先我们需要将的嵌入向量通过线性变换转换为和向量假设变换后的结果如下接下来我们将的向量与其他所有单词的向量进行比较通常是计算点积得到注意力分数举个例子中的例子假设我们有以下三个词的嵌入向量词词词经过线性变换后得到它们的和向量词词词现在我们来计算词对其他词的注意力分数词对词点积缩放因子注意力分数词对词点积缩放因子注意力分数词对词点积缩放因子注意力分数通过归一化后我们会得到词对三个词的注意力分数它们相加等于缩放因子的确定在的注意力机制中缩放因子通常被设置为其中是向量的维度这么做的原因当较大时和向量之间的点积可能会变得很大这会导致函数的输入值很大使得函数的梯度变得非常小从而导致训练困难通过除以可以将点积的值缩放到一个更合理的范围避免梯度消失问题计算注意力分数的原理是相似度度量点积可以衡量两个向量之间的相似度点积越大两个向量越相似缩放除以缩放因子是为了防止点积过大导致函数的梯度消失归一化函数将注意力分数归一化为概率分布使得我们可以将其解释为词对其他词的关注程度然后回到刚刚的例子根据注意力分数对所有单词的向量进行加权平均得到的新的向量表示这个新的向量表示融合了与其他单词之间的关系信息根据注意力分数对其他词的嵌入向量进行加权平均得到一个新的向量表示这个新的向量表示融合了上下文信息多头注意力机制会并行地进行多次这样的计算每个头关注不同的上下文信息操作操作是一种将向量归一化为概率分布的操作它将向量中的每个元素转换为一个介于和之间的概率值并且所有概率值之和等于具体计算公式如下其中是输入向量中的第个元素是的指数函数值是所有输入元素的指数函数值之和举例说明假设我们有一个向量对其应用操作计算指数函数值计算指数函数值之和计算值可以看到操作将原始向量转换为了一个概率分布所有概率值之和等于的优势函数的一个关键特性是它能将任意实数向量转换为一个概率分布这意味着输出的每个元素都在到之间并且所有元素之和等于这种概率分布的特性使得我们可以将注意力分数解释为模型对不同元素的关注程度函数是一个非线性函数它引入了非线性变换使得模型能够学习更复杂的模式在注意力机制中这种非线性变换可以帮助模型更好地捕捉元素之间的关系从而实现更准确的注意力分配函数的梯度计算相对简单并且在反向传播过程中梯度不会消失得到注意力分数后使用这些分数对其他词的向量进行加权平均具体来说对于每个词我们都有一个注意力分数向量表示它对其他词的关注程度将注意力分数向量与对应的向量矩阵相乘得到一个加权后的向量矩阵对加权后的向量矩阵按行求和得到每个词的新的向量表示举例说明继续使用之前的例子假设我们已经计算出了对其他单词的注意力分数同时我们有所有单词的向量矩阵现在我们可以计算的新的向量表示得到的向量表示词在句子中的重要性和与其他词的关系注意力分数越高其他词对该词的影响就越大前馈神经网络前馈神经网络是由多个全连接层组成的网络它对每个位置的特征进行独立的非线性变换重复编码器通常由多层堆叠而成每一层都会重复上述的多头自注意力和前馈神经网络操作从而逐步提取更深层次的上下文信息和语义关系经过编码后我们会得到一个新的向量序列每个向量都融合了其上下文的信息从而更好地表示了词在句子中的含义比如原始嵌入向量中猫的向量表示可能只是表示了猫这个概念经过编码后猫的向量表示可能会融合上下文信息例如橘猫懒洋洋地打盹等从而更准确地表示这只猫的特点池化对输出的特征进行池化操作得到一个固定长度的向量表示作为整个文本提示的语义嵌入假设经过编码后我们得到了每个单词的新的向量表示简化了现在我们需要将这些词的向量表示聚合为一个向量表示整个句子的语义池化操作就是实现这一目标的方法一种常见的池化操作是平均池化即对所有词的向量表示取平均值句子向量句子向量池化的作用降维对于较长的文本序列可能会很长不利于后续计算池化操作可以将不定长序列转换为一个固定长度的向量从而降低维度提高计算效率的图像生成器通常需要一个固定长度的向量作为输入获取全局表示编码器输出的每个向量都包含了该词的上下文信息但它们仍然是局部的表示池化操作可以将这些局部表示聚合为一个全局表示将图像编码到潜在空间降低维度提高计算效率其核心是通过神经网络学习一个复杂的非线性函数将输入图像映射到潜在空间中的一个概率分布无法直接从向量中看出它代表什么图片需要通过将潜在向量解码回图像才能看到它代表的视觉内容潜在空间与模型本身密切相关潜在空间的来源在的训练过程中被训练来学习如何将图像编码到潜在空间并从潜在空间解码回图像这个学习过程使得能够捕捉到图像中的重要特征并将这些特征表示为低维向量每个的都包含了一个训练好的因此不同的具有不同的也就对应着不同的潜在空间不同之间的潜在空间不通用在一个的潜在空间中表示的图像可能无法在另一个的潜在空间中被准确解码这是因为不同的在训练时使用了不同的数据集和超参数导致它们学习到的图像特征表示方式有所差异关于图片的维度例如一张高分辨率像素的彩色图片它有个维度这里的维度具体指的是图片中包含的数值元素的数量在这里一个维度代表一个像素点上的一个颜色通道的数值例如图片左上角第一个像素点的红色通道的值可能为绿色通道的值可能为蓝色通道的值可能为这些数值共同决定了这个像素点的颜色与中词向量表示的异同特点潜在空间中的图像表示中的词向量表示表示对象图像词或子词维度通常较低例如通常较高例如或获取方式通过编码得到通过预训练的词嵌入模型或训练得到解释性较弱需要解码后才能理解其含义较强可以直接通过向量之间的距离或相似度来理解语义关系概率分布是否在潜在空间中进行迭代采样生成图像将潜在空间中的图像解码回像素空间是变分自编码器的解码器部分通常使用转置卷积或上采样卷积的方式来实现上采样操作转置卷积可以看作是卷积的逆操作它可以将特征图的空间分辨率扩大卷积卷积层和以图像模糊为例理解卷积假设我们有一张的灰度图像每个像素的值代表其亮度范围为图像我们想要对这张图像进行模糊处理一种简单的方法是使用一个的平均滤波器卷积核滤波器这个滤波器会对图像的每个区域进行平均操作从而实现模糊效果卷积操作步骤将滤波器放置在图像的左上角使滤波器中心与图像的第一个像素对齐计算卷积结果将滤波器与图像对应区域的元素相乘然后求和对应区域元素乘积求和将计算结果填入输出特征图的第一个位置滑动滤波器将滤波器向右滑动一个步长通常为重复步骤直到滤波器覆盖完图像的第一行换行将滤波器移动到下一行的开头重复步骤和直到滤波器覆盖完整个图像输出最终我们会得到一个的输出特征图它代表了模糊后的图像当这个滤波器在图像上滑动时它会对每个区域内的像素值进行平均这个平均操作的效果是降低局部对比度如果一个像素的值比周围像素的值大很多例如一个亮点平均操作会降低它的值使其更接近周围像素的值如果一个像素的值比周围像素的值小很多例如一个暗点平均操作会增加它的值使其更接近周围像素的值平滑边缘在图像的边缘处像素值通常会有较大的变化平均操作会将边缘像素的值与周围像素的值进行平均从而使边缘变得不那么尖锐看起来更模糊输出特征图更多应用例如边缘检测垂直边缘检测滤波器在遇到垂直边缘时卷积结果会很大而在平坦区域时卷积结果会很小图像示例假设我们有下面这张简单的灰度图像为了便于理解我们使用数字代表像素值数值越大表示越亮可以看到这张图像中间有一条明显的垂直边缘左边较暗像素值为右边较亮像素值为垂直边缘检测滤波器我们使用如下的垂直边缘检测滤波器卷积操作现在让我们将滤波器在图像上滑动看看在不同位置的卷积结果平坦区域当滤波器覆盖在图像的平坦区域时例如左上角的区域卷积计算结果为可以看到卷积结果为这是因为平坦区域的像素值变化很小滤波器左右两列的乘积结果相互抵消了垂直边缘当滤波器覆盖到图像中间的垂直边缘时例如中间列的区域卷积计算结果为卷积操作在图像处理中具有以下几个重要作用特征提取卷积层通过滤波器学习提取图像中的各种特征如边缘纹理形状等这些特征对于图像分类目标检测图像分割等任务非常重要局部连接卷积操作只考虑滤波器大小的局部区域而不是整个图像这种局部连接性减少了参数数量提高了计算效率权值共享同一个滤波器在图像的不同位置上共享权重这意味着模型学习到的特征可以在图像的不同位置上重复使用进一步减少了参数数量权值共享的含义在卷积神经网络中每个卷积层都包含多个滤波器也称为卷积核每个滤波器在图像上滑动时其权重即滤波器中的数值保持不变这意味着同一个滤波器在图像的不同位置上执行卷积操作时使用的都是同一组权重权值共享减少了参数数量提高了计算效率也使得卷积神经网络具有平移不变性提高了模型的泛化能力关于卷积的另一个问题是维度的变化但是卷积后的矩阵由变成了所以一般为了保证矩阵的维度不发生变化会使用填充例如在上面的例子中如果我们在图像周围添加一层填充那么填充后的图像大小将变为填充后的图像现在当的滤波器在填充后的图像上滑动时输出的特征图大小仍然是与原始图像大小相同卷积层卷积层是卷积神经网络中的基本构建块它由多个滤波器组成每个滤波器在输入图像或特征图上执行卷积操作生成一个新的特征图多个滤波器卷积层通常有多个滤波器每个滤波器学习提取图像的不同特征如边缘纹理形状等特征图卷积层的输出是一组特征图每个特征图对应一个滤波器可学习参数滤波器的权重是可学习的参数通过训练数据来调整使得模型能够提取出对特定任务有用的特征显示或保存生成的图像由解码后生成是一个高维矩阵它精确地描述了一幅图像的像素点和通道信息再由计算机根据描述显示控制因素这个中主要通过以下因素来控制图像生成提示词正向提示词描述你想要生成的图像负向提示词描述你不想要出现的元素模型可以影响图像的风格主题或其他方面采样器参数采样器的参数如采样步数等会影响图像的质量和多样性其他虽然你提供的是一个基础流程但的强大之处在于其灵活性你可以根据需要添加或修改节点实现各种各样的效果例如图生图在前添加节点加载一张参考图像实现图生图添加节点利用额外的控制信息如边缘深度图等来引导图像生成图像修复添加节点利用掩码指定需要修复的区域实现图像修复',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-18 06:30:34',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/Jialai_Logo.webp"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.linkedin.com/in/jialaiz/" title="Linkedin"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="Linkedin"/><span class="back-menu-item-text">Linkedin</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/personal-website-images" title="Github图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="Github图床"/><span class="back-menu-item-text">Github图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Jialai Lab</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 万物生长</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 火花</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=2807259311&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 番剧</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinemas/"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> 影视</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 摄影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 上铺下铺</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/WechatPay.webp" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/WechatPay.webp"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/Alipay.webp" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/Alipay.webp"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/IT/" style="font-size: 1.05rem;">IT<sup>1</sup></a><a href="/tags/Stable-Diffusion/" style="font-size: 1.05rem;">Stable Diffusion<sup>1</sup></a><a href="/tags/%E6%B7%B7%E9%9F%B3/" style="font-size: 1.05rem;">混音<sup>2</sup></a><a href="/tags/%E7%BA%A2%E9%85%92/" style="font-size: 1.05rem;">红酒<sup>1</sup></a><a href="/tags/%E7%BA%A2%E9%85%92%E8%BF%9B%E5%87%BA%E5%8F%A3/" style="font-size: 1.05rem;">红酒进出口<sup>3</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%BD%9C/" itemprop="url">创作</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Stable-Diffusion/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Stable Diffusion</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Stable Diffusion101(壹)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-08-18T00:00:00.000Z" title="Created 2024-08-18 00:00:00">2024-08-18</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-08-18T06:30:34.900Z" title="Updated 2024-08-18 06:30:34">2024-08-18</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为Melbourne"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>Melbourne</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">Comments:</span><a href="/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://jialaizhang.github.io/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/"><header><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%BD%9C/" itemprop="url">创作</a><a href="/tags/Stable-Diffusion/" tabindex="-1" itemprop="url">Stable Diffusion</a><h1 id="CrawlerTitle" itemprop="name headline">Stable Diffusion101(壹)</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Jialai</span><time itemprop="dateCreated datePublished" datetime="2024-08-18T00:00:00.000Z" title="Created 2024-08-18 00:00:00">2024-08-18</time><time itemprop="dateCreated datePublished" datetime="2024-08-18T06:30:34.900Z" title="Updated 2024-08-18 06:30:34">2024-08-18</time></header><h1 id="Stable-Diffusion101-壹"><a href="#Stable-Diffusion101-壹" class="headerlink" title="Stable Diffusion101(壹)"></a>Stable Diffusion101(壹)</h1><h2 id="Stable-Diffusion原理"><a href="#Stable-Diffusion原理" class="headerlink" title="Stable Diffusion原理"></a>Stable Diffusion原理</h2><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>Stable Diffusion的核心原理是<strong>扩散模型（Diffusion Model）</strong>。扩散模型的工作过程可以类比为将一张清晰的图像逐步添加噪声，使其变得模糊，再学习如何从模糊的图像中逐步去除噪声，恢复出原始图像。</p>
+<p><strong>正向扩散过程</strong>：在正向扩散过程中，模型会逐步向原始图像添加高斯噪声，经过T步后，图像将变成完全的噪声。</p>
+<p><strong>反向扩散过程</strong>：在反向扩散过程中，模型学习从噪声中逐步去除噪声，恢复出原始图像。</p>
+<p><strong>训练过程</strong>：通过大量图像数据，模型学习如何在反向扩散过程中预测每一步需要去除的噪声，从而实现从噪声生成图像的能力。</p>
+<h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0008StableDiffusion101/SDStructure.png?raw=true" alt="SDStructure.png"></p>
+<p>这张图展示了 Stable Diffusion 模型的主要组成部分以及它们之间的数据流动关系。模型主要分为两大块：</p>
+<ul>
+<li><strong>文本编码器（Text Encoder）</strong>：负责将输入的文本提示（prompt）转换为机器可以理解的向量表示。</li>
+<li><strong>图像生成器（Image Generator）</strong>：基于文本向量和其他条件（如时间步等），逐步从噪声中生成图像。</li>
+</ul>
+<h4 id="文本编码器（Text-Encoder）部分"><a href="#文本编码器（Text-Encoder）部分" class="headerlink" title="文本编码器（Text Encoder）部分"></a><strong>文本编码器（Text Encoder）部分</strong></h4><ul>
+<li><strong>CLIP-G&#x2F;14 &amp; CLIP-L&#x2F;14</strong>：这是两个 CLIP（Contrastive Language-Image Pre-training）模型，用于将文本提示编码成 embedding 向量。CLIP 模型通过对比学习，将图像和文本映射到同一空间，使得语义相似的图像和文本具有相近的向量表示。<ul>
+<li>CLIP 是 OpenAI 开发的一种多模态模型，旨在学习图像和文本之间的关联。它通过对比学习的方式，将图像和文本映射到同一个语义空间，使得语义相似的图像和文本具有相近的向量表示。CLIP 的核心思想是<strong>对比学习（Contrastive Learning）</strong>。简单来说，对比学习就是让模型学会区分哪些样本对是相似的，哪些样本对是不相似的。在 CLIP 中，相似样本对是一张图像和它的文本描述，不相似样本对则是一张图像和其他不相关的文本描述。</li>
+</ul>
+</li>
+<li><strong>T5 XXL</strong>：这是一个大型的文本生成模型，可能用于进一步处理或增强文本提示的表示。</li>
+<li><strong>Pooled Output</strong>：这是文本编码器的最终输出，是一个包含文本提示语义信息的向量。</li>
+</ul>
+<p>其中：</p>
+<p>“77+77 tokens” 和 “4096 channels” 代表：</p>
+<p><strong>77+77 tokens</strong></p>
+<ul>
+<li><strong>tokens</strong>：在自然语言处理中，token 是指文本的基本单位，可以是一个词、一个子词或一个字符。</li>
+<li><strong>77+77 tokens</strong>：这是指 Stable Diffusion 模型在处理文本提示（prompt）时，最多可以接受 77 个 token，额外的tokens(这里的77个)会被cut掉。</li>
+<li><strong>限制原因</strong>：这个限制主要来自于模型训练时使用的文本编码器（CLIP），其最大输入长度为 77 个 token。</li>
+<li><strong>超出限制的影响</strong>：如果 prompt 超过了这个限制，多余的部分将被忽略，可能导致生成的图像不符合预期。</li>
+<li>注：Negative prompt 和 positive prompt 会一起包含在77 个 token 中。</li>
+</ul>
+<p><strong>4096 channels</strong></p>
+<ul>
+<li>在计算机视觉和深度学习中，”channels” 通常指的是图像或特征图（feature map）的通道数。每个通道可以看作是一个二维矩阵，其中每个元素代表图像在该通道上的某个位置的数值。<ul>
+<li><strong>对于彩色图像</strong>，通常有 3 个通道，分别代表红（R）、绿（G）和蓝（B）三种颜色。每个像素点的颜色由这三个通道的数值组合而成。</li>
+<li><strong>对于灰度图像</strong>，只有一个通道，每个像素点的数值代表其亮度。</li>
+<li><strong>对于深度学习模型中的特征图</strong>，通道数可以是任意的，每个通道代表模型在不同层次上提取到的特征。可以将通道数理解为图像或特征图的深度或厚度。比如：<ul>
+<li><strong>彩色图像的 3 个通道</strong> 分别表示图像在红、绿、蓝三个颜色维度上的信息。</li>
+<li><strong>深度学习模型中的特征图的多个通道</strong> 分别表示模型在不同抽象层次上提取到的特征，例如边缘、纹理、形状等。</li>
+<li>在 Stable Diffusion 中，4096 channels 指的是模型在生成图像的过程中，中间特征图的通道数。这意味着模型在每个位置上提取了 4096 个不同的特征，用于表示图像的各种信息。</li>
+</ul>
+</li>
+<li>Channel 中的数据类型通常是浮点数（float），表示图像或特征在该通道上的强度或响应。<strong>对于图像</strong>，浮点数通常在 0 到 1 之间，表示像素点的颜色或亮度。<strong>对于深度学习模型中的特征图</strong>，浮点数的取值范围可以是任意的，取决于模型的具体实现。</li>
+</ul>
+</li>
+<li><strong>权衡</strong>：更多的通道数也会增加模型的计算复杂度和内存占用。</li>
+</ul>
+<h5 id="池化（Pooling）："><a href="#池化（Pooling）：" class="headerlink" title="池化（Pooling）："></a><strong>池化（Pooling）：</strong></h5><p>Pooling是深度学习中常用的一种降维技术。它通过对输入数据进行某种聚合操作（例如取最大值、平均值等），将输入数据的大小减小，同时保留重要的特征信息。将文本编码器生成的特征图（feature map）进行降维，得到一个固定长度的向量表示（pooled output）。</p>
+<p>具体来说，pooling 操作可以：</p>
+<ul>
+<li><strong>降低维度</strong>：文本编码器生成的特征图通常具有较高的维度，不利于后续计算。Pooling 操作可以将特征图的维度降低，提高计算效率。</li>
+<li><strong>提取全局特征</strong>：Pooling 操作可以将特征图中的局部特征聚合为全局特征，从而更好地捕捉文本提示的整体语义。</li>
+<li><strong>增强鲁棒性</strong>：Pooling 操作可以减少特征图对微小变化的敏感性，提高模型的鲁棒性。</li>
+</ul>
+<p>在文本编码器中，常用的 pooling 操作包括：</p>
+<ul>
+<li><strong>Max Pooling</strong>：取特征图中每个区域的最大值作为输出。</li>
+<li><strong>Average Pooling</strong>：取特征图中每个区域的平均值作为输出。</li>
+<li><strong>Attention Pooling</strong>：通过注意力机制（attention mechanism）对特征图进行加权平均，得到输出。</li>
+</ul>
+<p>以Max Pooling为例：</p>
+<p>假设我们有一个 4x4 的特征图（feature map），如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 2 3 4</span><br><span class="line">5 6 7 8</span><br><span class="line">9 10 11 12</span><br><span class="line">13 14 15 16</span><br></pre></td></tr></table></figure>
+
+<p>我们对这个特征图应用一个 2x2 的 Max Pooling，步长（stride）为 2。这意味着我们将特征图分成 2x2 的不重叠区域，然后从每个区域中取最大值作为输出。</p>
+<p>具体操作如下：</p>
+<ol>
+<li><strong>划分区域</strong>：将特征图划分成 4 个 2x2 的区域：</li>
+</ol>
+<ul>
+<li><p>区域 1：</p>
+<ul>
+<li>1 2</li>
+<li>5 6</li>
+</ul>
+</li>
+<li><p>区域 2：</p>
+<ul>
+<li>3 4</li>
+<li>7 8</li>
+</ul>
+</li>
+<li><p>区域 3：</p>
+<ul>
+<li>9 10</li>
+<li>13 14</li>
+</ul>
+</li>
+<li><p>区域 4：</p>
+<ul>
+<li>11 12</li>
+<li>15 16</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>取最大值</strong>：从每个区域中取最大值：</li>
+</ol>
+<ul>
+<li><p>区域 1 的最大值是 6</p>
+</li>
+<li><p>区域 2 的最大值是 8</p>
+</li>
+<li><p>区域 3 的最大值是 14</p>
+</li>
+<li><p>区域 4 的最大值是 16</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>输出</strong>：将这些最大值组合成一个 2x2 的输出特征图：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br><span class="line">14 16</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 Max Pooling 操作将原始特征图的大小减小了一半，同时保留了每个区域中最显著的特征（最大值）。这种降维和特征提取的能力使得 Pooling 操作在深度学习中广泛应用。</p>
+<p><strong>其他类型的 Pooling</strong></p>
+<p>除了 Max Pooling，还有其他类型的 Pooling 操作，例如：</p>
+<ul>
+<li><strong>Average Pooling</strong>：取每个区域的平均值作为输出。</li>
+<li><strong>Global Pooling</strong>：将整个特征图聚合为一个值，例如全局最大池化或全局平均池化。</li>
+</ul>
+<h6 id="Attention机制和Attention-Pooling："><a href="#Attention机制和Attention-Pooling：" class="headerlink" title="Attention机制和Attention Pooling："></a>Attention机制和Attention Pooling：</h6><p>Attention 机制（注意力机制）是一种模拟人类注意力分配的机制，它可以让模型在处理信息时，重点关注那些与当前任务更相关的信息，而忽略那些不重要的信息。</p>
+<p>在深度学习中，注意力机制通常通过计算一个权重向量来实现，这个权重向量表示每个输入元素的重要程度。然后，模型会根据这个权重向量对输入元素进行加权平均，得到最终的输出。</p>
+<p>假设，我们有一个文本序列 “我喜欢吃苹果和香蕉”，经过文本编码器后，得到了每个词的向量表示：</p>
+<ul>
+<li>我：[0.1, 0.2, 0.3]</li>
+<li>喜欢：[0.4, 0.5, 0.6]</li>
+<li>吃：[0.7, 0.8, 0.9]</li>
+<li>苹果：[0.2, 0.3, 0.4]</li>
+<li>和：[0.5, 0.6, 0.7]</li>
+<li>香蕉：[0.8, 0.9, 0.1]</li>
+</ul>
+<p>现在，我们想要通过 Attention Pooling 得到整个句子的向量表示。首先，我们需要计算每个词的权重。假设我们通过某种方式得到了以下权重向量：</p>
+<ul>
+<li>我：0.1</li>
+<li>喜欢：0.2</li>
+<li>吃：0.3</li>
+<li>苹果：0.2</li>
+<li>和：0.1</li>
+<li>香蕉：0.1</li>
+</ul>
+<p>然后，我们对每个词的向量表示乘以其对应的权重，再将结果相加，得到最终的句子向量表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">句子向量 = 0.1 * [0.1, 0.2, 0.3] </span><br><span class="line">          + 0.2 * [0.4, 0.5, 0.6] </span><br><span class="line">          + 0.3 * [0.7, 0.8, 0.9] </span><br><span class="line">          + 0.2 * [0.2, 0.3, 0.4] </span><br><span class="line">          + 0.1 * [0.5, 0.6, 0.7] </span><br><span class="line">          + 0.1 * [0.8, 0.9, 0.1]</span><br><span class="line">          = [0.46, 0.57, 0.58]</span><br></pre></td></tr></table></figure>
+
+<p>在 Stable Diffusion 的文本编码器中，Attention Pooling 用于将文本编码器生成的特征图（每个 token 的向量表示）聚合为一个固定长度的向量，表示整个文本提示的语义。</p>
+<h4 id="图像生成器（Image-Generator）"><a href="#图像生成器（Image-Generator）" class="headerlink" title="图像生成器（Image Generator）"></a><strong>图像生成器（Image Generator）</strong></h4><ul>
+<li><strong>Noised Latent</strong>：这是输入到图像生成器的初始噪声图像，其维度与最终生成的图像的潜在表示（latent representation）相同。</li>
+<li><strong>Patching &amp; Unpatching</strong>：将噪声图像分割成小块（patch），并在生成过程的最后将这些小块重新组合成完整的图像。</li>
+<li><strong>Timestep</strong>：表示当前生成过程所处的时间步，从大到小，意味着图像从噪声逐渐变得清晰。</li>
+<li><strong>Sinusoidal Encoding</strong>：将时间步信息编码成向量，提供给模型。</li>
+<li><strong>MM-DiT Blocks</strong>：这是图像生成器的核心部分，由多个 MM-DiT（Multi-Modal Diffusion Transformer）块组成。每个块内部包含：<ul>
+<li><strong>Attention</strong>：自注意力机制，用于建模图像不同区域之间的关系。</li>
+<li><strong>MLP（Multi-Layer Perceptron）</strong>：多层感知机，用于特征提取和转换。</li>
+<li><strong>Modulation</strong>：将文本向量、时间步等条件信息融入到模型中，指导图像生成。</li>
+<li><strong>LayerNorm &amp; Linear</strong>：层归一化和线性变换，用于稳定训练和调整特征维度。</li>
+</ul>
+</li>
+</ul>
+<h5 id="PS-关于Transformer："><a href="#PS-关于Transformer：" class="headerlink" title="PS: 关于Transformer："></a>PS: 关于Transformer：</h5><p>Transformer 模型主要由编码器（Encoder）和解码器（Decoder）两部分组成。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://machinelearningmastery.com/wp-content/uploads/2021/08/attention_research_1.png" title="" alt="" width="622">
+
+<ul>
+<li><p><strong>编码器</strong>：负责处理输入序列，生成一组特征表示。它由多个相同的层堆叠而成，每个层包含两个子层：</p>
+<ul>
+<li><strong>多头自注意力层（Multi-Head Self-Attention）</strong>：允许模型在处理序列中的每个元素时，关注序列中的所有其他元素，从而捕获它们之间的依赖关系。</li>
+<li><strong>前馈神经网络层（Feed-Forward Network）</strong>：对每个位置的特征进行独立的非线性变换。</li>
+</ul>
+</li>
+<li><p><strong>解码器</strong>：负责根据编码器生成的特征表示和先前生成的输出，逐个生成目标序列。它也由多个相同的层堆叠而成，每个层除了包含编码器中的两个子层外，还增加了一个子层：</p>
+<ul>
+<li><strong>编码器-解码器注意力层（Encoder-Decoder Attention）</strong>：允许解码器关注输入序列中的相关部分。</li>
+</ul>
+</li>
+<li><p><strong>Transformer 的特点</strong></p>
+<ul>
+<li><strong>并行计算</strong>：Transformer 抛弃了传统的循环神经网络（RNN）结构，采用自注意力机制，使得模型可以在处理序列时进行并行计算，大大提高了训练和推理速度。</li>
+<li><strong>全局信息捕捉</strong>：自注意力机制允许模型在处理序列中的每个元素时，关注序列中的所有其他元素，从而能够捕捉全局信息，尤其擅长处理长距离依赖关系。</li>
+<li><strong>可解释性</strong>：注意力机制的可视化可以帮助我们理解模型在处理序列时关注哪些部分，提高了模型的可解释性。</li>
+</ul>
+</li>
+</ul>
+<h6 id="Transformers和RNN："><a href="#Transformers和RNN：" class="headerlink" title="Transformers和RNN："></a>Transformers和RNN：</h6><p>RNN:</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://miro.medium.com/v2/resize:fit:1050/1*dznTsiaHCvRc70fxWWEcgw.png" title="" alt="" width="628">
+
+<p>RNN（循环神经网络）是一种专门用于处理序列数据的神经网络。它的核心思想是在处理序列中的每个元素时，都会考虑前面元素的信息。这种信息传递是通过一个隐藏状态（hidden state）来实现的。</p>
+<ul>
+<li><strong>输入层</strong>：接收序列中的每个元素作为输入。</li>
+<li><strong>隐藏层</strong>：对输入进行处理，并生成一个隐藏状态。这个隐藏状态会传递给下一个时间步，用于处理下一个元素。 </li>
+<li><strong>输出层</strong>：根据隐藏状态生成输出。</li>
+</ul>
+<p>Transformer 中的自注意力机制允许模型同时处理序列中的所有元素，而不需要等待前一个元素的计算结果。这种并行计算能力使得 Transformer 在处理长序列时具有更高的效率。</p>
+<h2 id="ComfyUI"><a href="#ComfyUI" class="headerlink" title="ComfyUI"></a>ComfyUI</h2><h3 id="基础右键Menu："><a href="#基础右键Menu：" class="headerlink" title="基础右键Menu："></a>基础右键Menu：</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0008StableDiffusion101/ComfyUIMenu.png?raw=true" alt="ComfyUIMenu.png"></p>
+<p><strong>Add Node</strong>：这个选项用于向工作区添加新的节点。点击后，会弹出一个节点选择窗口，你可以从中选择需要的节点类型，如加载模型、输入提示词、设置采样器等。</p>
+<p><strong>Add Group</strong>：这个选项用于创建一个空的节点组。节点组可以将多个节点打包在一起，方便管理和复用。</p>
+<p><strong>Group</strong>（组）的主要作用是<strong>组织和管理节点</strong>，将多个相关的节点打包在一起，使其更易于管理、复用和共享。你可以将Group看作是一个容器，它可以包含任意数量和类型的节点，并且可以嵌套其他Group。</p>
+<p><strong>注意：Group只在当前的workflow中生效</strong></p>
+<p><strong>例如：</strong></p>
+<p>假设你正在构建一个文生图流程，其中涉及到加载模型、输入提示词、设置采样器、生成图像等多个节点。你可以将这些节点打包成一个Group，命名为”文生图流程”。这样，你就可以将这个Group作为一个整体来移动、复制、粘贴，甚至保存为模板，方便在其他工作流程中复用。</p>
+<p><strong>Add Group For Selected Nodes</strong>：选择一些节点，并将这些节点打包成一个新的节点组。</p>
+<p><strong>Convert to Group Node</strong>：这个选项将当前选中的节点转换为一个节点组节点。节点组节点可以像普通节点一样连接到其他节点，但它内部包含了一个完整的工作流程。</p>
+<p><strong>Group与Workflow的区别</strong></p>
+<ul>
+<li><strong>Workflow（工作流程）</strong>：ComfyUI中的Workflow代表一个完整的图像生成或处理过程，它包含了从加载模型到保存图像的所有必要节点。一个Workflow可以包含多个Group。</li>
+<li><strong>Group（组）</strong>：Group是Workflow中的一个组成部分，用于组织和管理节点。Group本身并不代表一个完整的工作流程，它需要与其他节点或Group连接才能发挥作用。</li>
+</ul>
+<p><strong>Group与Template的区别</strong></p>
+<ul>
+<li><strong>Group（组）</strong>：Group是一个动态的容器，你可以随时向其中添加、删除或修改节点。Group的主要作用是在<strong>当前Workflow中</strong>组织和管理节点。</li>
+<li><strong>Template（模板）</strong>：Template是一个静态的节点集合，它保存了特定节点的配置和连接方式。Template的主要作用是在<strong>不同的Workflow中</strong>复用节点配置，提高工作效率。</li>
+</ul>
+<p><strong>Save Selected as Template</strong>：如果你选择了一些节点，这个选项会将这些节点保存为一个模板。模板可以方便地复用，加快工作流程的搭建。</p>
+<p><strong>Node Templates</strong>：这个选项打开节点模板库，你可以在这里浏览、加载和管理已保存的节点模板。</p>
+<h3 id="Add-Node右键Menu："><a href="#Add-Node右键Menu：" class="headerlink" title="Add Node右键Menu："></a>Add Node右键Menu：</h3><p><strong>utils</strong>: 其中有注释工具，基本几何绘制工具，整理排线工具和debug的terminal等。</p>
+<p><strong>sampling</strong>：提供各种采样器（Sampler）节点，用于从模型中生成图像。设置采样步数、CFG Scale 等参数，控制图像生成过程。</p>
+<p><strong>loaders</strong>：提供各种加载器节点，用于加载模型、图像、文本等数据。</p>
+<p><strong>conditioning</strong>：提供各种条件节点，用于控制图像生成过程。</p>
+<p><strong>latent</strong>：提供各种潜在空间（latent space）操作节点，用于在模型的潜在空间中处理图像。比如图像编码和解码：使用 <code>VAE Encode</code> 和 <code>VAE Decode</code> 节点将图像在像素空间和潜在空间之间转换等。</p>
+<p><strong>image</strong>：与图像相关的操作，加载预览，也提供各种图像处理节点，用于在像素空间中处理图像，修改大小，翻转等等</p>
+<p><strong>mask</strong>：提供各种掩码操作节点，用于创建、编辑和应用掩码。</p>
+<p><strong>_for_testing</strong>：包含一些用于测试和调试的节点，通常在开发或实验新功能时使用。</p>
+<p><strong>advanced</strong>：包含一些高级节点，用于实现更复杂的功能。</p>
+<p><strong>model_patches</strong>：包含一些用于修改模型行为的节点。</p>
+<p><strong>audio</strong>：包含一些用于处理音频数据的节点。</p>
+<p><strong>ImpactPack</strong>：包含一些由 ImpactPack 社区开发的节点。</p>
+<p><strong>postprocessing</strong>：包含一些用于图像后处理的节点。</p>
+<p><strong>ControlNet Preprocessors</strong>：包含一些用于 ControlNet 的预处理节点。</p>
+<p><strong>Derfuu_Nodes</strong>：包含一些由 Derfuu 开发的节点。</p>
+<p><strong>Efficiency Nodes</strong>：包含一些用于提高效率的节点。</p>
+<p><strong>api</strong>：包含一些用于与外部 API 交互的节点。</p>
+<p>以上为简要概括，详情请见另一篇Post，关于右键菜单的详解。</p>
+<h3 id="基本文生图Workflow"><a href="#基本文生图Workflow" class="headerlink" title="基本文生图Workflow"></a>基本文生图Workflow</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0008StableDiffusion101/BasicWorkflow.png?raw=true" alt="BasicWorkflow.png"></p>
+<h4 id="Workflow-逻辑"><a href="#Workflow-逻辑" class="headerlink" title="Workflow 逻辑"></a><strong>Workflow 逻辑</strong></h4><p>这个 workflow 的核心逻辑是：</p>
+<ol>
+<li><strong>加载模型</strong>：使用 <code>Checkpoint Loader</code> 加载 Stable Diffusion 的基础模型。</li>
+<li><strong>加载 LoRA</strong>：使用 <code>LoRA Loaders</code> 加载一个或多个 LoRA 模型，用于对基础模型进行微调，实现风格定制或其他效果。</li>
+<li><strong>文本编码</strong>：使用 <code>CLIP Text Encode</code> 节点将正向提示词（positive prompt）和负向提示词（negative prompt）编码成向量表示。</li>
+<li><strong>图像编码</strong>：使用 <code>VAE Encoder</code> 将随机噪声或初始图像编码到潜在空间（latent space）。</li>
+<li><strong>采样</strong>：使用 <code>Sampler</code> 在潜在空间中进行迭代采样，逐步从噪声中生成图像。采样过程中会受到文本编码和 LoRA 的影响。</li>
+<li><strong>图像解码</strong>：使用 <code>VAE Decoder</code> 将潜在空间中的图像解码回像素空间。</li>
+<li><strong>输出图像</strong>：使用 <code>Image Output</code> 节点显示或保存生成的图像。</li>
+</ol>
+<h4 id="每一项的操作和作用"><a href="#每一项的操作和作用" class="headerlink" title="每一项的操作和作用"></a><strong>每一项的操作和作用</strong></h4><ul>
+<li><p><code>Checkpoint Loader</code>：加载 Stable Diffusion 的基础模型，提供了生成图像的核心能力。</p>
+<ul>
+<li><p>PS: 如何训练大模型：</p>
+<p><strong>详细步骤</strong></p>
+<ol>
+<li><strong>数据准备</strong></li>
+</ol>
+<ul>
+<li><p>数据集：Stable Diffusion 的训练通常使用大规模的图像-文本对数据集，如 LAION-5B 或 LAION-Aesthetics。这些数据集包含数百万甚至数十亿的图像和文本描述。</p>
+</li>
+<li><p>数据预处理：对图像进行预处理，如调整大小、裁剪、归一化等。对文本进行分词、编码等处理。</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>模型架构</strong></li>
+</ol>
+<ul>
+<li><p>变分自编码器（VAE）：用于将图像编码为低维度的潜在表示（latent representation），并在生成过程中将潜在表示解码回图像。</p>
+</li>
+<li><p>U-Net：用于在潜在空间中进行图像生成。U-Net 是一种具有 U 形结构的卷积神经网络，它通过多次下采样和上采样操作，逐步提取和融合图像的特征。</p>
+<ul>
+<li><p>U-Net 是一种特殊类型的卷积神经网络（CNN），因其结构形似字母 U 而得名。它最初被设计用于生物医学图像分割任务，但由于其在处理图像细节和全局上下文信息方面的优势，现在被广泛应用于各种图像生成和处理任务中，包括 Stable Diffusion。</p>
+<p><strong>U-Net 在 Stable Diffusion 中的作用</strong></p>
+<p>在 Stable Diffusion 中，U-Net 负责<strong>在潜在空间中对图像进行去噪和生成</strong>。具体来说，它接受一个带有噪声的潜在图像作为输入，并尝试预测出需要从图像中去除的噪声。通过迭代地应用 U-Net，我们可以从一个完全是噪声的图像开始，逐步去除噪声，最终生成一张清晰的图像。</p>
+<p><strong>U-Net 的实现方法</strong></p>
+<p>U-Net 的结构主要由以下几个部分组成：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://media.geeksforgeeks.org/wp-content/uploads/20220614121231/Group14.jpg" alt="U-Net Architecture -geeksforgeeks"></p>
+<ol>
+<li><p><strong>下采样路径（contracting path）</strong>：</p>
+<p>图的左侧部分，从输入图像开始，到中间最窄的部分。</p>
+<ul>
+<li><strong>特征提取</strong>：通过卷积层，从输入图像中提取不同层次的特征，如边缘、纹理、形状等。</li>
+<li><strong>降低分辨率</strong>：通过池化层（通常是最大池化），降低特征图的空间分辨率，减少计算量，同时扩大感受野，让模型能够捕捉到更大范围的上下文信息。</li>
+</ul>
+</li>
+<li><p><strong>瓶颈层（bottleneck）</strong>：</p>
+<p>图的中间最窄的部分。</p>
+<ul>
+<li>连接下采样路径和上采样路径。</li>
+<li>进一步提取图像的全局特征。</li>
+</ul>
+</li>
+<li><p><strong>上采样路径（expansive path）</strong>：</p>
+<p>图的右侧部分，从瓶颈层开始，到输出图像结束。</p>
+<ul>
+<li><strong>恢复分辨率</strong>：通过转置卷积（或上采样+卷积），逐步提高特征图的空间分辨率，恢复图像的细节。</li>
+<li><strong>精细化特征</strong>：结合来自下采样路径的跳跃连接，在上采样过程中逐步完善图像的细节和语义信息。</li>
+</ul>
+</li>
+<li><p><strong>跳跃连接（skip connections）</strong>：</p>
+<ul>
+<li>将下采样路径中的特征图直接连接到上采样路径中对应层的输入。</li>
+<li><strong>保留细节</strong>：将下采样路径中的高分辨率特征图直接传递到上采样路径中，帮助模型在恢复分辨率的过程中保留图像的细节信息。弥补下采样过程中的信息丢失，提高模型的生成质量。</li>
+</ul>
+</li>
+</ol>
+<p><strong>实例：图像去噪</strong></p>
+<p>让我们通过一个简单的图像去噪任务来理解 U-Net 的工作原理。</p>
+<p>假设我们有一张带有噪声的图像，我们希望使用 U-Net 来去除噪声。</p>
+<ol>
+<li><strong>输入</strong>：将带有噪声的图像输入到 U-Net 中。</li>
+<li><strong>下采样</strong>：U-Net 的下采样路径会逐步提取图像的特征，并降低特征图的空间分辨率。</li>
+<li><strong>瓶颈</strong>：在瓶颈层，U-Net 进一步提取图像的全局特征。</li>
+<li><strong>上采样</strong>：U-Net 的上采样路径会逐步提高特征图的空间分辨率，并利用跳跃连接从下采样路径中获取细节信息。</li>
+<li><strong>输出</strong>：U-Net 的输出是一张去噪后的图像，其中噪声被尽可能地去除。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>文本编码器：用于将文本提示编码为向量表示，为 U-Net 提供条件信息。</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>损失函数</strong></li>
+</ol>
+<p>Stable Diffusion 的损失函数主要由两部分组成：</p>
+<ul>
+<li><p><strong>重构损失</strong>：衡量模型生成的图像与真实图像之间的差异，通常使用均方误差（MSE）或其他相似度度量。</p>
+</li>
+<li><p><strong>条件损失</strong>：衡量模型对文本提示的理解程度，通常使用对比学习损失或其他文本-图像匹配损失。</p>
+</li>
+</ul>
+<ol start="4">
+<li><strong>优化器</strong></li>
+</ol>
+<p>Stable Diffusion 通常使用 Adam 优化器或其变种进行训练。Adam 优化器是一种自适应学习率优化算法，它可以根据梯度的大小自动调整学习率，从而加速模型收敛。</p>
+<ol start="5">
+<li><strong>训练</strong></li>
+</ol>
+<ul>
+<li>迭代训练：在大量图像-文本对数据集上进行迭代训练，每次迭代包括前向传播、损失计算、反向传播和参数更新等步骤。</li>
+<li>扩散过程：Stable Diffusion 的训练基于扩散模型，它通过逐步向图像中添加噪声，然后学习如何从噪声中恢复出原始图像。</li>
+<li>训练技巧：为了提高模型的性能和稳定性，可能会采用一些训练技巧，如梯度裁剪、学习率调度、权重衰减等。</li>
+</ul>
+</li>
+<li><p><strong>CitivAI上的Checkpoint训练：</strong></p>
+<p>主要有以下几种：</p>
+<p><strong>1. DreamBooth</strong></p>
+<ul>
+<li><strong>原理</strong>：DreamBooth 是一种微调技术，旨在让模型学习特定概念（例如一个物体、一个人、一种风格等）的表示。它通过在少量目标图像上进行训练，同时保持模型在其他概念上的泛化能力。</li>
+<li><strong>优点</strong>：<ul>
+<li>只需要少量目标图像（通常 3-5 张）。</li>
+<li>训练速度相对较快。</li>
+<li>可以生成高质量、忠实于目标概念的图像。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>需要仔细选择目标图像和提示词。</li>
+<li>可能存在过拟合问题，导致模型在生成其他概念时表现不佳。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Textual Inversion</strong></p>
+<ul>
+<li><strong>原理</strong>：Textual Inversion 是一种在模型的词嵌入空间中学习新概念表示的方法。它通过训练一个特殊的词嵌入向量，使得模型能够理解和生成与该概念相关的图像。</li>
+<li><strong>优点</strong>：<ul>
+<li>只需要少量目标图像。</li>
+<li>训练速度非常快。</li>
+<li>生成的图像具有高度可控性。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>学习到的概念表示可能不够稳定。</li>
+<li>生成的图像质量可能不如 DreamBooth。</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Hypernetwork</strong></p>
+<ul>
+<li><strong>原理</strong>：Hypernetwork 是一种通过训练一个小型的神经网络来修改 Stable Diffusion 模型权重的方法。这个小型神经网络将文本提示或其他条件信息作为输入，输出对 Stable Diffusion 权重的调整，从而实现对图像生成过程的控制。</li>
+<li><strong>优点</strong>：<ul>
+<li>可以实现对图像的精细控制。</li>
+<li>训练速度相对较快。</li>
+<li>模型文件大小较小。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>需要一定的调参经验。</li>
+<li>生成的图像质量可能不如 DreamBooth。</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Fine-tuning</strong></p>
+<ul>
+<li><strong>原理</strong>：Fine-tuning（微调）是指在预训练的 Stable Diffusion 模型上，使用新的数据集进行进一步训练，以适应特定任务或风格。</li>
+<li><strong>优点</strong>：<ul>
+<li>可以充分利用预训练模型的知识。</li>
+<li>训练速度相对较快。</li>
+<li>可以生成高质量的图像。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>需要一定数量的训练数据。</li>
+<li>可能存在过拟合问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>LoRA Loaders</code>：加载 LoRA 模型，对基础模型进行微调，实现风格定制或其他效果。</p>
+<ul>
+<li><p><strong>PS:LoRA是什么？如何制作LoRA：</strong></p>
+<p><strong>LoRA（Low-Rank Adaptation）</strong> 是一种在神经网络中进行高效微调的技术。它通过在模型的<strong>特定层</strong>（通常是 Transformer 块中的注意力层）上<strong>添加低秩矩阵</strong>，来实现对模型的微调。这些低秩矩阵的参数量远小于原始模型的参数量，因此 LoRA 模型的大小通常都很小。</p>
+<p><strong>PS: 低秩矩阵:</strong></p>
+<p>    矩阵的秩是指其<strong>线性无关</strong>的行向量或列向量的最大数目，可以理解为矩阵中的每个行、列向量都<strong>无法用其他行或列向量表示</strong>。通俗地说，秩代表了矩阵中真正包含的<strong>信息量或有效维度</strong>。秩越高的矩阵，包含的信息越丰富，表达能力越强。秩为满秩的矩阵，其行向量和列向量都是线性无关的。</p>
+<p>    如果一个矩阵的秩远小于其行数或列数，那么它就是一个<strong>低秩矩阵。</strong> 低秩矩阵的信息冗余度较高，可以用少量的基向量来近似表示，这也就代表了低秩矩阵的存储和计算成本较低，因为需要存储的（有效）数据量非常小。</p>
+<p>    低秩矩阵的<strong>核心思想</strong>是，<strong>原始矩阵中虽然有很多行或列，但它们之间可能存在很强的相关性</strong>。这些相关性意味着原始矩阵的信息冗余度较高，可以用少量的基向量来近似表示。</p>
+<p>    LoRA 就是利用了这个特点。它在原始模型的权重矩阵上添加两个低秩矩阵，通过两个低维向量的外积来构造一个完整的矩阵，从而用少量的参数来近似表示原始矩阵的变化。这两个低秩矩阵的参数量远小于原始权重矩阵，但却能捕捉到原始权重矩阵中的主要变化方向。LoRA 改变的是原始模型<strong>在特定任务或风格上的表现</strong>。通过<strong>调整低秩矩阵的参数</strong>，LoRA 可以<strong>引导模型</strong>生成<strong>特定风格</strong>的图像、调整模型<strong>对某些概念的理解</strong>、或者实现其他特定的效果。</p>
+<p><strong>题外话里的题外话：</strong></p>
+<p>举个例子：</p>
+<p>假设我们有一个 3x3 的原始矩阵 A：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A = [</span><br><span class="line">    [1, 2, 3],</span><br><span class="line">    [4, 5, 6],</span><br><span class="line">    [7, 8, 9]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们想要通过一个低秩矩阵来对 A 进行微调。为了简单起见，我们假设低秩矩阵的秩为 1。这意味着我们可以将低秩矩阵表示为两个向量的外积：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B = u * v^T</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>u 是一个 3x1 的列向量。</li>
+<li>v 是一个 3x1 的列向量。</li>
+<li>v^T 是 v 的转置，是一个 1x3 的行向量。</li>
+</ul>
+<p>让我们假设：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u = [0.1, 0.2, 0.3]</span><br><span class="line">v = [0.4, 0.5, 0.6]</span><br></pre></td></tr></table></figure>
+
+<p>那么，低秩矩阵 B 为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">B = [</span><br><span class="line">    [0.04, 0.05, 0.06],</span><br><span class="line">    [0.08, 0.10, 0.12],</span><br><span class="line">    [0.12, 0.15, 0.18]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>这里在做的是用一组基向量u和v近似表示A：</p>
+<p><strong>奇异值分解（SVD）</strong> 来找到 A 的一组基向量。SVD 将 A 分解为三个矩阵的乘积：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = U * Σ * V^T</span><br></pre></td></tr></table></figure>
+
+<p>再<strong>举个例子中的例子：</strong></p>
+<p>假设我们有一个 3x3 的矩阵 A：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A = [</span><br><span class="line">    [1, 2, 3],</span><br><span class="line">    [4, 5, 6],</span><br><span class="line">    [7, 8, 9]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过<strong>奇异值分解（SVD）</strong>来找到 A 的一组基向量。SVD 将 A 分解为三个矩阵的乘积：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = U * Σ * V^T</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>U 是一个 3x3 的正交矩阵，它的列向量是 A 的左奇异向量。</li>
+<li>Σ 是一个 3x3 的对角矩阵，其对角线上的元素是 A 的奇异值，按照从大到小的顺序排列。</li>
+<li>V 是一个 3x3 的正交矩阵，它的列向量是 A 的右奇异向量。</li>
+</ul>
+<p>假设 A 的奇异值分解结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">U = [</span><br><span class="line">    [-0.21483724,  0.88723069,  0.40824829],</span><br><span class="line">    [-0.52058739,  0.24964395, -0.81649658],</span><br><span class="line">    [-0.82633754, -0.38794274,  0.40824829]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">Σ = [</span><br><span class="line">    [16.84810336,  0.        ,  0.        ],</span><br><span class="line">    [ 0.        ,  1.06836987,  0.        ],</span><br><span class="line">    [ 0.        ,  0.        ,  0.00000000]</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">V^T = [</span><br><span class="line">    [-0.47967118, -0.77669099, -0.40824829],</span><br><span class="line">    [-0.57236739, -0.07568647,  0.81649658],</span><br><span class="line">    [-0.6650636 ,  0.61552563, -0.40824829]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，Σ 中的第三个奇异值为 0，<strong>这意味着 A 的秩为 2</strong>。因此，我们可以只保留前两个奇异值和对应的左右奇异向量，得到一个秩为 2 的矩阵 B 来近似表示 A：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B = U[:, :2] * Σ[:2, :2] * V[:, :2]^T</span><br></pre></td></tr></table></figure>
+
+<p>计算结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">B = [</span><br><span class="line">    [1.0000000e+00, 2.0000000e+00, 3.0000000e+00],</span><br><span class="line">    [4.0000000e+00, 5.0000000e+00, 6.0000000e+00],</span><br><span class="line">    [7.0000000e+00, 8.0000000e+00, 9.0000000e+00]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，B 与 A 完全相同。这是因为 A 本身的秩就是 2，所以我们可以用秩为 2 的矩阵完美地表示它。</p>
+<p><strong>如果 A 的秩大于 2，那么 B 就会是一个近似表示</strong>，与 A 会有一些误差。但<strong>通过保留更多的奇异值和对应的奇异向量</strong>，我们可以<strong>提高近似的精度</strong>。</p>
+<p><strong>回到原来的例子：</strong></p>
+<p>其中：</p>
+<p>现在，我们将低秩矩阵 B 加到原始矩阵 A 上（这就是LoRA产生作用的主要部分），得到一个新的矩阵 C：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C = A + B </span><br><span class="line">C = [</span><br><span class="line">    [1.04, 2.05, 3.06],</span><br><span class="line">    [4.08, 5.10, 6.12],</span><br><span class="line">    [7.12, 8.15, 9.18]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>回到LoRA，具体来说，LoRA 的应用方法如下：</p>
+<ol>
+<li><strong>选择目标层</strong>：在 Stable Diffusion 模型中，通常选择 Transformer 块中的注意力层作为 LoRA 的目标层。</li>
+<li><strong>添加低秩矩阵</strong>：在目标层的权重矩阵上添加两个低秩矩阵，分别用于调整查询（query）和值（value）的计算。</li>
+<li><strong>训练</strong>：使用少量目标图像和文本提示，对 LoRA 的参数进行训练。训练过程中，只更新 LoRA 的参数，而保持原始模型的参数不变。</li>
+<li><strong>推理</strong>：在推理时，将 LoRA 的参数与原始模型的参数合并，得到微调后的模型。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><code>CLIP Text Encode</code>：将文本提示词编码成向量表示，为采样过程提供指导。</p>
+<ul>
+<li><p>CLIP Text Encoder 的核心是一个 Transformer 模型，它将输入的文本提示词序列转换为一组向量表示。这些向量表示捕捉了文本的语义信息，用于指导图像生成过程。</p>
+</li>
+<li><p>具体实现过程如下：</p>
+<ol>
+<li><p><strong>分词（Tokenization）</strong>：将文本提示词分割成一系列 tokens（词或子词）。</p>
+<p><strong>举个例子：</strong></p>
+<p>假设我们有以下的文本提示词：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;一只毛茸茸的橘猫在阳光下懒洋洋地打盹。&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在 Stable Diffusion 中，分词器会将这个提示词分割成一系列 tokens。具体的分词结果取决于所使用的分词器。</p>
+<p><strong>1. 基于词的分词器</strong></p>
+<p>如果使用基于词的分词器，可能会得到以下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&quot;一只&quot;, &quot;毛茸茸的&quot;, &quot;橘猫&quot;, &quot;在&quot;, &quot;阳光下&quot;, &quot;懒洋洋地&quot;, &quot;打盹&quot;, &quot;。&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>这种分词方式简单直观，但对于未登录词（Out-of-Vocabulary, OOV）或罕见词的处理能力较弱。</p>
+<p><strong>2. 基于子词的分词器</strong></p>
+<p>为了更好地处理未登录词和罕见词，Stable Diffusion 通常使用基于子词的分词器，例如 Byte Pair Encoding (BPE) 或 SentencePiece。这些分词器会将词进一步分解为更小的子词单元。</p>
+<p>如果使用基于子词的分词器，可能会得到以下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&quot;一&quot;, &quot;只&quot;, &quot;毛&quot;, &quot;茸&quot;, &quot;茸&quot;, &quot;的&quot;, &quot;橘&quot;, &quot;猫&quot;, &quot;在&quot;, &quot;阳光&quot;, &quot;下&quot;, &quot;懒&quot;, &quot;洋&quot;, &quot;洋&quot;, &quot;地&quot;, &quot;打&quot;, &quot;盹&quot;, &quot;。&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>这种分词方式可以更有效地处理未登录词和罕见词，但可能会导致一些词被过度分割。</p>
+<p><strong>Stable Diffusion 通常使用基于子词的分词器，如 BPE 或 SentencePiece。</strong></p>
+</li>
+<li><p><strong>嵌入（Embedding）</strong>：将每个 token 转换为一个高维向量，表示其语义。</p>
+<p>把刚刚分出的每一个token都用一个固定维度的向量进行表示。</p>
+<p>假设词嵌入模型将每个 token 嵌入到一个 512 维的向量空间中。那么，嵌入后的结果可能如下所示（这里只是示意性的表示，实际的嵌入向量会更加复杂）：</p>
+<ul>
+<li>“一”：[0.123, -0.456, 0.789, …] (512 维向量)</li>
+<li>“只”：[0.321, 0.654, -0.987, …] (512 维向量)</li>
+<li>“毛”：[0.555, -0.234, 0.111, …] (512 维向量)</li>
+<li>…</li>
+</ul>
+<p>Stable Diffusion 中的 CLIP Text Encoder 使用预训练的词嵌入模型来实现嵌入。这个词嵌入模型已经在大量的文本数据上进行了训练，学习到了每个词或子词的语义表示。</p>
+<p><strong>遇到未登录词（OOV）的处理</strong></p>
+<p>当 CLIP Text Encoder 遇到一个之前嵌入字典中没有的词（即未登录词或 OOV）时，通常会采用以下策略之一：</p>
+<ol>
+<li><p><strong>UNK token</strong>：</p>
+<ul>
+<li>大多数词嵌入模型都会预先定义一个特殊的 token，称为 UNK（unknown），用于表示未登录词。</li>
+<li>当遇到未登录词时，CLIP Text Encoder 会将其替换为 UNK token，然后使用 UNK token 对应的嵌入向量。</li>
+<li>这种方法简单直接，但可能会导致信息的丢失，因为 UNK token 无法准确表示未登录词的语义。</li>
+</ul>
+</li>
+<li><p><strong>子词分解</strong>：</p>
+<ul>
+<li>如果使用基于子词的分词器（如 BPE 或 SentencePiece），未登录词可能会被分解成多个子词。</li>
+<li>如果这些子词都在嵌入字典中，那么 CLIP Text Encoder 可以将它们对应的嵌入向量组合起来，得到未登录词的近似表示。</li>
+<li>这种方法可以更好地处理未登录词，但仍然可能存在一些误差。</li>
+</ul>
+</li>
+<li><p><strong>动态嵌入</strong>：</p>
+<ul>
+<li>一些更先进的模型可能会采用动态嵌入技术，根据上下文信息动态生成未登录词的嵌入向量。</li>
+<li>这种方法可以更准确地表示未登录词的语义，但计算成本较高。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>Transformer 编码</strong>：将嵌入向量序列输入到 Transformer 模型中，通过多层自注意力机制和前馈神经网络，提取文本的上下文信息和语义关系。</p>
+<p><strong>Transformer 编码过程</strong></p>
+<ol>
+<li><strong>多头自注意力机制</strong></li>
+</ol>
+<ul>
+<li><p>对于每个词的嵌入向量，计算它与其他所有词的嵌入向量的相似度（注意力分数）。</p>
+<p><strong>PS: 注意力分数如何计算：</strong></p>
+<p>在 Transformer 中，注意力分数是通过计算 query 向量和 key 向量之间的相似度得到的。具体来说，对于每个词的嵌入向量，我们会将其分别线性变换为 query 向量、key 向量和 value 向量。然后，计算 query 向量和所有 key 向量之间的点积，再除以一个缩放因子（通常是 key 向量的维度的平方根），最后通过 softmax 函数将结果归一化为概率分布，得到注意力分数。</p>
+<p>接下来一步步说，首先有3个权重矩阵，这三个权重矩阵 (<code>W_q</code>, <code>W_k</code>, <code>W_v</code>) 是<strong>通过模型训练学习得到的</strong>。在 Transformer 模型的训练过程中，这些权重矩阵<strong>最初是被随机初始化</strong>的。然后，通过<strong>在大量文本数据上进行训练</strong>，模型会根据训练目标（例如，预测下一个词、机器翻译等）<strong>不断调整这些权重矩阵</strong>的值，使得模型能够更好地<strong>捕捉文本中的语义信息和上下文关系</strong>。</p>
+<p>在 Transformer 的自注意力机制中，嵌入向量（embedding vector）会通过这3个权重矩阵，分别生成 <strong>query 向量、key 向量和 value 向量。</strong></p>
+<p>具体来说：</p>
+<ol>
+<li><p>对于每个输入的嵌入向量 <code>x</code>，我们有三个可学习的权重矩阵：<code>W_q</code>、<code>W_k</code> 和 <code>W_v</code>。</p>
+</li>
+<li><p>通过矩阵乘法，将嵌入向量 <code>x</code> 分别与这三个权重矩阵相乘，得到对应的 query 向量 <code>q</code>、key 向量 <code>k</code> 和 value 向量 <code>v</code>：</p>
+<ul>
+<li><code>q = x * W_q</code></li>
+<li><code>k = x * W_k</code></li>
+<li><code>v = x * W_v</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>三个向量的含义</strong></p>
+<ul>
+<li>**Query 向量 (q)**：代表查询，用于和其他元素的 key 向量进行比较，以确定关注的程度。可以理解为“我想要关注什么”。</li>
+<li>**Key 向量 (k)**：代表键，用于被其他元素的 query 向量查询，以确定自己被关注的程度。可以理解为“我有什么信息可以提供”。</li>
+<li>**Value 向量 (v)**：代表值，表示元素的实际信息。在计算注意力权重后，value 向量会被加权平均，得到最终的输出。可以理解为“我实际包含的信息”。</li>
+</ul>
+<p><strong>举例说明</strong></p>
+<p>假设我们有一个句子 “The cat sat on the mat”，经过嵌入后，得到每个单词的嵌入向量：</p>
+<ul>
+<li>The: [0.1, 0.2, 0.3]</li>
+<li>cat: [0.4, 0.5, 0.6]</li>
+<li>sat: [0.7, 0.8, 0.9]</li>
+<li>on: [0.2, 0.3, 0.1]</li>
+<li>the: [0.3, 0.1, 0.4]</li>
+<li>mat: [0.5, 0.6, 0.2]</li>
+</ul>
+<p>现在，我们想要计算单词 “cat” 对其他单词的注意力。首先，我们需要将 “cat” 的嵌入向量通过线性变换转换为 query、key 和 value 向量。假设变换后的结果如下：</p>
+<ul>
+<li>cat:<ul>
+<li>query: [0.3, 0.5, 0.2]</li>
+<li>key: [0.6, 0.4, 0.1]</li>
+<li>value: [0.5, 0.7, 0.3]</li>
+</ul>
+</li>
+</ul>
+<p>接下来，我们<strong>将 “cat” 的 query 向量与其他所有单词的 key 向量进行比较</strong>（通常是计算点积），<strong>得到注意力分数。</strong> </p>
+<p><strong>举个例子中的例子：</strong></p>
+<p>假设我们有以下三个词的嵌入向量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">词1: [0.1, 0.2, 0.3]</span><br><span class="line">词2: [0.4, 0.5, 0.6]</span><br><span class="line">词3: [0.7, 0.8, 0.9]</span><br></pre></td></tr></table></figure>
+
+<p>经过线性变换后，得到它们的 query、key 和 value 向量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">词1:</span><br><span class="line">  query: [0.2, 0.3, 0.1]</span><br><span class="line">  key:   [0.5, 0.1, 0.4]</span><br><span class="line">  value: [0.8, 0.6, 0.2]</span><br><span class="line"></span><br><span class="line">词2:</span><br><span class="line">  query: [0.3, 0.4, 0.2]</span><br><span class="line">  key:   [0.1, 0.6, 0.3]</span><br><span class="line">  value: [0.5, 0.9, 0.1]</span><br><span class="line"></span><br><span class="line">词3:</span><br><span class="line">  query: [0.1, 0.2, 0.3]</span><br><span class="line">  key:   [0.4, 0.3, 0.2]</span><br><span class="line">  value: [0.7, 0.1, 0.8]</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们来计算词1对其他词的注意力分数：</p>
+<ul>
+<li>词1对词1：<ul>
+<li>点积：[0.2, 0.3, 0.1] · [0.5, 0.1, 0.4] &#x3D; 0.1 + 0.03 + 0.04 &#x3D; 0.17</li>
+<li>缩放因子：√3 ≈ 1.732</li>
+<li>注意力分数：softmax(0.17 &#x2F; 1.732)</li>
+</ul>
+</li>
+<li>词1对词2：<ul>
+<li>点积：[0.2, 0.3, 0.1] · [0.1, 0.6, 0.3] &#x3D; 0.02 + 0.18 + 0.03 &#x3D; 0.23</li>
+<li>缩放因子：√3 ≈ 1.732</li>
+<li>注意力分数：softmax(0.23 &#x2F; 1.732)</li>
+</ul>
+</li>
+<li>词1对词3：<ul>
+<li>点积：[0.2, 0.3, 0.1] · [0.4, 0.3, 0.2] &#x3D; 0.08 + 0.09 + 0.02 &#x3D; 0.19</li>
+<li>缩放因子：√3 ≈ 1.732</li>
+<li>注意力分数：softmax(0.19 &#x2F; 1.732)</li>
+</ul>
+</li>
+</ul>
+<p>通过 softmax 归一化后，我们会得到词1对三个词的注意力分数，它们相加等于1。</p>
+<p><strong>缩放因子的确定</strong></p>
+<p>在 Transformer 的注意力机制中，缩放因子通常被设置为 <code>sqrt(d_k)</code>，其中 <code>d_k</code> 是 key 向量的维度。</p>
+<ul>
+<li><strong>这么做的原因</strong>：当 <code>d_k</code> 较大时，query 和 key 向量之间的点积可能会变得很大。这会导致 softmax 函数的输入值很大，使得 softmax 函数的梯度变得非常小，从而导致训练困难。通过除以 <code>sqrt(d_k)</code>，可以将点积的值缩放到一个更合理的范围，避免梯度消失问题。</li>
+</ul>
+<p>计算注意力分数的原理是：</p>
+<ul>
+<li><strong>相似度度量</strong>：点积可以衡量两个向量之间的相似度。点积越大，两个向量越相似。</li>
+<li><strong>缩放</strong>：除以缩放因子是为了防止点积过大，导致 softmax 函数的梯度消失。</li>
+<li><strong>归一化</strong>：softmax 函数将注意力分数归一化为概率分布，使得我们可以将其解释为词1对其他词的关注程度。</li>
+</ul>
+<p>然后回到刚刚Cat的例子，根据注意力分数对所有单词的 value 向量进行加权平均，得到 “cat” 的新的向量表示。这个新的向量表示融合了 “cat” 与其他单词之间的关系信息。</p>
+</li>
+<li><p>根据注意力分数，对其他词的嵌入向量进行加权平均，得到一个新的向量表示，这个新的向量表示融合了上下文信息。</p>
+</li>
+<li><p>多头注意力机制会并行地进行多次这样的计算，每个头关注不同的上下文信息。</p>
+</li>
+</ul>
+<p><strong>Softmax 操作</strong></p>
+<p>Softmax 操作是一种将向量归一化为概率分布的操作。它将向量中的每个元素转换为一个介于 0 和 1 之间的概率值，并且所有概率值之和等于 1。</p>
+<p>具体计算公式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">softmax(x_i) = exp(x_i) / sum(exp(x_j)) for all j</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>x_i</code> 是输入向量中的第 i 个元素。</li>
+<li><code>exp(x_i)</code> 是 <code>x_i</code> 的指数函数值。</li>
+<li><code>sum(exp(x_j))</code> 是所有输入元素的指数函数值之和。</li>
+</ul>
+<p><strong>举例说明</strong></p>
+<p>假设我们有一个向量 <code>x = [1, 2, 3]</code>，对其应用 softmax 操作：</p>
+<ol>
+<li><p>计算指数函数值：</p>
+<ul>
+<li><code>exp(1) ≈ 2.718</code></li>
+<li><code>exp(2) ≈ 7.389</code></li>
+<li><code>exp(3) ≈ 20.086</code></li>
+</ul>
+</li>
+<li><p>计算指数函数值之和：</p>
+<ul>
+<li><code>sum(exp(x_j)) ≈ 2.718 + 7.389 + 20.086 ≈ 30.193</code></li>
+</ul>
+</li>
+<li><p>计算 softmax 值：</p>
+<ul>
+<li><code>softmax(1) ≈ 2.718 / 30.193 ≈ 0.090</code></li>
+<li><code>softmax(2) ≈ 7.389 / 30.193 ≈ 0.245</code></li>
+<li><code>softmax(3) ≈ 20.086 / 30.193 ≈ 0.665</code></li>
+</ul>
+</li>
+</ol>
+<p>可以看到，softmax 操作将原始向量 <code>[1, 2, 3]</code> 转换为了一个概率分布 <code>[0.090, 0.245, 0.665]</code>，所有概率值之和等于 1。</p>
+<p><strong>softmax 的优势</strong>：softmax 函数的一个关键特性是，它能<strong>将任意实数向量转换为一个概率分布</strong>。这意味着输出的每个元素都在 0 到 1 之间，并且所有元素之和等于 1。这种概率分布的特性使得我们可以将注意力分数解释为模型对不同元素的关注程度。softmax 函数是一个<strong>非线性函数</strong>，它引入了非线性变换，使得模型能够学习更复杂的模式。在注意力机制中，这种非线性变换可以帮助模型更好地捕捉元素之间的关系，从而实现更准确的注意力分配。softmax 函数的<strong>梯度计算相对简单</strong>，并且在<strong>反向传播</strong>过程中<strong>梯度不会消失</strong>。</p>
+<p><strong>得到注意力分数后：</strong></p>
+<p>使用这些分数对其他词的 value 向量进行加权平均。具体来说：</p>
+<ol>
+<li>对于每个词，我们都有一个注意力分数向量，表示它对其他词的关注程度。</li>
+<li>将注意力分数向量与对应的 value 向量矩阵相乘，得到一个加权后的 value 向量矩阵。</li>
+<li>对加权后的 value 向量矩阵按行求和，得到每个词的新的向量表示。</li>
+</ol>
+<p><strong>举例说明</strong></p>
+<p>继续使用之前的例子，假设我们已经计算出了 “cat” 对其他单词的注意力分数：</p>
+<ul>
+<li>The: 0.2</li>
+<li>cat: 0.5</li>
+<li>sat: 0.1</li>
+<li>on: 0.1</li>
+<li>the: 0.05</li>
+<li>mat: 0.05</li>
+</ul>
+<p>同时，我们有所有单词的 value 向量矩阵：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    [0.8, 0.6, 0.2],  # The</span><br><span class="line">    [0.5, 0.7, 0.3],  # cat</span><br><span class="line">    [0.1, 0.9, 0.4],  # sat</span><br><span class="line">    [0.7, 0.2, 0.5],  # on</span><br><span class="line">    [0.3, 0.4, 0.1],  # the</span><br><span class="line">    [0.2, 0.1, 0.8]   # mat</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们可以计算 “cat” 的新的向量表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cat_new = 0.2 * [0.8, 0.6, 0.2] + </span><br><span class="line">          0.5 * [0.5, 0.7, 0.3] +</span><br><span class="line">          0.1 * [0.1, 0.9, 0.4] +</span><br><span class="line">          0.1 * [0.7, 0.2, 0.5] +</span><br><span class="line">          0.05 * [0.3, 0.4, 0.1] +</span><br><span class="line">          0.05 * [0.2, 0.1, 0.8] </span><br><span class="line"></span><br><span class="line">cat_new = [0.535, 0.595, 0.355]</span><br></pre></td></tr></table></figure>
+
+<p><strong>得到的向量表示词在句子中的重要性和与其他词的关系</strong>，注意力分数越高，其他词对该词的影响就越大。</p>
+<ol start="2">
+<li><strong>前馈神经网络</strong></li>
+</ol>
+<ul>
+<li>前馈神经网络（Feed-Forward Network，FFN）是由多个全连接层组成的网络，它对每个位置的特征进行独立的非线性变换。</li>
+</ul>
+<ol start="3">
+<li><strong>重复</strong></li>
+</ol>
+<ul>
+<li>Transformer 编码器通常由多层堆叠而成，每一层都会重复上述的多头自注意力和前馈神经网络操作，从而逐步提取更深层次的上下文信息和语义关系。</li>
+</ul>
+<p>经过 Transformer 编码后，我们会得到一个新的向量序列。每个向量都融合了其上下文的信息，从而更好地表示了词在句子中的含义。比如原始嵌入向量中，“猫”的向量表示可能只是表示了“猫”这个概念。经过 Transformer 编码后，“猫”的向量表示可能会融合上下文信息，例如“橘猫”、“懒洋洋地打盹”等，从而更准确地表示这只猫的特点。</p>
+</li>
+<li><p><strong>池化（Pooling）</strong>：对 Transformer 输出的特征进行池化操作，得到一个固定长度的向量表示，作为整个文本提示的语义嵌入。</p>
+<p>假设经过 Transformer 编码后，我们得到了每个单词的新的向量表示（简化了）：</p>
+<ul>
+<li>The: [0.2, 0.3, 0.1]</li>
+<li>cat: [0.5, 0.6, 0.2]</li>
+<li>sat: [0.8, 0.1, 0.7]</li>
+<li>on: [0.3, 0.2, 0.4]</li>
+<li>the: [0.1, 0.4, 0.3]</li>
+<li>mat: [0.6, 0.3, 0.5]</li>
+</ul>
+<p>现在，我们需要将这些词的向量表示聚合为一个向量，表示整个句子的语义。池化操作就是实现这一目标的方法。</p>
+<p>一种常见的池化操作是<strong>平均池化（Average Pooling）</strong>，即对所有词的向量表示取平均值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">句子向量 = ( [0.2, 0.3, 0.1] + </span><br><span class="line">              [0.5, 0.6, 0.2] +</span><br><span class="line">              [0.8, 0.1, 0.7] +</span><br><span class="line">              [0.3, 0.2, 0.4] +</span><br><span class="line">              [0.1, 0.4, 0.3] +</span><br><span class="line">              [0.6, 0.3, 0.5] ) / 6</span><br><span class="line"></span><br><span class="line">句子向量 = [0.416, 0.316, 0.366]</span><br></pre></td></tr></table></figure>
+
+<p><strong>池化的作用</strong></p>
+<ul>
+<li><strong>降维</strong>：对于较长的文本，序列可能会很长，不利于后续计算。池化操作可以将不定长序列转换为一个固定长度的向量，从而降低维度提高计算效率。Also, Stable Diffusion 的图像生成器通常需要一个固定长度的向量作为输入</li>
+<li><strong>获取全局表示</strong>：Transformer 编码器输出的每个向量都包含了该词的上下文信息，但它们仍然是局部的表示。池化操作可以将这些局部表示聚合为一个全局表示。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><code>VAE Encoder</code>：将图像编码到潜在空间，降低维度，提高计算效率。</p>
+<ul>
+<li><p>其核心是通过神经网络学习一个复杂的非线性函数，将输入图像映射到潜在空间中的一个概率分布, 无法直接从向量中看出它代表什么图片。需要通过 VAE Decoder 将潜在向量解码回图像，才能看到它代表的视觉内容。</p>
+</li>
+<li><p>潜在空间与模型本身密切相关。</p>
+<p><strong>潜在空间的来源</strong></p>
+<ul>
+<li><strong>VAE</strong>：在 Stable Diffusion 的训练过程中，VAE 被训练来学习如何将图像编码到潜在空间，并从潜在空间解码回图像。这个学习过程使得 VAE 能够捕捉到图像中的重要特征，并将这些特征表示为低维向量。</li>
+<li><strong>Checkpoint</strong>：每个 Stable Diffusion 的 Checkpoint 都包含了一个训练好的 VAE。因此，不同的 Checkpoint 具有不同的 VAE，也就对应着不同的潜在空间。</li>
+</ul>
+<p><strong>不同 Checkpoint 之间的潜在空间不通用</strong>：在一个 Checkpoint 的潜在空间中表示的图像，可能无法在另一个 Checkpoint 的潜在空间中被准确解码。这是因为不同的 Checkpoint 在训练时使用了不同的数据集和超参数，导致它们学习到的图像特征表示方式有所差异。</p>
+</li>
+<li><p><strong>PS: 关于图片的维度</strong>，例如一张高分辨率，512x512 像素的彩色图片，它有 512x512x3 &#x3D; 786,432 个维度。这里的维度具体指的是<strong>图片中包含的数值元素的数量</strong>。在这里，一个维度代表<strong>一个像素点上的一个颜色通道的数值</strong>。例如，图片左上角第一个像素点的红色通道的值可能为 0.8，绿色通道的值可能为 0.3，蓝色通道的值可能为 0.6。这些数值共同决定了这个像素点的颜色。</p>
+</li>
+</ul>
+<p><strong>与 Transformer 中词向量表示的异同</strong></p>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>潜在空间中的图像表示</th>
+<th>Transformer 中的词向量表示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表示对象</td>
+<td>图像</td>
+<td>词或子词</td>
+</tr>
+<tr>
+<td>维度</td>
+<td>通常较低（例如 64）</td>
+<td>通常较高（例如 512 或 768）</td>
+</tr>
+<tr>
+<td>获取方式</td>
+<td>通过 VAE Encoder 编码得到</td>
+<td>通过预训练的词嵌入模型或 Transformer 训练得到</td>
+</tr>
+<tr>
+<td>解释性</td>
+<td>较弱，需要解码后才能理解其含义</td>
+<td>较强，可以直接通过向量之间的距离或相似度来理解语义关系</td>
+</tr>
+<tr>
+<td>概率分布</td>
+<td>是</td>
+<td>否</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>Sampler</code>：在潜在空间中进行迭代采样，生成图像。</p>
+</li>
+<li><p><code>VAE Decoder</code>：将潜在空间中的图像解码回像素空间。</p>
+<ul>
+<li>VAE Decoder 是变分自编码器（Variational Autoencoder）的解码器部分。VAE Decoder 通常使用转置卷积（transposed convolution）或上采样+卷积的方式来实现上采样操作。转置卷积可以看作是卷积的逆操作，它可以将特征图的空间分辨率扩大。</li>
+</ul>
+<p><strong>PS: 卷积，卷积层和CNN：</strong></p>
+<p><strong>以图像模糊为例理解卷积</strong></p>
+<p>假设我们有一张 5x5 的灰度图像（每个像素的值代表其亮度，范围为 0-255）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">图像：</span><br><span class="line">100  120  130  140  150</span><br><span class="line">110  130  140  150  160</span><br><span class="line">120  140  150  160  170</span><br><span class="line">130  150  160  170  180</span><br><span class="line">140  160  170  180  190</span><br></pre></td></tr></table></figure>
+
+<p>我们想要对这张图像进行模糊处理。一种简单的方法是使用一个 3x3 的平均滤波器（卷积核）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">滤波器：</span><br><span class="line">1/9  1/9  1/9</span><br><span class="line">1/9  1/9  1/9</span><br><span class="line">1/9  1/9  1/9</span><br></pre></td></tr></table></figure>
+
+<p>这个滤波器会对图像的每个 3x3 区域进行平均操作，从而实现模糊效果。</p>
+<p><strong>卷积操作步骤</strong></p>
+<ol>
+<li><p><strong>将滤波器放置在图像的左上角</strong>，使滤波器中心与图像的第一个像素对齐。</p>
+</li>
+<li><p><strong>计算卷积结果</strong>：将滤波器与图像对应区域的元素相乘，然后求和。</p>
+<ul>
+<li><p>对应区域：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">100  120  130</span><br><span class="line">110  130  140</span><br><span class="line">120  140  150</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元素乘积：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">100 * 1/9  120 * 1/9  130 * 1/9</span><br><span class="line">110 * 1/9  130 * 1/9  140 * 1/9</span><br><span class="line">120 * 1/9  140 * 1/9  150 * 1/9</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>求和：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(100 + 120 + 130 + 110 + 130 + 140 + 120 + 140 + 150) / 9 </span><br><span class="line">= 126.66 ≈ 127</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将计算结果 127 填入输出特征图的第一个位置。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>滑动滤波器</strong>：将滤波器向右滑动一个步长（通常为 1），重复步骤 2，直到滤波器覆盖完图像的第一行。</p>
+</li>
+<li><p><strong>换行</strong>：将滤波器移动到下一行的开头，重复步骤 2 和 3，直到滤波器覆盖完整个图像。</p>
+</li>
+</ol>
+<p><strong>输出</strong></p>
+<p>最终，我们会得到一个 3x3 的输出特征图，它代表了模糊后的图像。</p>
+<p>当这个滤波器在图像上滑动时，它会对每个 3x3 区域内的像素值进行平均。</p>
+<p>这个平均操作的效果是：</p>
+<p><strong>降低局部对比度</strong>：如果一个像素的值比周围像素的值大很多（例如一个亮点），平均操作会降低它的值，使其更接近周围像素的值。如果一个像素的值比周围像素的值小很多（例如一个暗点），平均操作会增加它的值，使其更接近周围像素的值。</p>
+<p><strong>平滑边缘</strong>：在图像的边缘处，像素值通常会有较大的变化。平均操作会将边缘像素的值与周围像素的值进行平均，从而使边缘变得不那么尖锐，看起来更模糊。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输出特征图：</span><br><span class="line">127 133 140</span><br><span class="line">133 140 146</span><br><span class="line">140 146 153</span><br></pre></td></tr></table></figure>
+
+<p><strong>PS：更多应用例如：</strong></p>
+<p><strong>边缘检测：</strong></p>
+<p>垂直边缘检测滤波器在遇到垂直边缘时卷积结果会很大，而在平坦区域时卷积结果会很小。</p>
+<p><strong>图像示例</strong></p>
+<p>假设我们有下面这张简单的 5x5 灰度图像（为了便于理解，我们使用数字代表像素值，数值越大表示越亮）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">10 10 10 50 50</span><br><span class="line">10 10 10 50 50</span><br><span class="line">10 10 10 50 50</span><br><span class="line">10 10 10 50 50</span><br><span class="line">10 10 10 50 50</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，这张图像中间有一条明显的垂直边缘，左边较暗（像素值为 10），右边较亮（像素值为 50）。</p>
+<p><strong>垂直边缘检测滤波器</strong></p>
+<p>我们使用如下的 3x3 垂直边缘检测滤波器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-1  0  1</span><br><span class="line">-1  0  1</span><br><span class="line">-1  0  1</span><br></pre></td></tr></table></figure>
+
+<p><strong>卷积操作</strong></p>
+<p>现在，让我们将滤波器在图像上滑动，看看在不同位置的卷积结果。</p>
+<ol>
+<li><strong>平坦区域</strong></li>
+</ol>
+<p>当滤波器覆盖在图像的平坦区域时，例如左上角的 3x3 区域：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 10 10</span><br><span class="line">10 10 10</span><br><span class="line">10 10 10</span><br></pre></td></tr></table></figure>
+
+<p>卷积计算结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10 * -1 + 10 * 0 + 10 * 1 </span><br><span class="line">+ 10 * -1 + 10 * 0 + 10 * 1</span><br><span class="line">+ 10 * -1 + 10 * 0 + 10 * 1</span><br><span class="line">= 0</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，卷积结果为 0。这是因为平坦区域的像素值变化很小，滤波器左右两列的乘积结果相互抵消了。</p>
+<ol start="2">
+<li><strong>垂直边缘</strong></li>
+</ol>
+<p>当滤波器覆盖到图像中间的垂直边缘时，例如中间列的 3x3 区域：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 10 50</span><br><span class="line">10 10 50</span><br><span class="line">10 10 50</span><br></pre></td></tr></table></figure>
+
+<p>卷积计算结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10 * -1 + 10 * 0 + 50 * 1 </span><br><span class="line">+ 10 * -1 + 10 * 0 + 50 * 1</span><br><span class="line">+ 10 * -1 + 10 * 0 + 50 * 1</span><br><span class="line">= 120</span><br></pre></td></tr></table></figure>
+
+<p>卷积操作在图像处理中具有以下几个重要作用：</p>
+<p><strong>特征提取</strong>：卷积层通过滤波器学习提取图像中的各种特征，如边缘、纹理、形状等。这些特征对于图像分类、目标检测、图像分割等任务非常重要。</p>
+<p><strong>局部连接</strong>：卷积操作只考虑滤波器大小的局部区域，而不是整个图像。这种局部连接性减少了参数数量，提高了计算效率。</p>
+<p><strong>权值共享</strong>：同一个滤波器在图像的不同位置上共享权重，这意味着模型学习到的特征可以在图像的不同位置上重复使用，进一步减少了参数数量。</p>
+<p><strong>PS: 权值共享的含义</strong></p>
+<p>在卷积神经网络中，每个卷积层都包含多个滤波器（也称为卷积核）。每个滤波器在图像上滑动时，其权重（即滤波器中的数值）保持不变。这意味着，<strong>同一个滤波器在图像的不同位置上执行卷积操作时，使用的都是同一组权重</strong>。权值共享减少了参数数量，提高了计算效率。也使得卷积神经网络具有平移不变性，提高了模型的泛化能力。</p>
+<p>关于卷积的另一个问题是<strong>维度的变化</strong>：</p>
+<p>但是卷积后的矩阵由9x9变成了3x3, 所以一般为了保证矩阵的维度不发生变化，会使用<strong>Padding（填充）</strong>：</p>
+<p>例如，在上面的例子中，如果我们在图像周围添加一层填充（padding&#x3D;1），那么填充后的图像大小将变为 7x7：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">填充后的图像：</span><br><span class="line">  0   0   0   0   0   0   0</span><br><span class="line">  0 100  120  130  140  150  0</span><br><span class="line">  0 110  130  140  150  160  0</span><br><span class="line">  0 120  140  150  160  170  0</span><br><span class="line">  0 130  150  160  170  180  0</span><br><span class="line">  0 140  160  170  180  190  0</span><br><span class="line">  0   0   0   0   0   0   0</span><br></pre></td></tr></table></figure>
+
+<p>现在，当 3x3 的滤波器在填充后的图像上滑动时，输出的特征图大小仍然是 5x5，与原始图像大小相同。</p>
+<p><strong>卷积层</strong></p>
+<p>卷积层是卷积神经网络（CNN）中的基本构建块。它由多个滤波器组成，每个滤波器在输入图像或特征图上执行卷积操作，生成一个新的特征图。</p>
+<ul>
+<li><strong>多个滤波器</strong>：卷积层通常有多个滤波器，每个滤波器学习提取图像的不同特征，如边缘、纹理、形状等。</li>
+<li><strong>特征图</strong>：卷积层的输出是一组特征图，每个特征图对应一个滤波器。</li>
+<li><strong>可学习参数</strong>：滤波器的权重是可学习的参数，通过训练数据来调整，使得模型能够提取出对特定任务有用的特征。</li>
+</ul>
+</li>
+<li><p><code>Image Output</code>：显示或保存生成的图像。由VAE Decoder解码后生成, 是<strong>一个高维矩阵</strong>，它精确地描述了一幅图像的<strong>像素点</strong>和<strong>通道</strong>信息，再由计算机根据描述显示。</p>
+</li>
+</ul>
+<p><strong>控制因素</strong></p>
+<p>这个 workflow 中，主要通过以下因素来控制图像生成：</p>
+<ul>
+<li><strong>提示词</strong>：正向提示词描述你想要生成的图像，负向提示词描述你不想要出现的元素。</li>
+<li><strong>LoRA</strong>：LoRA 模型可以影响图像的风格、主题或其他方面。</li>
+<li><strong>采样器参数</strong>：采样器的参数，如采样步数、CFG Scale 等，会影响图像的质量和多样性。</li>
+</ul>
+<p><strong>其他 Workflow</strong></p>
+<p>虽然你提供的 workflow 是一个基础流程，但 Stable Diffusion 的强大之处在于其灵活性。你可以根据需要添加或修改节点，实现各种各样的效果。例如：</p>
+<ul>
+<li><strong>图生图</strong>：在 <code>VAE Encoder</code> 前添加 <code>Image Loader</code> 节点，加载一张参考图像，实现图生图。</li>
+<li><strong>ControlNet</strong>：添加 <code>ControlNet</code> 节点，利用额外的控制信息（如边缘、深度图等）来引导图像生成。</li>
+<li><strong>图像修复</strong>：添加 <code>Inpaint</code> 节点，利用掩码指定需要修复的区域，实现图像修复。</li>
+</ul>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">Jialai</div><div class="post-copyright__author_desc">一个小屁孩的玩具箱</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://jialaizhang.github.io/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://jialaizhang.github.io/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/')">Stable Diffusion101(壹)</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://jialaizhang.github.io/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Stable Diffusion101(壹)&amp;url=https://jialaizhang.github.io/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/&amp;pic=https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">2024 Jialai, Copy Right Reserved.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/Stable-Diffusion/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Stable Diffusion<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/08/13/%E7%BA%A2%E9%85%92%E8%BF%90%E8%BE%93%E5%92%8C%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/WineExportDocuments.jpg?raw=true" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">红酒出口运输流程与相关文件</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> Comment</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://emotion.acs.pw/emotion/blob/blobartist.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);"><b style="color:#fff">好奇的小屁孩会一直快乐下去</b>，<b style="color:#fff"></b></div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);"><b style="color:#fff"></b><b style="color:#fff"></b><b style="color:#fff">你是不是也这么想！</b></div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Jialai</h1><div class="author-info__desc">一个小屁孩的玩具箱</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/JialaiZhang" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Stable-Diffusion101-%E5%A3%B9"><span class="toc-number">1.</span> <span class="toc-text">Stable Diffusion101(壹)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Stable-Diffusion%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">Stable Diffusion原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">整体架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88Text-Encoder%EF%BC%89%E9%83%A8%E5%88%86"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">文本编码器（Text Encoder）部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B1%A0%E5%8C%96%EF%BC%88Pooling%EF%BC%89%EF%BC%9A"><span class="toc-number">1.1.2.1.1.</span> <span class="toc-text">池化（Pooling）：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Attention%E6%9C%BA%E5%88%B6%E5%92%8CAttention-Pooling%EF%BC%9A"><span class="toc-number">1.1.2.1.1.1.</span> <span class="toc-text">Attention机制和Attention Pooling：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88Image-Generator%EF%BC%89"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">图像生成器（Image Generator）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#PS-%E5%85%B3%E4%BA%8ETransformer%EF%BC%9A"><span class="toc-number">1.1.2.2.1.</span> <span class="toc-text">PS: 关于Transformer：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Transformers%E5%92%8CRNN%EF%BC%9A"><span class="toc-number">1.1.2.2.1.1.</span> <span class="toc-text">Transformers和RNN：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ComfyUI"><span class="toc-number">1.2.</span> <span class="toc-text">ComfyUI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E5%8F%B3%E9%94%AEMenu%EF%BC%9A"><span class="toc-number">1.2.1.</span> <span class="toc-text">基础右键Menu：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-Node%E5%8F%B3%E9%94%AEMenu%EF%BC%9A"><span class="toc-number">1.2.2.</span> <span class="toc-text">Add Node右键Menu：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%87%E7%94%9F%E5%9B%BEWorkflow"><span class="toc-number">1.2.3.</span> <span class="toc-text">基本文生图Workflow</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Workflow-%E9%80%BB%E8%BE%91"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">Workflow 逻辑</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%8F%E4%B8%80%E9%A1%B9%E7%9A%84%E6%93%8D%E4%BD%9C%E5%92%8C%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">每一项的操作和作用</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/" title="Stable Diffusion101(壹)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Stable Diffusion101(壹)"/></a><div class="content"><a class="title" href="/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/" title="Stable Diffusion101(壹)">Stable Diffusion101(壹)</a><time datetime="2024-08-18T00:00:00.000Z" title="Created 2024-08-18 00:00:00">2024-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/13/%E7%BA%A2%E9%85%92%E8%BF%90%E8%BE%93%E5%92%8C%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6/" title="红酒出口运输流程与相关文件"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/WineExportDocuments.jpg?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红酒出口运输流程与相关文件"/></a><div class="content"><a class="title" href="/2024/08/13/%E7%BA%A2%E9%85%92%E8%BF%90%E8%BE%93%E5%92%8C%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6/" title="红酒出口运输流程与相关文件">红酒出口运输流程与相关文件</a><time datetime="2024-08-13T00:00:00.000Z" title="Created 2024-08-13 00:00:00">2024-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/" title="混音软件中的各种FX（Cubase）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="混音软件中的各种FX（Cubase）"/></a><div class="content"><a class="title" href="/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/" title="混音软件中的各种FX（Cubase）">混音软件中的各种FX（Cubase）</a><time datetime="2024-08-12T00:00:00.000Z" title="Created 2024-08-12 00:00:00">2024-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/11/Cubase101(%E5%A3%B9)/" title="Cubase101（壹）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/Cubase101.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cubase101（壹）"/></a><div class="content"><a class="title" href="/2024/08/11/Cubase101(%E5%A3%B9)/" title="Cubase101（壹）">Cubase101（壹）</a><time datetime="2024-08-11T00:00:00.000Z" title="Created 2024-08-11 00:00:00">2024-08-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/09/%E4%BD%8E%E6%88%90%E6%9C%AC%E9%AB%98%E6%95%88%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/" title="Hexo+Github低成本高效搭建个人博客网站"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/Hexo_Blog1.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github低成本高效搭建个人博客网站"/></a><div class="content"><a class="title" href="/2024/08/09/%E4%BD%8E%E6%88%90%E6%9C%AC%E9%AB%98%E6%95%88%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99/" title="Hexo+Github低成本高效搭建个人博客网站">Hexo+Github低成本高效搭建个人博客网站</a><time datetime="2024-08-09T00:00:00.000Z" title="Created 2024-08-09 00:00:00">2024-08-09</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/Jialaiz" title="Jialai" target="_blank">Jialai</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/JialaiZhang.github.io" title="Github">Github</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">8</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">1</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.linkedin.com/in/jialaiz/" title="Linkedin"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="Linkedin"/><span class="back-menu-item-text">Linkedin</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/personal-website-images" title="Github图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="Github图床"/><span class="back-menu-item-text">Github图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 万物生长</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 火花</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=2807259311&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 番剧</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinemas/"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> 影视</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 摄影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 上铺下铺</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/IT/" style="font-size: 0.88rem;">IT<sup>1</sup></a><a href="/tags/Stable-Diffusion/" style="font-size: 0.88rem;">Stable Diffusion<sup>1</sup></a><a href="/tags/%E6%B7%B7%E9%9F%B3/" style="font-size: 0.88rem;">混音<sup>2</sup></a><a href="/tags/%E7%BA%A2%E9%85%92/" style="font-size: 0.88rem;">红酒<sup>1</sup></a><a href="/tags/%E7%BA%A2%E9%85%92%E8%BF%9B%E5%87%BA%E5%8F%A3/" style="font-size: 0.88rem;">红酒进出口<sup>3</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("08/07/2024 16:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Jialai 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://jialai-twikoo.hf.space',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://jialai-twikoo.hf.space',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[image]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[link]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[code]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://jialai-twikoo.hf.space',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "Unable to get the data, please make sure the settings are correct."
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += 'No Comment'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
