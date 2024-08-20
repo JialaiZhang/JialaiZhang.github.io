@@ -1,0 +1,845 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Stable Diffusion101(贰) | Jialai Lab</title><meta name="keywords" content="AI，图生网络，SD3，深度学习"><meta name="author" content="Jialai"><meta name="copyright" content="Jialai"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Stable Diffusion101(贰)"><meta name="application-name" content="Stable Diffusion101(贰)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Stable Diffusion101(贰)"><meta property="og:url" content="https://jialaizhang.github.io/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/index.html"><meta property="og:site_name" content="Jialai Lab"><meta property="og:description" content="Stable Diffusion ComfyUI 右键基本菜单简介"><meta property="og:locale" content="en"><meta property="og:image" content="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/SD3_Menu.webp"><meta property="article:author" content="Jialai"><meta property="article:tag" content="Jialai, 博客, 旅行, 墨尔本, 赤峰"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/SD3_Menu.webp"><meta name="description" content="Stable Diffusion ComfyUI 右键基本菜单简介"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://jialaizhang.github.io/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"少侠请留步！","backTitle":"少侠来的好！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://jialai-twikoo.hf.space',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: undefined,
+  authorStatus: {"skills":["🔍 学者","🤝 广结善缘","🏃 行者","🤖️ Tech Guy","🎵 半路出道音乐人","💢 心如止水 保留愤怒"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: Jialai","link":"Link: ","source":"Source: Jialai Lab","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Jialai Lab',
+  title: 'Stable Diffusion101(贰)',
+  postAI: '',
+  pageFillDescription: 'Stable Diffusion 右键菜单详解, ADD NODE Menu：, Utils, Sampling, Schedulers（调度器）, Samplers, Sigmas（噪声等级）, Guiders（引导器）, Video Models 下的选项详解, KSampler, KSampler (Advanced), Loaders, Conditioning, Latent（潜在空间）, Image, Mask（掩码）右键菜单详解节点允许你在的工作区中添加文本注释节点用于创建和操作基本几何形状如点线矩形圆形等这些形状可以作为掩码或控制信息用于影响图像生成过程创建掩码使用节点创建一个矩形然后将其连接到输入从而只对图像的特定区域进行处理控制使用节点创建线条然后将其连接到的相应输入从而引导图像生成特定形状的物体例子使用节点创建一个圆形然后将其连接到节点的输入从而只对圆形区域内的图像进行修复节点用于在工作区中整理节点连接使流程更加清晰它可以将节点的输出重新路由到其他位置避免过多的连线交叉提高工作区的可读性例子当一个节点的输出需要连接到多个其他节点时可以使用节点将输出复制到多个位置避免多条连线交叉节点用于在界面中显示终端输出信息这对于查看模型加载过程调试错误获取运行时信息等非常有用可以查看模型加载过程中的详细信息如模型大小参数数量等当工作流程出现错误时可以在终端输出中查看错误信息帮助定位问题也可以获取图像生成过程中的实时信息如采样进度损失值等例子在加载一个大型模型时你可以添加一个节点来查看加载进度和详细信息调度器在中调度器控制着图像生成过程中噪声的去除方式不同的调度器采用不同的策略来逐步降低噪声水平从而影响生成图像的质量速度和多样性最基础的调度器采用线性方式逐步降低噪声水平适用于快速生成图像或者作为其他调度器的基础如果想快速生成一张概念草图可以使用一种改进的调度器采用非线性方式降低噪声水平尤其在早期阶段去噪速度较快适用于生成高质量图像同时保持一定的生成速度如果想生成一张细节丰富的图像但又不想等待太长时间可以使用采用指数方式降低噪声水平早期去噪速度较慢后期较快适用于生成具有柔和过渡效果的图像如果想生成一张具有梦幻感的图像可以使用一种基于多项式插值的调度器可以灵活调整去噪曲线适用于需要精细控制去噪过程的高级用户如果想通过调整去噪曲线来实现特定的图像效果可以使用一种基于变分推理的调度器理论上可以生成更高质量的图像适用于追求极致图像质量的用户如果想生成一张尽可能逼真和精细的图像可以尝试一种基于分布的调度器可以生成多样化的图像适用于探索不同风格或创意的图像生成如果想生成一组具有不同风格的图像可以使用一种优化过的调度器可以在较少的采样步数下生成高质量图像适用于在保证图像质量的前提下提高生成速度如果想快速生成高质量的图像可以使用这两种调度器是基于社区开发的算法旨在进一步提高图像质量和稳定性适用于追求更高图像质量或尝试新算法的用户是一个下拉菜单可以快速选择常用的采样器无需手动添加节点适用于快速切换不同的采样器尤其是在实验和比较不同采样器效果时非常方便如果想尝试使用采样器可以直接在中选择它而无需手动添加节点并设置算法采样器基本算法采样器是最基础的采样器它直接使用方法来数值求解扩散模型中的随机微分方程方法是一种简单的一阶数值求解方法它通过在每个时间步上使用当前时刻的导数来估计下一时刻的值初始化从一个随机噪声图像开始设置初始时间步迭代计算噪声预测使用模型预测当前时间步的噪声更新图像根据方法的公式更新图像其中是预先定义的噪声调度参数控制每个时间步添加的噪声量是从标准正态分布中采样的随机噪声更新时间步终止当时停止迭代输出作为生成的图像采样器基本算法采样器是采样器的改进版本它引入了祖先采样的概念祖先采样通过在每一步迭代中添加额外的噪声来增加生成图像的多样性与采样器类似但在更新图像的公式中增加了一个额外的噪声项其中是预先定义的噪声调度参数控制每个时间步添加的额外噪声量是从标准正态分布中采样的随机噪声采样器基本算法采样器与采样器非常相似它们都使用了祖先采样技术主要区别在于采样器在计算噪声预测时使用了前一个时间步的图像作为输入而不是当前时间步的图像初始化从一个随机噪声图像开始设置初始时间步迭代计算噪声预测使用模型预测前一个时间步的噪声输入为更新图像根据方法的公式更新图像更新时间步终止当时停止迭代输出作为生成的图像和最主要的区别就在于在计算当前时间步的噪声预测时使用当前时间步的图像作为的输入在计算当前时间步的噪声预测时使用前一个时间步的图像作为的输入当前图像是第一步即时前一步的图像不存在在这种情况下采样器通常会使用当前时间步的图像作为的输入或者使用一个预先定义的噪声图像来代替使用前一步的图像作为输入可以考虑到更多的历史信息从而可能产生更稳定更高质量更多样化的图像采样器一种基于方法的迭代采样器引入了祖先采样的概念可以提高生成图像的质量和稳定性适用于生成高质量图像尤其是在处理复杂场景或精细细节时表现较好如果想生成一张包含丰富细节的风景画可以使用的改进版本增加了对的支持可以更好地控制图像生成的方向和风格适用于需要更强控制力的图像生成任务例如在提示词中包含特定风格或元素时如果想生成一张具有梵高风格的星空图可以在提示词中加入梵高风格并使用来增强风格效果采样器一种基于线性多步法的采样器可以在较少的采样步数下生成高质量图像适用于在保证图像质量的前提下提高生成速度如果想快速生成一张高质量的人物肖像可以使用和采样器是基于算法的采样器使用了阶或阶的随机微分方程求解器可以在较少的采样步数下生成高质量图像适用于在保证图像质量的前提下进一步提高生成速度如果想在更短的时间内生成高质量的图像可以尝试使用或是一种基于扩散模型的采样器它通过迭代地向图像添加噪声然后学习如何从噪声中恢复出原始图像在每一步迭代中会根据当前的噪声图像和模型预测计算出下一步需要去除的噪声量是的改进版本它引入了几种优化技术包括改进的噪声调度使用更复杂的噪声调度算法使得模型能够更有效地去除噪声预测校正在每一步迭代中对模型的预测进行校正提高预测的准确性更快的求解器使用更高效的数值求解器来计算每一步需要去除的噪声量特点在保持较高图像质量的基础上显著提高了生成速度和的区别速度比快得多尤其是在生成高分辨率图像时假设我们要生成一张像素的风景画使用可能需要步迭代才能生成一张高质量的图像耗时较长使用可能只需要步迭代就能生成一张质量相当甚至更好的图像耗时更短质量在大多数情况下都能生成与相当甚至更好的图像质量采样器是算法的另一个变体使用了随机微分方程求解器可以在较少的采样步数下生成高质量图像适用于在保证图像质量的前提下进一步提高生成速度采样器是算法的自适应版本可以根据图像内容动态调整采样步数从而在保证图像质量的同时进一步提高生成速度适用于对生成速度有较高要求同时希望保持图像质量的用户如果想在尽可能短的时间内生成高质量的图像可以尝试使用采样器专门用于在潜在空间中提高图像的分辨率适用于先生成低分辨率图像然后通过提高分辨率从而在提高图像质量的同时节省计算资源如果想生成一张高分辨率的图像但受限于显存可以先生成一张低分辨率的图像然后使用将其放大是一种专门用于提高图像分辨率的采样器它在潜在空间中进行操作通过迭代地向低分辨率图像添加噪声然后学习如何从噪声中恢复出高分辨率图像噪声等级在的扩散模型中代表了不同阶段的噪声等级在图像生成过程中模型从高噪声等级逐步向低噪声等级迭代直到生成最终的清晰图像子菜单下的节点主要用于控制和操作这些噪声等级作用将一个包含所有噪声等级的张量分割成多个单独的噪声等级在深度学习和数值计算领域张量是一种多维数组它可以看作是向量和矩阵的推广可以表示任意维度的数据维张量标量即一个单独的数字维张量向量即一组有序的数字维张量矩阵即一个二维数组维张量可以看作是一摞矩阵例如彩色图像就可以表示为一个维张量其中每个通道都是一个二维矩阵更高维张量可以表示更复杂的数据结构例如视频时间维度图像维度或多通道时间序列数据的优势统一表示提供了一种统一的方式来表示各种类型的数据使得模型的输入和输出更加一致简化了模型的设计和实现高效计算可以利用进行高效的并行计算大大加快了模型的训练和推理速度灵活操作支持各种数学运算和变换如加法乘法转置卷积等为模型的构建和优化提供了丰富的工具使用场景当你需要对不同的噪声等级进行单独处理或分析时可以使用节点示例你可以使用将噪声等级分割后分别连接到不同的去噪模型以实现更精细的控制作用类似于但它在分割噪声等级的同时还应用了去噪模型对每个噪声等级进行去噪处理使用场景当你需要在分割噪声等级的同时进行去噪处理时可以使用节点从而简化流程作用将噪声等级的顺序翻转使用场景在某些特殊情况下你可能需要将噪声等级的顺序翻转例如在实现某些自定义采样算法时引导器在中引导器用于在采样过程中提供额外的指导或约束从而影响生成图像的特定方面如构图颜色一致性等引导器通过调整条件信息通常是文本提示的强度来控制图像生成这是最常用的引导器之一适用于大多数情况可以通过调整参数来控制提示词对生成图像的影响程度如果想生成一张更符合提示词描述的图像可以增加的值双引导器允许你同时使用两个值一个用于正向提示词一个用于负向提示词适用于需要更精细地控制正向和负向提示词影响的情况如果想在生成图像时强调正向提示词同时弱化负向提示词可以设置较高的正向和较低的负向基础引导器不提供任何额外的指导或约束直接使用模型的输出适用于不需要任何引导的简单图像生成任务或者用于与其他引导器进行比较下的选项详解作用为视频生成任务设计的线性引导器它通过线性调整条件信息通常是文本提示的强度来控制视频生成的过程从而影响生成视频的风格和内容使用场景适用于需要对生成视频进行风格和内容控制的任务希望以线性方式调整强度示例如果你想生成一个逐渐从写实风格过渡到抽象风格的视频可以使用并在采样过程中线性增加的值作用为视频生成任务设计的三角形引导器它通过三角形函数调整条件信息通常是文本提示的强度来控制视频生成的过程从而影响生成视频的风格和内容使用场景适用于需要对生成视频进行风格和内容控制的任务希望以三角形函数方式调整强度示例如果你想生成一个在中间帧具有最强风格效果而在开始和结束帧风格效果较弱的视频可以使用作用虽然主要用于图像生成但在视频生成任务中它也可以用于对每一帧进行采样使用场景当你需要使用提供的各种采样算法来生成视频的每一帧时可以使用这个节点示例如果你想使用算法生成视频的每一帧可以将节点连接到视频生成流程中并设置其算法为作用与图像生成类似是的高级版本提供了更多的参数设置可以更精细地控制视频采样过程使用场景适用于需要对视频采样过程进行更多调整的高级用户示例如果你想在视频采样过程中动态调整可以使用并设置选项提供了各种加载器节点用于将模型图像文本等数据加载到的工作流程中加载的主模型这是生成图像的基础这是任何文生图或图生图工作流程都必不可少的节点可以用来加载这样的模型文件来生成图像加载变分自编码器用于在图像的像素空间和潜在空间之间进行转换通常与主模型一起使用有些主模型可能内置了有些则需要单独加载可以用来加载这样的文件加载模型用于对主模型进行微调实现风格定制或其他效果当想要在生成图像时应用特定的风格主题或其他效果时可以使用可以用于加载这样的文件让生成的图像具有韩国娃娃的风格加载模型用于通过额外的控制图像如边缘图深度图姿势图等来引导图像生成过程当需要更精确地控制生成图像的构图姿势深度等方面时可以使用可以用于加载这样的模型然后输入一张边缘图让生成的图像遵循边缘图的轮廓与类似但它加载的是的差异模型可以更有效地利用计算资源与相同但通常在计算资源有限时使用加载风格模型用于将特定艺术风格应用到生成的图像上当你想要生成具有特定艺术风格的图像时可以使用风格模型可用于加载这样的风格模型让生成的图像具有梵高的风格加载视觉编码器用于将图像编码为向量表示主要用于图像相似度计算图像分类等任务加载模型是一种能够从文本生成图像的模型与不同它不需要适用于探索模型的图像生成能力加载模型是一种能够根据文本和边界框生成图像的模型适用于需要在指定区域内生成特定物体的图像生成任务仅加载模型的权重不加载其元数据适用于只需要权重不需要元数据的情况加载超网络模型超网络是一种通过修改主模型权重来实现特定效果的模型适用于实现一些全局性的图像调整或效果加载图像超分辨率模型用于提高图像的分辨率适用于在生成低分辨率图像后通过超分辨率模型提高其分辨率在中条件指的是影响图像生成过程的各种因素最常见的是文本提示词菜单中的节点提供了多种方式来控制和调整这些条件信息从而实现对生成图像的更精细控制加载风格模型用于将特定艺术风格迁移到生成的图像上加载模型用于通过额外的控制图像来精确引导图像生成过程加载模型用于根据文本提示和边界框在图像的指定区域内生成物体加载模型用于修复或替换图像中的指定区域加载超分辨率扩散模型用于提高图像的分辨率加载模型用于生成高分辨率图像加载模型用于根据文本指令编辑图像这是最基本的节点它使用模型将文本提示词编码为向量表示然后将这些向量输入到模型中引导图像生成过程输入你希望生成的图像的文本描述这个节点允许你修改文本编码器最后一层的输出从而微调文本提示对图像生成的影响对编码器有一定了解并希望进行更精细控制的高级用户可以使用这种比如可以通过修改最后一层的输出来强调或弱化提示词中的某些概念这个节点将多个向量通常来自多个节点进行平均生成一个新的向量适用于将多个提示词混合在一起生成融合了多个概念的图像比如可以输入两个提示词一只猫和一只狗然后使用节点将它们的编码向量平均生成一个新的向量模型会尝试生成同时具有猫和狗特征的图像这个节点将多个向量组合在一起但不是简单地平均而是根据每个向量的权重进行加权平均适用于对多个提示词的影响程度进行更精细的控制同样用猫狗为例输入两个提示词一只猫和一只狗并分别设置它们的权重为和然后使用节点将它们组合模型会生成一张更偏向于猫的图像将多个向量拼接在一起形成一个更长的向量适用于将多个提示词的信息完全保留而不进行任何混合或加权比如可以输入两个提示词一只猫和在窗台上然后使用节点将它们拼接模型会尝试生成一只在窗台上的猫的图像将不同的向量应用到图像的不同区域适用于对图像的不同部分进行独立控制比如将蓝天应用到图像的上半部分将绿草地应用到图像的下半部分类似于但它允许你使用百分比来指定区域的大小可以更灵活地控制区域划分用来调整或节点设置的区域的强度适用于更精细地控制不同区域的影响程度这个节点用来使用掩码来控制向量的影响区域适用于对图像的任意形状区域进行控制例如可以使用一个圆形掩码将红苹果的向量只应用到图像的圆形区域内这个节点使用视觉编码器将图像编码为向量表示吗之前在中有提到过主要用于图像相似度计算图像分类等任务也可以用于一些高级的图像生成技巧这个节点用于模型的是一种不需要就能从文本生成图像的模型潜在空间子菜单下的节点主要用于在模型的潜在空间中处理图像这些节点可以实现图像修复超分辨率图像合成等功能加载和应用模型用于修复或替换图像中的指定区域图像修复去除图像中不需要的物体瑕疵或水印内容替换将图像中的某个区域替换为新的内容在图像上绘制一个掩码然后使用模型来修复掩码覆盖的区域生成没有瑕疵或不需要物体的图像批量处理潜在图像将多张图像的潜在表示输入到节点然后将输出连接到其他节点对多张图像进行相同的操作比如将多张图像的潜在表示输入到节点后将输出连接到节点可以同时提高多张图像的分辨率对潜在图像进行各种变换操作如旋转缩放平移等比如将潜在图像连接到节点设置旋转角度为度然后解码回像素空间得到旋转后的图像包含一些高级的潜在空间操作节点如等适用于对模型进行微调或应用其他高级技巧加载和应用模型是一种用于生成高分辨率图像的模型一般用于直接生成高分辨率图像或者在生成低分辨率图像后进一步提高分辨率的情况将潜在空间表示解码为普通图像一般用于显示生成结果将等采样器生成的潜在图像解码为可视化的图像比如将生成的潜在图像连接到在界面中预览生成的图像将普通图像编码为潜在空间表示一般用来以图生图将参考图像编码为潜在表示然后输入到等采样器中引导生成新的图像比如加载一张照片将其转换为潜在表示然后使用生成一张具有相似构图但不同风格的风景画创建一个空的潜在图像其大小由参数指定与或节点结合使用通过在空白潜在图像上绘制或填充来生成新的图像内容或作为图像生成的起点代替从随机噪声开始生成创建一个的空白潜在图像然后使用节点在其中绘制一个物体生成包含该物体的图像在潜在空间中提高图像的分辨率可以先生成低分辨率图像然后通过放大来提高分辨率从而在提高图像质量的同时节省计算资源比如将生成的低分辨率潜在图像连接到提高其分辨率然后再通过解码为高分辨率图像类似于但它允许你指定放大的倍数将多个潜在图像按照指定的权重和蒙版进行合成适用于将多个生成的图像或图像的不同部分进行融合比如将两个生成的潜在图像和对应的掩码连接到将它们融合成一张新的图像与类似但它允许你使用一个额外的掩码来控制合成区域适用于更精细地控制图像合成的区域子菜单下的节点主要用于在像素空间中处理图像包括图像缩放变换合成加载和保存等操作提高图像分辨率使用等模型对图像进行超分辨率处理在潜在空间中提高图像的分辨率通常与结合使用用于图像后处理的节点可以在图像生成完成后对其进行进一步的调整和优化图像增强提高图像的清晰度对比度饱和度等瑕疵修复去除图像中的噪点伪影等瑕疵风格化为图像添加艺术滤镜或特殊效果比如修复图像中的人脸提高图像的真实感和细节修复图像中的人脸批量处理图像包含用于图像预处理的节点在将图像输入到模型之前对其进行转换或调整比如使用模型对图像进行预处理对图像进行各种变换操作如旋转缩放平移等用于生成动画或视频通过插值或其他技术从多张图像生成动画生成视频将多帧图像组合成视频在视频帧之间插入新的帧使动画更流畅将生成的图像保存到文件在界面中预览图像从文件加载图像图生图加载参考图像用于引导生成新的图像图像编辑加载需要编辑的图像反转图像的颜色批量处理图像为图像添加填充以便进行图像扩展即在图像的边界之外生成新的内容来扩展图像创建一个空的图像其大小由参数指定作为背景图像在其上添加其他元素代替随机噪声成为初始图象将多张图像按照指定的权重和蒙版进行合成适用于将多个生成的图像或图像的不同部分进行融合和刚刚中的区别在于这个是在像素空间进行操作接受图像而不是潜在图像作为计算成本比空间中操作要高但是更加直观和容易控制从网络摄像头捕获图像实时图像生成将网络摄像头捕获的图像实时输入到模型中生成新的图像交互式应用创建与用户互动的应用程序例如虚拟试衣间实时风格迁移等掩码子菜单下的节点主要用于创建编辑和操作掩码掩码本质上是一张灰度图像其中每个像素的值表示该像素在图像中的透明度或影响程度掩码可以用于控制图像生成或处理过程中的哪些区域受到影响用于合成多个掩码将两个掩码按照指定的混合模式如叠加相乘相减等进行混合将多个掩码按照指定的顺序和操作进行合成将加载的图像作为掩码使用例如从文件加载一张灰度图像作为掩码或加载一张带有通道的图像将其通道作为掩码加载一张黑白图像其中黑色区域表示不透明白色区域表示透明然后将这张图像作为掩码用于将掩码转换为普通图像预览掩码将掩码转换为图像以便在界面中查看其效果保存掩码将掩码保存为图像文件以便在其他软件中使用将普通图像转换为掩码将一张灰度图像或带有通道的图像转换为掩码之后用于根据图像中的颜色范围创建掩码一般是根据颜色范围从图像中提取掩码用于对特定颜色区域进行操作比如从一张风景照片中提取天空区域的掩码然后对天空进行单独处理创建一个纯色掩码快速创建一个矩形圆形或其他形状的纯色掩码比如创建一个黑色矩形掩码用于填充图像中的某个区域反转掩码的透明度将掩码的透明区域和不透明区域互换将一个圆形掩码反转使圆形区域外的部分变为不透明对掩码的边缘进行羽化模糊处理使其过渡更加平滑避免硬边缘即在图像合成或中避免出现明显的边缘对一个圆形掩码进行羽化处理使圆形边缘与周围区域自然过渡将掩码的不透明区域向外扩展指定的像素数扩大掩码的影响范围根据像素值的阈值将图像转换为二值掩码根据亮度或其他特征从图像中提取掩码比如将一张灰度图像转换为二值掩码其中亮度高于阈值的像素变为不透明其他像素变为透明',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-20 10:26:36',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/Jialai_Logo.webp"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.linkedin.com/in/jialaiz/" title="Linkedin"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="Linkedin"/><span class="back-menu-item-text">Linkedin</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/personal-website-images" title="Github图床"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="Github图床"/><span class="back-menu-item-text">Github图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Jialai Lab</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 万物生长</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 火花</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=2807259311&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 番剧</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinemas/"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> 影视</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 摄影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 上铺下铺</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/WechatPay.webp" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/WechatPay.webp"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/Alipay.webp" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/QRcode/Alipay.webp"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/IT/" style="font-size: 1.05rem;">IT<sup>1</sup></a><a href="/tags/Stable-Diffusion/" style="font-size: 1.05rem;">Stable Diffusion<sup>2</sup></a><a href="/tags/%E6%B7%B7%E9%9F%B3/" style="font-size: 1.05rem;">混音<sup>2</sup></a><a href="/tags/%E7%BA%A2%E9%85%92/" style="font-size: 1.05rem;">红酒<sup>1</sup></a><a href="/tags/%E7%BA%A2%E9%85%92%E8%BF%9B%E5%87%BA%E5%8F%A3/" style="font-size: 1.05rem;">红酒进出口<sup>3</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%BD%9C/" itemprop="url">创作</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Stable-Diffusion/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Stable Diffusion</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Stable Diffusion101(贰)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-08-20T00:00:00.000Z" title="Created 2024-08-20 00:00:00">2024-08-20</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-08-20T10:26:36.000Z" title="Updated 2024-08-20 10:26:36">2024-08-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为Melbourne"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>Melbourne</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">Comments:</span><a href="/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/SD3_Menu.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://jialaizhang.github.io/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/"><header><a class="post-meta-categories" href="/categories/%E5%88%9B%E4%BD%9C/" itemprop="url">创作</a><a href="/tags/Stable-Diffusion/" tabindex="-1" itemprop="url">Stable Diffusion</a><h1 id="CrawlerTitle" itemprop="name headline">Stable Diffusion101(贰)</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Jialai</span><time itemprop="dateCreated datePublished" datetime="2024-08-20T00:00:00.000Z" title="Created 2024-08-20 00:00:00">2024-08-20</time><time itemprop="dateCreated datePublished" datetime="2024-08-20T10:26:36.000Z" title="Updated 2024-08-20 10:26:36">2024-08-20</time></header><h1 id="Stable-Diffusion-右键菜单详解"><a href="#Stable-Diffusion-右键菜单详解" class="headerlink" title="Stable Diffusion 右键菜单详解"></a>Stable Diffusion 右键菜单详解</h1><h2 id="ADD-NODE-Menu："><a href="#ADD-NODE-Menu：" class="headerlink" title="ADD NODE Menu："></a>ADD NODE Menu：</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/00AddNoteMenu.png?raw=true" alt="00AddNoteMenu.png"></p>
+<h3 id="Utils"><a href="#Utils" class="headerlink" title="Utils"></a>Utils</h3><p><code>Add node</code> &gt;<code>utils</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/01Utils.png?raw=true" alt="01Utils.png"></p>
+<p><strong>1. Note</strong>: Note节点允许你在ComfyUI的工作区中添加文本注释。</p>
+<p><strong>2. Primitive</strong>: Primitive节点用于创建和操作基本几何形状，如点、线、矩形、圆形等。这些形状可以作为掩码或控制信息，用于影响图像生成过程。</p>
+<ul>
+<li><p><strong>创建掩码</strong>：使用 <code>Primitive</code> 节点创建一个矩形，然后将其连接到 <code>Mask</code> 输入，从而只对图像的特定区域进行处理。</p>
+</li>
+<li><p><strong>ControlNet控制</strong>：使用 <code>Primitive</code> 节点创建线条，然后将其连接到 <code>ControlNet</code> 的相应输入，从而引导图像生成特定形状的物体。</p>
+</li>
+<li><p><strong>例子</strong>：</p>
+<ul>
+<li>使用 <code>Primitive</code> 节点创建一个圆形，然后将其连接到 <code>Inpaint</code> 节点的 <code>Mask</code> 输入，从而只对圆形区域内的图像进行修复。</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Reroute</strong>: Reroute节点用于在ComfyUI工作区中整理节点连接，使流程更加清晰。它可以将节点的输出重新路由到其他位置，避免过多的连线交叉，提高工作区的可读性。</p>
+<ul>
+<li><strong>例子</strong>：<ul>
+<li>当一个节点的输出需要连接到多个其他节点时，可以使用 <code>Reroute</code> 节点将输出复制到多个位置，避免多条连线交叉。</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Terminal Log (Manager)</strong> : Terminal Log (Manager)节点用于在ComfyUI界面中显示终端输出信息。这对于查看模型加载过程、调试错误、获取运行时信息等非常有用。可以查看模型加载过程中的详细信息，如模型大小、参数数量等。当工作流程出现错误时，可以在终端输出中查看错误信息，帮助定位问题。也可以获取图像生成过程中的实时信息，如采样进度、损失值等。</p>
+<ul>
+<li><strong>例子</strong>：<ul>
+<li>在加载一个大型模型时，你可以添加一个 <code>Terminal Log (Manager)</code> 节点来查看加载进度和详细信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Sampling"><a href="#Sampling" class="headerlink" title="Sampling"></a>Sampling</h3><h4 id="Schedulers（调度器）"><a href="#Schedulers（调度器）" class="headerlink" title="Schedulers（调度器）"></a><strong>Schedulers（调度器）</strong></h4><p><code>Add node</code> &gt;<code>Sampling</code> &gt; <code>custom_sampling</code> &gt; <code>schedulers</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/02Sampling_Scheduler.png?raw=true" alt="02Sampling_Scheduler.png"></p>
+<p>在Stable Diffusion中，调度器控制着图像生成过程中<strong>噪声的去除方式</strong>。不同的调度器采用不同的策略来逐步降低噪声水平，从而影响生成图像的质量、速度和多样性。</p>
+<ol>
+<li><p><strong>BasicScheduler</strong>: 最基础的调度器，采用线性方式逐步降低噪声水平。适用于快速生成图像，或者作为其他调度器的基础。如果想快速生成一张概念草图，可以使用<code>BasicScheduler</code>。</p>
+</li>
+<li><p><strong>KarrasScheduler</strong>: 一种改进的调度器，采用非线性方式降低噪声水平，尤其在早期阶段去噪速度较快。适用于生成高质量图像，同时保持一定的生成速度。如果想生成一张细节丰富的图像，但又不想等待太长时间，可以使用<code>KarrasScheduler</code>。</p>
+</li>
+<li><p><strong>ExponentialScheduler</strong>: 采用指数方式降低噪声水平，早期去噪速度较慢，后期较快, 适用于生成具有柔和过渡效果的图像。如果想生成一张具有梦幻感的图像，可以使用<code>ExponentialScheduler</code>。</p>
+</li>
+<li><p><strong>PolyexponentialScheduler</strong>: 一种基于多项式插值的调度器，可以灵活调整去噪曲线。适用于需要精细控制去噪过程的高级用户。如果想通过调整去噪曲线来实现特定的图像效果，可以使用<code>PolyexponentialScheduler</code>。</p>
+</li>
+<li><p><strong>VPScheduler (Variational Posterior Scheduler)</strong>: 一种基于变分推理的调度器，理论上可以生成更高质量的图像。适用于追求极致图像质量的用户。如果想生成一张尽可能逼真和精细的图像，可以尝试<code>VPScheduler</code>。</p>
+</li>
+<li><p><strong>BetaSamplingScheduler</strong>: 一种基于beta分布的调度器，可以生成多样化的图像。适用于探索不同风格或创意的图像生成。如果想生成一组具有不同风格的图像，可以使用<code>BetaSamplingScheduler</code>。</p>
+</li>
+<li><p><strong>SDTurboScheduler</strong>: 一种优化过的调度器，可以在较少的采样步数下生成高质量图像。适用于在保证图像质量的前提下，提高生成速度。如果想快速生成高质量的图像，可以使用<code>SDTurboScheduler</code>。</p>
+</li>
+<li><p><strong>Align YourStepsScheduler</strong> &amp; <strong>GITSScheduler</strong>: 这两种调度器是基于社区开发的算法，旨在进一步提高图像质量和稳定性。适用于追求更高图像质量或尝试新算法的用户。</p>
+</li>
+</ol>
+<h4 id="Samplers"><a href="#Samplers" class="headerlink" title="Samplers"></a><strong>Samplers</strong></h4><p><code>Add node</code> &gt;<code>Sampling</code> &gt;<code>custom_sampling</code>&gt; <code>samplers</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/03Sampling_Samplers.png?raw=true" alt="03Sampling_Samplers.png"></p>
+<ol>
+<li><p><strong>KSamplerSelect</strong>: 是一个下拉菜单，可以快速选择常用的采样器，无需手动添加节点。适用于快速切换不同的采样器，尤其是在实验和比较不同采样器效果时非常方便。</p>
+<p>e.g. 如果想尝试使用<code>Euler a</code>采样器，可以直接在<code>KSamplerSelect</code>中选择它，而无需手动添加<code>KSampler</code>节点并设置算法。</p>
+<p><strong>PS: Euler Sampler:</strong></p>
+<p><strong>Euler 采样器</strong></p>
+<ul>
+<li><p><strong>基本算法</strong>：Euler 采样器是最基础的采样器，它直接使用 Euler 方法来数值求解扩散模型中的随机微分方程（SDE）。Euler 方法是一种简单的一阶数值求解方法，它通过在每个时间步上使用当前时刻的导数来估计下一时刻的值。</p>
+<p><strong>初始化</strong>：从一个随机噪声图像 <code>x_T</code> 开始，设置初始时间步 <code>t = T</code>。</p>
+<p><strong>迭代</strong>：</p>
+<ul>
+<li><p><strong>计算噪声预测</strong>：使用 U-Net 模型预测当前时间步 <code>t</code> 的噪声 <code>ϵ_t</code>。</p>
+</li>
+<li><p><strong>更新图像</strong>：根据 Euler 方法的公式，更新图像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_&#123;t-1&#125; = x_t - ϵ_t * sqrt(β_t) + sqrt(1 - β_t) * z_t</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>β_t</code> 是预先定义的噪声调度参数，控制每个时间步添加的噪声量。</li>
+<li><code>z_t</code> 是从标准正态分布中采样的随机噪声。</li>
+</ul>
+</li>
+<li><p><strong>更新时间步</strong>：<code>t = t - 1</code>。</p>
+</li>
+</ul>
+<p><strong>终止</strong>：当 <code>t = 0</code> 时，停止迭代，输出 <code>x_0</code> 作为生成的图像。</p>
+</li>
+</ul>
+<p><strong>Euler a（Euler ancestral）采样器</strong></p>
+<ul>
+<li><p><strong>基本算法</strong>：Euler a 采样器是 Euler 采样器的改进版本，它引入了祖先采样（ancestral sampling）的概念。祖先采样通过<strong>在每一步迭代中添加额外的噪声</strong>，来<strong>增加生成图像的多样性</strong>。</p>
+<p>与 Euler 采样器类似，但在更新图像的公式中增加了一个额外的噪声项：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_&#123;t-1&#125; = x_t - ϵ_t * sqrt(β_t) + sqrt(1 - β_t) * z_t + σ_t * z&#x27;_t</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>σ_t</code> 是预先定义的噪声调度参数，控制每个时间步添加的额外噪声量。</li>
+<li><code>z&#39;_t</code> 是从标准正态分布中采样的随机噪声。</li>
+</ul>
+</li>
+</ul>
+<p><strong>Euler Ancestral 采样器</strong></p>
+<ul>
+<li><p><strong>基本算法</strong>：Euler Ancestral 采样器与 Euler a 采样器非常相似，它们都使用了祖先采样技术。主要区别在于 Euler Ancestral 采样器在计算噪声预测时，使用了前一个时间步的图像 <code>x_&#123;t-1&#125;</code> 作为输入，而不是当前时间步的图像 <code>x_t</code>。</p>
+<p><strong>初始化</strong>：从一个随机噪声图像 <code>x_T</code> 开始，设置初始时间步 <code>t = T</code>。</p>
+<p><strong>迭代</strong>：</p>
+<ul>
+<li><p><strong>计算噪声预测</strong>：使用 U-Net 模型预测 <strong>前一个</strong> 时间步 <code>t-1</code> 的噪声 <code>ϵ_&#123;t-1&#125;</code>，**输入为 <code>x_t</code>**。</p>
+</li>
+<li><p><strong>更新图像</strong>：根据 Euler 方法的公式，更新图像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_&#123;t-1&#125; = x_t - ϵ_&#123;t-1&#125; * sqrt(β_t) + sqrt(1 - β_t) * z_t + σ_t * z&#x27;_t</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更新时间步</strong>：<code>t = t - 1</code>。</p>
+</li>
+</ul>
+<p><strong>终止</strong>：当 <code>t = 0</code> 时，停止迭代，输出 <code>x_0</code> 作为生成的图像。</p>
+</li>
+</ul>
+<p>Euler a 和 Euler Ancestral 最主要的区别就在于：</p>
+<ul>
+<li><strong>Euler a</strong>：在计算当前时间步 <code>t</code> 的噪声预测时，使用 <strong>当前时间步</strong> 的图像 <code>x_t</code> 作为 U-Net 的输入。</li>
+<li><strong>Euler Ancestral</strong>：在计算当前时间步 <code>t</code> 的噪声预测时，使用 <strong>前一个时间步</strong> 的图像 <code>x_&#123;t-1&#125;</code> 作为 U-Net 的输入。</li>
+<li>当前图像是第一步（即 <code>t = T</code>）时，前一步的图像 <code>x_&#123;t-1&#125;</code> 不存在。在这种情况下，Euler Ancestral 采样器通常会<strong>使用当前时间步的图像 <code>x_t</code> 作为 U-Net 的输入</strong>，或者<strong>使用一个预先定义的噪声图像</strong>来代替 <code>x_&#123;t-1&#125;</code>。</li>
+<li>Euler Ancestral 使用前一步的图像作为输入，可以考虑到更多的历史信息，从而可能产生更稳定、更高质量、更多样化的图像。</li>
+</ul>
+</li>
+<li><p><strong>SamplerEulerAncestral</strong>: Euler ancestral采样器，一种基于Euler方法的迭代采样器，引入了祖先采样（ancestral sampling）的概念，可以提高生成图像的质量和稳定性。适用于生成高质量图像，尤其是在处理复杂场景或精细细节时表现较好。如果想生成一张包含丰富细节的风景画，可以使用<code>SamplerEulerAncestral</code>。</p>
+</li>
+<li><p><strong>SamplerEulerAncestralCFG</strong>: <code>SamplerEulerAncestral</code>的改进版本，增加了对Classifier-Free Guidance（CFG）的支持，可以更好地控制图像生成的方向和风格。适用于需要更强控制力的图像生成任务，例如在提示词中包含特定风格或元素时。如果想生成一张具有梵高风格的星空图，可以在提示词中加入”梵高风格”，并使用<code>SamplerEulerAncestralCFG</code>来增强风格效果。</p>
+</li>
+<li><p><strong>SamplerLMS</strong>: LMS采样器，一种基于线性多步法（Linear Multistep Method）的采样器，可以在较少的采样步数下生成高质量图像。适用于在保证图像质量的前提下，提高生成速度。如果想快速生成一张高质量的人物肖像，可以使用<code>SamplerLMS</code>。</p>
+</li>
+<li><p><strong>SamplerDPMPP_2M_SDE</strong> &amp; <strong>SamplerDPMPP_3M_SDE</strong>: DPM++ 2M SDE和DPM++ 3M SDE采样器，是基于DPM++算法的采样器，使用了2阶或3阶的随机微分方程求解器，可以在较少的采样步数下生成高质量图像。适用于在保证图像质量的前提下，进一步提高生成速度。如果想在更短的时间内生成高质量的图像，可以尝试使用<code>SamplerDPMPP_2M_SDE</code>或<code>SamplerDPMPP_3M_SDE</code>。</p>
+<p><strong>PS:</strong></p>
+<p><strong>DPM (Denoising Diffusion Probabilistic Models)</strong></p>
+<ul>
+<li>DPM 是一种基于扩散模型的采样器。它通过迭代地向图像添加噪声，然后学习如何从噪声中恢复出原始图像。在每一步迭代中，DPM 会根据当前的噪声图像和模型预测，计算出下一步需要去除的噪声量。</li>
+</ul>
+<p><strong>DPM++</strong></p>
+<ul>
+<li>DPM++ 是 DPM 的改进版本，它引入了几种优化技术，包括：<ul>
+<li><strong>改进的噪声调度</strong>：使用更复杂的噪声调度算法，使得模型能够更有效地去除噪声。</li>
+<li><strong>预测校正</strong>：在每一步迭代中，对模型的预测进行校正，提高预测的准确性。</li>
+<li><strong>更快的求解器</strong>：使用更高效的数值求解器来计算每一步需要去除的噪声量。</li>
+</ul>
+</li>
+<li><strong>特点</strong>：在保持 DPM 较高图像质量的基础上，显著提高了生成速度。</li>
+</ul>
+<p><strong>DPM++ 和 DPM 的区别</strong> : </p>
+<p><strong>速度</strong>：DPM++ 比 DPM 快得多，尤其是在生成高分辨率图像时。</p>
+<p>    假设我们要生成一张 512x512 像素的风景画。</p>
+<ul>
+<li><strong>使用 DPM</strong>：可能需要 50 步迭代才能生成一张高质量的图像，耗时较长。</li>
+<li>**使用 DPM++**：可能只需要 20 步迭代就能生成一张质量相当甚至更好的图像，耗时更短。</li>
+</ul>
+<p><strong>质量</strong>：DPM++ 在大多数情况下都能生成与 DPM 相当甚至更好的图像质量。</p>
+</li>
+<li><p><strong>SamplerDPMPP_SDE</strong>: DPM++ SDE采样器，是DPM++算法的另一个变体，使用了随机微分方程求解器，可以在较少的采样步数下生成高质量图像。适用于在保证图像质量的前提下，进一步提高生成速度。</p>
+</li>
+<li><p><strong>SamplerDPMAdaptive</strong>: DPM adaptive采样器，是DPM++算法的自适应版本，可以根据图像内容动态调整采样步数，从而在保证图像质量的同时，进一步提高生成速度。适用于对生成速度有较高要求，同时希望保持图像质量的用户。如果想在尽可能短的时间内生成高质量的图像，可以尝试使用<code>SamplerDPMAdaptive</code>。</p>
+</li>
+<li><p><strong>SamplerLCMUpscale</strong>: LCM upscale采样器，专门用于在潜在空间中提高图像的分辨率。适用于先生成低分辨率图像，然后通过LCM upscale提高分辨率，从而在提高图像质量的同时，节省计算资源。如果想生成一张高分辨率的图像，但受限于显存，可以先生成一张低分辨率的图像，然后使用<code>SamplerLCMUpscale</code>将其放大。</p>
+<p><strong>LCM (Latent Consistency Model)</strong></p>
+<ul>
+<li>LCM 是一种专门用于提高图像分辨率的采样器。它在潜在空间（latent space）中进行操作，通过迭代地向低分辨率图像添加噪声，然后学习如何从噪声中恢复出高分辨率图像。</li>
+</ul>
+</li>
+</ol>
+<h4 id="Sigmas（噪声等级）"><a href="#Sigmas（噪声等级）" class="headerlink" title="Sigmas（噪声等级）"></a><strong>Sigmas（噪声等级）</strong></h4><p><code>Add node</code> &gt;<code>Sampling</code> &gt;<code>custom_sampling</code>&gt; <code>sigmas</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/04Sampling_Sigmas.png?raw=true" alt="04Sampling_Sigmas.png"></p>
+<p>在Stable Diffusion的扩散模型中，sigmas代表了<strong>不同阶段的噪声等级</strong>。在图像生成过程中，模型从高噪声等级逐步向低噪声等级迭代，直到生成最终的清晰图像。<code>sigmas</code>子菜单下的节点主要用于控制和操作这些噪声等级。</p>
+<ol>
+<li><strong>SplitSigmas</strong></li>
+</ol>
+<ul>
+<li><p><strong>作用</strong>：将一个包含所有噪声等级的张量（tensor）分割成多个单独的噪声等级。</p>
+<ul>
+<li><p><strong>PS: Tensor:</strong></p>
+<p>在深度学习和数值计算领域，tensor（张量）是一种多维数组。它可以看作是向量和矩阵的推广，可以表示任意维度的数据。</p>
+<ul>
+<li><strong>0 维张量</strong>：标量（scalar），即一个单独的数字。</li>
+<li><strong>1 维张量</strong>：向量（vector），即一组有序的数字。</li>
+<li><strong>2 维张量</strong>：矩阵（matrix），即一个二维数组。</li>
+<li><strong>3 维张量</strong>：可以看作是一摞矩阵，例如 RGB 彩色图像就可以表示为一个 3 维张量，其中每个通道（R、G、B）都是一个二维矩阵。</li>
+<li><strong>更高维张量</strong>：可以表示更复杂的数据结构，例如视频（时间维度 + 图像维度）或多通道时间序列数据。</li>
+<li><strong>Tensor 的优势</strong><ul>
+<li><strong>统一表示</strong>：Tensor 提供了一种统一的方式来表示各种类型的数据，使得模型的输入和输出更加一致，简化了模型的设计和实现。</li>
+<li><strong>高效计算</strong>：Tensor 可以利用 GPU 进行高效的并行计算，大大加快了模型的训练和推理速度。</li>
+<li><strong>灵活操作</strong>：Tensor 支持各种数学运算和变换，如加法、乘法、转置、卷积等，为模型的构建和优化提供了丰富的工具。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>使用场景</strong>：当你需要对不同的噪声等级进行单独处理或分析时，可以使用<code>SplitSigmas</code>节点。</p>
+</li>
+<li><p><strong>示例</strong>：你可以使用<code>SplitSigmas</code>将噪声等级分割后，分别连接到不同的去噪模型，以实现更精细的控制。</p>
+</li>
+</ul>
+<ol start="2">
+<li><strong>SplitSigmasDenoise</strong></li>
+</ol>
+<ul>
+<li><strong>作用</strong>：类似于<code>SplitSigmas</code>，但它在分割噪声等级的同时，还应用了去噪模型对每个噪声等级进行去噪处理。</li>
+<li><strong>使用场景</strong>：当你需要在分割噪声等级的同时进行去噪处理时，可以使用<code>SplitSigmasDenoise</code>节点，从而简化流程。</li>
+</ul>
+<ol start="3">
+<li><strong>FlipSigmas</strong></li>
+</ol>
+<ul>
+<li><strong>作用</strong>：将噪声等级的顺序翻转。</li>
+<li><strong>使用场景</strong>：在某些特殊情况下，你可能需要将噪声等级的顺序翻转，例如在实现某些自定义采样算法时。</li>
+</ul>
+<h4 id="Guiders（引导器）"><a href="#Guiders（引导器）" class="headerlink" title="Guiders（引导器）"></a><strong>Guiders（引导器）</strong></h4><p><code>Add node</code> &gt;<code>Sampling</code> &gt;<code>custom_sampling</code>&gt; <code>guiders</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/05Sampling_Guiders.png?raw=true" alt="05Sampling_Guiders.png"></p>
+<p>在 Stable Diffusion 中，引导器（Guiders）用于在采样过程中<strong>提供额外的指导或约束</strong>，从而影响生成图像的特定方面，如构图、颜色、一致性等。</p>
+<ol>
+<li><p><strong>CFG Guider</strong>: Classifier-Free Guidance（CFG）引导器，通过调整条件信息（通常是文本提示）的强度来控制图像生成。这是最常用的引导器之一，适用于大多数情况。可以通过调整 CFG Scale 参数来控制提示词对生成图像的影响程度。如果想生成一张更符合提示词描述的图像，可以增加 CFG Scale 的值。</p>
+</li>
+<li><p><strong>Dual CFG Guider</strong>: 双 CFG 引导器，允许你同时使用两个 CFG Scale 值，一个用于正向提示词，一个用于负向提示词。适用于需要更精细地控制正向和负向提示词影响的情况。如果想在生成图像时强调正向提示词，同时弱化负向提示词，可以设置较高的正向 CFG Scale 和较低的负向 CFG Scale。</p>
+</li>
+<li><p><strong>Basic Guider</strong>: 基础引导器，不提供任何额外的指导或约束，直接使用模型的输出。适用于不需要任何引导的简单图像生成任务，或者用于与其他引导器进行比较。</p>
+</li>
+</ol>
+<h4 id="Video-Models-下的选项详解"><a href="#Video-Models-下的选项详解" class="headerlink" title="Video Models 下的选项详解"></a><strong>Video Models 下的选项详解</strong></h4><p><code>Add node</code> &gt;<code>Sampling</code> &gt;<code>video_models</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/06VideoModels.png?raw=true" alt="06VideoModels.png"></p>
+<ol>
+<li><code>VideoLinearCFGGuidance</code></li>
+</ol>
+<ul>
+<li><strong>作用</strong>：为视频生成任务设计的线性 Classifier-Free Guidance（CFG）引导器。它通过线性调整条件信息（通常是文本提示）的强度来控制视频生成的过程，从而影响生成视频的风格和内容。</li>
+<li><strong>使用场景</strong>：适用于需要对生成视频进行风格和内容控制的任务，希望以线性方式调整 CFG 强度。</li>
+<li><strong>示例</strong>：如果你想生成一个逐渐从写实风格过渡到抽象风格的视频，可以使用 <code>VideoLinearCFGGuidance</code>，并在采样过程中线性增加 CFG Scale 的值。</li>
+</ul>
+<ol start="2">
+<li><code>VideoTriangleCFGGuidance</code></li>
+</ol>
+<ul>
+<li><strong>作用</strong>：为视频生成任务设计的三角形 CFG 引导器。它通过三角形函数调整条件信息（通常是文本提示）的强度来控制视频生成的过程，从而影响生成视频的风格和内容。</li>
+<li><strong>使用场景</strong>：适用于需要对生成视频进行风格和内容控制的任务，希望以三角形函数方式调整 CFG 强度。</li>
+<li><strong>示例</strong>：如果你想生成一个在中间帧具有最强风格效果，而在开始和结束帧风格效果较弱的视频，可以使用 <code>VideoTriangleCFGGuidance</code>。</li>
+</ul>
+<h4 id="KSampler"><a href="#KSampler" class="headerlink" title="KSampler"></a><strong>KSampler</strong></h4><ul>
+<li><strong>作用</strong>：虽然KSampler主要用于图像生成，但在视频生成任务中，它也可以用于对每一帧进行采样。</li>
+<li><strong>使用场景</strong>：当你需要使用KSampler提供的各种采样算法来生成视频的每一帧时，可以使用这个节点。</li>
+<li><strong>示例</strong>：如果你想使用Euler a算法生成视频的每一帧，可以将<code>KSampler</code>节点连接到视频生成流程中，并设置其算法为<code>Euler a</code>。</li>
+</ul>
+<h4 id="KSampler-Advanced"><a href="#KSampler-Advanced" class="headerlink" title="KSampler (Advanced)"></a><strong>KSampler (Advanced)</strong></h4><ul>
+<li><strong>作用</strong>：与图像生成类似，<code>KSampler (Advanced)</code>是KSampler的高级版本，提供了更多的参数设置，可以更精细地控制视频采样过程。</li>
+<li><strong>使用场景</strong>：适用于需要对视频采样过程进行更多调整的高级用户。</li>
+<li><strong>示例</strong>：如果你想在视频采样过程中动态调整CFG Scale，可以使用<code>KSampler (Advanced)</code>，并设置<code>CFG Scale Schedule</code>。</li>
+</ul>
+<h3 id="Loaders"><a href="#Loaders" class="headerlink" title="Loaders"></a>Loaders</h3><p><code>Add node</code> &gt;<code>loaders</code></p>
+<p>“Loaders” 选项提供了各种加载器节点，用于将模型、图像、文本等数据加载到 ComfyUI 的工作流程中。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/07Loaders.png?raw=true" alt="07Loaders.png"></p>
+<p><strong>Load Checkpoint</strong>: 加载 Stable Diffusion 的主模型（checkpoint），这是生成图像的基础, 这是任何文生图或图生图工作流程都必不可少的节点。可以用来加载 <code>sd_xl_base_1.0.safetensors</code> 这样的模型文件来生成图像。</p>
+<p><strong>Load VAE</strong>: 加载变分自编码器（VAE），用于在图像的像素空间和潜在空间之间进行转换。通常与主模型一起使用，有些主模型可能内置了 VAE，有些则需要单独加载。可以用来加载 <code>vae-ft-mse-840000-ema-pruned.ckpt</code> 这样的 VAE 文件。</p>
+<p><strong>Load LoRA</strong>：加载 LoRA（Low-Rank Adaptation）模型，用于对主模型进行微调，实现风格定制或其他效果。当想要在生成图像时应用特定的风格、主题或其他效果时，可以使用 LoRA。可以用于加载 <code>koreanDollLikeness_v10.safetensors</code> 这样的 LoRA 文件，让生成的图像具有韩国娃娃的风格。</p>
+<p><strong>Load ControlNet Model</strong>：加载 ControlNet 模型，用于通过额外的控制图像（如边缘图、深度图、姿势图等）来引导图像生成过程。当需要更精确地控制生成图像的构图、姿势、深度等方面时，可以使用 ControlNet。可以用于加载 <code>control_canny-fp16.safetensors</code> 这样的 ControlNet 模型，然后输入一张边缘图，让生成的图像遵循边缘图的轮廓。</p>
+<p>**Load ControlNet Model (diff)**：与 <code>Load ControlNet Model</code> 类似，但它加载的是 ControlNet 的差异模型（difference model），可以更有效地利用计算资源。与 <code>Load ControlNet Model</code> 相同，但通常在计算资源有限时使用。</p>
+<p><strong>Load Style Model</strong>：加载风格模型，用于将特定艺术风格应用到生成的图像上。当你想要生成具有特定艺术风格的图像时，可以使用风格模型。可用于加载 <code>vangogh_style.ckpt</code> 这样的风格模型，让生成的图像具有梵高的风格。</p>
+<p><strong>Load CLIP Vision</strong>：加载 CLIP 视觉编码器，用于将图像编码为向量表示。主要用于图像相似度计算、图像分类等任务。</p>
+<p><strong>unCLIPCheckpointLoader</strong>：加载 unCLIP 模型，unCLIP 是一种能够从文本生成图像的模型，与 Stable Diffusion 不同，它不需要 VAE。适用于探索 unCLIP 模型的图像生成能力。</p>
+<p><strong>GLIGENLoader</strong>：加载 GLIGEN 模型，GLIGEN 是一种能够根据文本和边界框生成图像的模型。适用于需要在指定区域内生成特定物体的图像生成任务。</p>
+<p><strong>LoraLoaderModelOnly</strong>：仅加载 LoRA 模型的权重，不加载其元数据（metadata）。适用于只需要 LoRA 权重，不需要元数据的情况。</p>
+<p><strong>HypernetworkLoader</strong>：加载超网络（Hypernetwork）模型，超网络是一种通过修改主模型权重来实现特定效果的模型。适用于实现一些全局性的图像调整或效果。</p>
+<p><strong>Load Upscale Model</strong>：加载图像超分辨率模型，用于提高图像的分辨率。适用于在生成低分辨率图像后，通过超分辨率模型<strong>提高其分辨率</strong>。</p>
+<h3 id="Conditioning"><a href="#Conditioning" class="headerlink" title="Conditioning"></a>Conditioning</h3><p>在 Stable Diffusion 中，”Conditioning”（条件）指的是<strong>影响图像生成过程的各种因素</strong>，最常见的是文本提示词（prompts）。Conditioning 菜单中的节点提供了多种方式来控制和调整这些条件信息，从而实现对生成图像的更精细控制。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/08Conditionings.png?raw=true" alt="08Conditionings.png"></p>
+<p><code>Add node</code> &gt;<code>conditioning</code></p>
+<p><code>style_model</code>：加载风格模型，用于将特定艺术风格迁移到生成的图像上。</p>
+<p><code>controlnet</code>：加载 ControlNet 模型，用于通过额外的控制图像来精确引导图像生成过程。</p>
+<p><code>gilgen</code>：加载 GLIGEN 模型，用于根据文本提示和边界框在图像的指定区域内生成物体。</p>
+<p><code>inpaint</code>：加载 Inpaint 模型，用于修复或替换图像中的指定区域。</p>
+<p><code>upscale_diffusion</code>：加载超分辨率扩散模型，用于提高图像的分辨率。</p>
+<p><code>stable_cascade</code>：加载 Stable Cascade 模型，用于生成高分辨率图像。</p>
+<p><code>instructx/pix2pix</code>：加载 instruct-pix2pix 模型，用于根据文本指令编辑图像。</p>
+<p><strong>CLIP Text Encode (Prompt)</strong>: 这是最基本的 conditioning 节点，它使用 CLIP 模型将文本提示词编码为向量表示，然后将这些向量输入到模型中，引导图像生成过程。输入你希望生成的图像的文本描述。</p>
+<p><strong>CLIP Set Last Layer</strong>：这个节点允许你修改 CLIP 文本编码器最后一层的输出，从而微调文本提示对图像生成的影响。对 CLIP 编码器有一定了解并希望进行更精细控制的高级用户可以使用这种CLIP。比如可以通过修改最后一层的输出，来强调或弱化提示词中的某些概念。</p>
+<p>**Conditioning (Average)**：这个节点将多个 conditioning 向量（通常来自多个 <code>CLIP Text Encode</code> 节点）进行平均，生成一个新的 conditioning 向量。适用于将多个提示词混合在一起，生成融合了多个概念的图像。比如，可以输入两个提示词 “一只猫” 和 “一只狗”，然后使用 <code>Conditioning (Average)</code> 节点将它们的编码向量平均，生成一个新的向量，模型会尝试生成同时具有猫和狗特征的图像。</p>
+<p>**Conditioning (Combine)**：这个节点将多个 conditioning 向量组合在一起，但不是简单地平均，而是根据每个向量的权重进行加权平均。适用于对多个提示词的影响程度进行更精细的控制。同样用猫狗为例，输入两个提示词 “一只猫” 和 “一只狗”，并分别设置它们的权重为 0.7 和 0.3，然后使用 <code>Conditioning (Combine)</code> 节点将它们组合，模型会生成一张更偏向于猫的图像。</p>
+<p>**Conditioning (Concat)**：将多个 conditioning 向量拼接（concatenate）在一起，形成一个更长的向量。适用于将多个提示词的信息完全保留，而不进行任何混合或加权。比如，可以输入两个提示词 “一只猫” 和 “在窗台上”，然后使用 <code>Conditioning (Concat)</code> 节点将它们拼接，模型会尝试生成一只在窗台上的猫的图像。</p>
+<p>**Conditioning (Set Area)**：将不同的 conditioning 向量应用到图像的不同区域。适用于对图像的不同部分进行独立控制。比如将 “蓝天” 应用到图像的上半部分，将 “绿草地” 应用到图像的下半部分。</p>
+<p>**Conditioning (Set Area with Percentage)**：类似于 <code>Conditioning (Set Area)</code>，但它允许你使用百分比来指定区域的大小，可以更灵活地控制区域划分。</p>
+<p><strong>ConditioningSetAreaStrength</strong>：用来调整 <code>Conditioning (Set Area)</code> 或 <code>Conditioning (Set Area with Percentage)</code> 节点设置的区域的 conditioning 强度。适用于更精细地控制不同区域的 conditioning 影响程度。</p>
+<p>**Conditioning (Set Mask)**：这个节点用来使用掩码（mask）来控制 conditioning 向量的影响区域。适用于对图像的任意形状区域进行控制。例如，可以使用一个圆形掩码，将 “红苹果” 的 conditioning 向量只应用到图像的圆形区域内。</p>
+<p><strong>CLIP Vision Encode</strong>：这个节点使用 CLIP 视觉编码器将图像编码为向量表示吗，之前在loaders中有提到过。主要用于图像相似度计算、图像分类等任务，也可以用于一些高级的图像生成技巧。</p>
+<p><strong>unCLIP Conditioning</strong>：这个节点用于 unCLIP 模型的 conditioning，unCLIP 是一种不需要 VAE 就能从文本生成图像的模型。</p>
+<h3 id="Latent（潜在空间）"><a href="#Latent（潜在空间）" class="headerlink" title="Latent（潜在空间）"></a><strong>Latent（潜在空间）</strong></h3><p><code>latent</code> 子菜单下的节点主要用于在模型的潜在空间中处理图像。这些节点可以实现图像修复、超分辨率、图像合成等功能。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/09Latent.png?raw=true" alt="09Latent.png"></p>
+<p><strong>inpaint</strong>：加载和应用 Inpaint 模型，用于修复或替换图像中的指定区域。</p>
+<ul>
+<li><strong>图像修复</strong>：去除图像中不需要的物体、瑕疵或水印。</li>
+<li><strong>内容替换</strong>：将图像中的某个区域替换为新的内容。</li>
+</ul>
+<p>在图像上绘制一个掩码，然后使用 Inpaint 模型来修复掩码覆盖的区域，生成没有瑕疵或不需要物体的图像。</p>
+<p><strong>batch</strong>：批量处理潜在图像。将多张图像的潜在表示输入到 <code>batch</code> 节点，然后将输出连接到其他节点，对多张图像进行相同的操作。比如将多张图像的潜在表示输入到 <code>batch</code> 节点后，将输出连接到 <code>Latent Upscale</code> 节点，可以同时提高多张图像的分辨率。</p>
+<p><strong>transform</strong>：对潜在图像进行各种变换操作，如旋转、缩放、平移等。比如将潜在图像连接到 <code>transform</code> 节点，设置旋转角度为 45 度，然后解码回像素空间，得到旋转后的图像。</p>
+<p><strong>advanced</strong>：包含一些高级的潜在空间操作节点，如 <code>LoraLoaderModelOnly</code>、<code>HypernetworkLoader</code> 等。适用于对模型进行微调或应用其他高级技巧。</p>
+<p><strong>stable_cascade</strong>：加载和应用 Stable Cascade 模型，Stable Cascade 是一种用于生成高分辨率图像的模型。一般用于直接生成高分辨率图像，或者在生成低分辨率图像后进一步提高分辨率的情况。</p>
+<p><strong>VAE Decode</strong>：将潜在空间表示解码为普通图像。一般用于<strong>显示生成结果</strong>：将 <code>KSampler</code> 等采样器生成的潜在图像解码为可视化的图像。比如将 <code>KSampler</code> 生成的潜在图像连接到 <code>VAE Decode</code>，在 ComfyUI 界面中预览生成的图像。</p>
+<p><strong>VAE Encode</strong>：将普通图像编码为潜在空间表示。一般用来以图生图，将参考图像编码为潜在表示，然后输入到 <code>KSampler</code> 等采样器中，引导生成新的图像。比如加载一张照片，将其转换为潜在表示，然后使用 <code>KSampler</code> 生成一张具有相似构图但不同风格的风景画。</p>
+<p><strong>Empty Latent Image</strong>：创建一个空的潜在图像（latent image），其大小由参数指定。与 <code>Inpaint</code> 或 <code>Outpaint</code> 节点结合使用，通过在空白潜在图像上绘制或填充来生成新的图像内容，或作为图像生成的起点，代替从随机噪声开始生成。e.g. 创建一个 512x512 的空白潜在图像，然后使用 <code>Inpaint</code> 节点在其中绘制一个物体，生成包含该物体的图像。</p>
+<p><strong>Upscale Latent</strong>：在潜在空间中提高图像的分辨率。可以先生成低分辨率图像，然后通过放大来提高分辨率，从而在提高图像质量的同时，节省计算资源。比如将 <code>KSampler</code> 生成的低分辨率潜在图像连接到 <code>Upscale Latent</code>，提高其分辨率，然后再通过 <code>VAE Decode</code> 解码为高分辨率图像。</p>
+<p><strong>Upscale Latent By</strong>：类似于 <code>Upscale Latent</code>，但它允许你指定放大的倍数。</p>
+<p><strong>Latent Composite</strong>：将多个潜在图像按照指定的权重和蒙版进行合成。适用于将多个生成的图像或图像的不同部分进行融合。比如将两个 <code>KSampler</code> 生成的潜在图像和对应的掩码连接到 <code>Latent Composite</code>，将它们融合成一张新的图像。</p>
+<p><strong>LatentCompositeMasked</strong>：与 <code>Latent Composite</code> 类似，但它允许你使用一个额外的掩码来控制合成区域。适用于更精细地控制图像合成的区域。</p>
+<h3 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h3><p><code>image</code> 子菜单下的节点主要用于在像素空间中处理图像，包括图像缩放、变换、合成、加载和保存等操作。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/10Image.png?raw=true" alt="10Image.png"></p>
+<p><strong>upscaling</strong>：提高图像分辨率。</p>
+<p><code>Upscale</code>：使用 ESRGAN 等模型对图像进行超分辨率处理。</p>
+<p><code>Latent Upscale</code>：在潜在空间中提高图像的分辨率，通常与 VAE 结合使用。</p>
+<p><strong>postprocessing</strong></p>
+<p>用于图像后处理的节点，可以在图像生成完成后对其进行进一步的调整和优化。</p>
+<ul>
+<li><strong>图像增强</strong>：提高图像的清晰度、对比度、饱和度等。</li>
+<li><strong>瑕疵修复</strong>：去除图像中的噪点、伪影等瑕疵。</li>
+<li><strong>风格化</strong>：为图像添加艺术滤镜或特殊效果。</li>
+</ul>
+<p>比如：<code>GFPGAN</code>：修复图像中的人脸。<code>RealESRGAN</code>：提高图像的真实感和细节。<code>CodeFormer</code>：修复图像中的人脸。</p>
+<p><strong>batch</strong>：批量处理图像。</p>
+<p><strong>preprocessors</strong>：包含用于图像预处理的节点，在将图像输入到模型之前对其进行转换或调整。比如 <code>VGG16 Preprocessor</code>：使用 VGG16 模型对图像进行预处理。</p>
+<p><strong>transform</strong>：对图像进行各种变换操作，如旋转、缩放、平移等。</p>
+<p><strong>animation</strong>：用于生成动画或视频。</p>
+<ul>
+<li>通过插值或其他技术，从多张图像生成动画。</li>
+<li><strong>生成视频</strong>：将多帧图像组合成视频。</li>
+<li>e.g. <code>Frame Interpolation</code>：在视频帧之间插入新的帧，使动画更流畅。</li>
+</ul>
+<p><strong>Save Image</strong>：将生成的图像保存到文件。</p>
+<p><strong>Preview Image</strong>：在 ComfyUI 界面中预览图像。</p>
+<p><strong>Load Image</strong>：从文件加载图像。</p>
+<ul>
+<li><strong>图生图</strong>：加载参考图像，用于引导生成新的图像。</li>
+<li><strong>图像编辑</strong>：加载需要编辑的图像。</li>
+</ul>
+<p><strong>Invert Image</strong>：反转图像的颜色。</p>
+<p><strong>Batch Images</strong>：批量处理图像。</p>
+<p><strong>Pad Image for Outpainting</strong>：为图像添加填充，以便进行 Outpainting（图像扩展）。</p>
+<ul>
+<li><strong>Outpainting</strong>：即在图像的边界之外生成新的内容来扩展图像。</li>
+</ul>
+<p><strong>Empty Image</strong>：创建一个空的图像，其大小由参数指定。</p>
+<ul>
+<li>作为背景图像，在其上添加其他元素，代替随机噪声成为初始图象。</li>
+</ul>
+<p><strong>Image Composite Masked</strong>：将多张图像按照指定的权重和蒙版进行合成。适用于将多个生成的图像或图像的不同部分进行融合。和刚刚Latent中的区别在于这个是<strong>在像素空间进行</strong>操作，<strong>接受图像</strong>而不是潜在图像<strong>作为Input</strong>，计算成本比Latent空间中操作要高，但是更加直观和容易控制。</p>
+<p><strong>Webcam Capture</strong>：从网络摄像头捕获图像。</p>
+<ul>
+<li><strong>实时图像生成</strong>：将网络摄像头捕获的图像实时输入到模型中，生成新的图像。</li>
+<li><strong>交互式应用</strong>：创建与用户互动的应用程序，例如虚拟试衣间、实时风格迁移等。</li>
+</ul>
+<h3 id="Mask（掩码）"><a href="#Mask（掩码）" class="headerlink" title="Mask（掩码）"></a><strong>Mask（掩码）</strong></h3><p><code>mask</code> 子菜单下的节点主要用于创建、编辑和操作掩码（mask）。掩码本质上是一张<strong>灰度图像</strong>，其中每个像素的值表示该像素在图像中的透明度或影响程度。掩码可以用于控制图像生成或处理过程中的哪些区域受到影响。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostPics/0009StableDiffusionMenu/11Mask.png?raw=true" alt="11Mask.png"></p>
+<p><strong>Compositing</strong>：用于合成多个掩码。</p>
+<ul>
+<li>e.g. <code>Mask Blend</code>：将两个掩码按照指定的混合模式（如叠加、相乘、相减等）进行混合，<code>Mask Composite</code>：将多个掩码按照指定的顺序和操作进行合成。</li>
+</ul>
+<p>**Load Image (as Mask)**：将加载的图像作为掩码使用。例如从文件加载一张灰度图像作为掩码，或加载一张带有 Alpha 通道的图像，将其 Alpha 通道作为掩码。</p>
+<p>e.g. 加载一张黑白图像，其中黑色区域表示不透明，白色区域表示透明，然后将这张图像作为掩码用于 Inpainting。</p>
+<p><strong>Convert Mask to Image</strong>：将掩码转换为普通图像。<strong>预览掩码</strong>，将掩码转换为图像，以便在 ComfyUI 界面中查看其效果。<strong>保存掩码</strong>，将掩码保存为图像文件，以便在其他软件中使用。</p>
+<p><strong>Convert Image to Mask</strong>：将普通图像转换为掩码。将一张灰度图像或带有 Alpha 通道的图像转换为掩码，之后用于 Inpainting。</p>
+<p><strong>Image Color To Mask</strong>：根据图像中的颜色范围创建掩码。一般是根据颜色范围从图像中提取掩码，用于对特定颜色区域进行操作。比如从一张风景照片中提取天空区域的掩码，然后对天空进行单独处理。</p>
+<p><strong>Solid Color Mask</strong>：创建一个纯色掩码。快速创建一个矩形、圆形或其他形状的纯色掩码。</p>
+<p>比如创建一个黑色矩形掩码，用于 Inpainting 填充图像中的某个区域。</p>
+<p><strong>Invert Mask</strong>：反转掩码的透明度。将掩码的透明区域和不透明区域互换。e.g. 将一个圆形掩码反转，使圆形区域外的部分变为不透明。</p>
+<p><strong>Feather Mask</strong>：对掩码的边缘进行羽化（模糊）处理，使其过渡更加平滑，避免硬边缘，即在图像合成或 Inpainting 中避免出现明显的边缘。</p>
+<p>e.g. 对一个圆形掩码进行羽化处理，使圆形边缘与周围区域自然过渡。</p>
+<p><strong>Grow Mask</strong>：将掩码的不透明区域向外扩展指定的像素数。扩大掩码的影响范围。</p>
+<p><strong>Threshold Mask</strong>：根据像素值的阈值将图像转换为二值掩码。根据亮度或其他特征，从图像中提取掩码。比如将一张灰度图像转换为二值掩码，其中亮度高于阈值的像素变为不透明，其他像素变为透明。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">Jialai</div><div class="post-copyright__author_desc">一个小屁孩的玩具箱</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://jialaizhang.github.io/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://jialaizhang.github.io/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/')">Stable Diffusion101(贰)</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://jialaizhang.github.io/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Stable Diffusion101(贰)&amp;url=https://jialaizhang.github.io/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/&amp;pic=https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/SD3_Menu.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">2024 Jialai, Copy Right Reserved.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/Stable-Diffusion/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Stable Diffusion<span class="tagsPageCount">2</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/SD3_Menu.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Stable Diffusion101(壹)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/" title="Stable Diffusion101(壹)"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-08-18</div><div class="title">Stable Diffusion101(壹)</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> Comment</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/images/portrait.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://emotion.acs.pw/emotion/blob/blobartist.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);"><b style="color:#fff">好奇的小屁孩会一直快乐下去</b>，<b style="color:#fff"></b></div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);"><b style="color:#fff"></b><b style="color:#fff"></b><b style="color:#fff">你是不是也这么想！</b></div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Jialai</h1><div class="author-info__desc">一个小屁孩的玩具箱</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/JialaiZhang" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Stable-Diffusion-%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">Stable Diffusion 右键菜单详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ADD-NODE-Menu%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">ADD NODE Menu：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Utils"><span class="toc-number">1.1.1.</span> <span class="toc-text">Utils</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sampling"><span class="toc-number">1.1.2.</span> <span class="toc-text">Sampling</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Schedulers%EF%BC%88%E8%B0%83%E5%BA%A6%E5%99%A8%EF%BC%89"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Schedulers（调度器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Samplers"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">Samplers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Sigmas%EF%BC%88%E5%99%AA%E5%A3%B0%E7%AD%89%E7%BA%A7%EF%BC%89"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">Sigmas（噪声等级）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Guiders%EF%BC%88%E5%BC%95%E5%AF%BC%E5%99%A8%EF%BC%89"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">Guiders（引导器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Video-Models-%E4%B8%8B%E7%9A%84%E9%80%89%E9%A1%B9%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">Video Models 下的选项详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KSampler"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">KSampler</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#KSampler-Advanced"><span class="toc-number">1.1.2.7.</span> <span class="toc-text">KSampler (Advanced)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loaders"><span class="toc-number">1.1.3.</span> <span class="toc-text">Loaders</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conditioning"><span class="toc-number">1.1.4.</span> <span class="toc-text">Conditioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Latent%EF%BC%88%E6%BD%9C%E5%9C%A8%E7%A9%BA%E9%97%B4%EF%BC%89"><span class="toc-number">1.1.5.</span> <span class="toc-text">Latent（潜在空间）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Image"><span class="toc-number">1.1.6.</span> <span class="toc-text">Image</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mask%EF%BC%88%E6%8E%A9%E7%A0%81%EF%BC%89"><span class="toc-number">1.1.7.</span> <span class="toc-text">Mask（掩码）</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/" title="Stable Diffusion101(贰)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://raw.githubusercontent.com/JialaiZhang/personal-website-images/main/PostCovers/SD3_Menu.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Stable Diffusion101(贰)"/></a><div class="content"><a class="title" href="/2024/08/20/Stable%20Diffusion%20%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95%E8%AF%A6%E8%A7%A3/" title="Stable Diffusion101(贰)">Stable Diffusion101(贰)</a><time datetime="2024-08-20T00:00:00.000Z" title="Created 2024-08-20 00:00:00">2024-08-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/" title="Stable Diffusion101(壹)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/SD101Cover.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Stable Diffusion101(壹)"/></a><div class="content"><a class="title" href="/2024/08/18/Stable%20Diffusion101(%E5%A3%B9)/" title="Stable Diffusion101(壹)">Stable Diffusion101(壹)</a><time datetime="2024-08-18T00:00:00.000Z" title="Created 2024-08-18 00:00:00">2024-08-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/13/%E7%BA%A2%E9%85%92%E8%BF%90%E8%BE%93%E5%92%8C%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6/" title="红酒出口运输流程与相关文件"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/WineExportDocuments.jpg?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红酒出口运输流程与相关文件"/></a><div class="content"><a class="title" href="/2024/08/13/%E7%BA%A2%E9%85%92%E8%BF%90%E8%BE%93%E5%92%8C%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6/" title="红酒出口运输流程与相关文件">红酒出口运输流程与相关文件</a><time datetime="2024-08-13T00:00:00.000Z" title="Created 2024-08-13 00:00:00">2024-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/" title="混音软件中的各种FX（Cubase）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/CubaseFX.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="混音软件中的各种FX（Cubase）"/></a><div class="content"><a class="title" href="/2024/08/12/Cubase%E4%B8%ADEffect%20Track%E7%9A%84%E5%90%84%E7%A7%8DFX/" title="混音软件中的各种FX（Cubase）">混音软件中的各种FX（Cubase）</a><time datetime="2024-08-12T00:00:00.000Z" title="Created 2024-08-12 00:00:00">2024-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/11/Cubase101(%E5%A3%B9)/" title="Cubase101（壹）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://github.com/JialaiZhang/personal-website-images/blob/main/PostCovers/Cubase101.png?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cubase101（壹）"/></a><div class="content"><a class="title" href="/2024/08/11/Cubase101(%E5%A3%B9)/" title="Cubase101（壹）">Cubase101（壹）</a><time datetime="2024-08-11T00:00:00.000Z" title="Created 2024-08-11 00:00:00">2024-08-11</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 By <a class="footer-bar-link" href="/Jialaiz" title="Jialai" target="_blank">Jialai</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/JialaiZhang.github.io" title="Github">Github</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">5</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">1</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.linkedin.com/in/jialaiz/" title="Linkedin"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="Linkedin"/><span class="back-menu-item-text">Linkedin</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/JialaiZhang/personal-website-images" title="Github图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="Github图床"/><span class="back-menu-item-text">Github图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 万物生长</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 火花</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=2807259311&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 番剧</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/cinemas/"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> 影视</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 摄影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 上铺下铺</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/IT/" style="font-size: 0.88rem;">IT<sup>1</sup></a><a href="/tags/Stable-Diffusion/" style="font-size: 0.88rem;">Stable Diffusion<sup>2</sup></a><a href="/tags/%E6%B7%B7%E9%9F%B3/" style="font-size: 0.88rem;">混音<sup>2</sup></a><a href="/tags/%E7%BA%A2%E9%85%92/" style="font-size: 0.88rem;">红酒<sup>1</sup></a><a href="/tags/%E7%BA%A2%E9%85%92%E8%BF%9B%E5%87%BA%E5%8F%A3/" style="font-size: 0.88rem;">红酒进出口<sup>3</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("08/07/2024 16:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Jialai 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://jialai-twikoo.hf.space',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://jialai-twikoo.hf.space',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[image]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[link]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[code]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://jialai-twikoo.hf.space',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "Unable to get the data, please make sure the settings are correct."
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.25/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += 'No Comment'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
